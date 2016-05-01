@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Find your job</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="row carousel-holder">
+
+                    <div class="col-md-12">
+                        <div id="carousel" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="panel panel-primary">
+                                    	<div class="panel-body star_panel">
+                                    		<div class="row">
+                                    			<h2>This is a questionnaire game that tells you what your actual job should be from the top 11 most desirable job in the world</h2>
+                                    			<h2>Do not google for the questions. Answer as honestly as possible</h2>
+                                    		</div>
+                                    		<div class="row btn-row">
+                                    			<a class="btn btn-lg btn-primary" id="starBtn">Loading...</a>
+                                    		</div>
+                                    	</div>
+                                    </div>
+                                </div>
+                                <div class="item result-item">
+                                    <div class="panel panel-success">
+                                      <div class="panel-heading"><h4>Result</h4></div>
+                                      <div class="panel-body">
+                                        
+                                        <div class="list-group">
+                                          <a href="#" class="list-group-item active">
+                                            <h4 class="list-group-item-heading" id="total">Total:</h4>
+                                          </a>
+                                          <a href="#" class="list-group-item">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <h4 class="list-group-item-heading">Stress</h4>
+                                                    <p class="list-group-item-text" id="str_avg">7/10</p>    
+                                                </div>
+                                                 <div class="col-md-3">
+                                                    <h4 class="list-group-item-heading">Flexibility</h4>
+                                                    <p class="list-group-item-text" id="flex_avg">7/10</p>    
+                                                </div>
+                                                 <div class="col-md-3">
+                                                    <h4 class="list-group-item-heading">Creativity</h4>
+                                                    <p class="list-group-item-text" id="crtv_avg">7/10</p>    
+                                                </div>
+                                                 <div class="col-md-3">
+                                                    <h4 class="list-group-item-heading">Difficulty</h4>
+                                                    <p class="list-group-item-text" id="diff_avg">7/10</p>    
+                                                </div>
+                                            </div>
+                                            
+                                          </a>
+                                        </div>
+                                        <div class="list-group">
+                                          <a href="#" class="list-group-item active">
+                                            <h4 class="list-group-item-heading">The job that suits you the best is</h4>
+                                          </a>
+                                          <a href="#" class="list-group-item">
+                                            <h4 class="list-group-item-heading loadingText">Calculating....</h4>
+                                            <h4 class="list-group-item-heading showAfterLoad">Rank <span class="rankText"></span></h4>
+                                            <p class="list-group-item-text showAfterLoad" id="job"></p>
+                                          </a>
+                                        </div>
+
+                                        <div class="list-group">
+                                          <a href="#" class="list-group-item active">
+                                            <h4 class="list-group-item-heading">Summery</h4>
+                                          </a>
+                                          <a href="#" class="list-group-item">
+                                            <h4 class="list-group-item-heading loadingText">Calculating....</h4>
+                                            <h4 class="list-group-item-heading showAfterLoad">You have defeated <span id="defpt">54.2</span>% of the users who participated in this survey in achieving the number <span class="rankText">1</span> most desirable job in the world</h4>
+                                            
+                                          </a>
+                                        </div>
+                                        <div class="row textCenter">
+                                            <button type="button" class="btn btn-primary btn-sm" onclick="init()">Start again</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <div class="container">
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+
+</html>

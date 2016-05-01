@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+ </head>
+
+ <body>
+  <link href="css/style_sub.css" rel="stylesheet" type="text/css" />
+ <style type="text/css">
+#outer{position:relative;top:0;left:0;width:790px;height:790px;overflow:hidden;z-index:1;}
+.slideshow,.slide{width:790px;height:790px;}
+#title{position:absolute;top:280px;left:70px;z-index:2;width:306px;height:72px;background:url('http://www.eileenfisher.com/ns/images/13f_m2/sbi_features/weekender/pack_your_bag.png')}
+#prev {position:absolute;top:310px;left:10px;z-index:200;width:23px;height:150px;border:0;outline:none;background:url('http://www.eileenfisher.com/ns/images/13f_m2/sbi_features/weekender/arrows.png') 0 0;}
+#next {position:absolute;top:310px;left:765px;z-index:200;width:23px;height:150px;border:0;outline:none;background:url('http://www.eileenfisher.com/ns/images/13f_m2/sbi_features/weekender/arrows.png') 24px 0;}
+#prev:hover{background:url('http://www.eileenfisher.com/ns/images/13f_m2/sbi_features/weekender/arrow_hover.png') 0 0;}
+#next:hover{background:url('http://www.eileenfisher.com/ns/images/13f_m2/sbi_features/weekender/arrow_hover.png') 24px 0;}
+
+
+ </style>
+
+ <script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.cycle.all.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.slideshow').cycle({ 
+    fx:     'scrollHorz', 
+    speed:  '800', 
+    timeout: 0, 
+    next:   '#next', 
+    prev:   '#prev' 
+});
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var btns =  $(".slpagination a");
+	var slides = $(".slide");
+	var i = 0;
+	slides.each(function() {
+		i=3;
+        $(this).find("img").each(function(index) {
+			if(index==0){
+			$(this).css("z-index",i--).css("display","block");	
+			}else{
+            $(this).css("z-index",i--).css("display","none");
+			}
+        });
+    });
+	i = 0;
+	var interval;
+	var timeOut;
+	var imgCount = 1;
+	slides.eq(i).addClass("currentSlide");
+	$("#next,#prev").click(function(){
+		if($(this).attr('id')=="prev"){
+		i = (i-1<0) ? slides.length-1 :  i-1;
+		}else{
+		i = (i+1)%3;
+		}
+		clearInterval(interval);
+		var j = 3;
+		slides.removeClass("currentSlide");
+		slides.eq(i).addClass("currentSlide");
+		$(".currentSlide").find("img").each(function(index) {
+			if(index==0){
+			btns.removeClass("select");
+			btns.eq(index).addClass("select");
+			$(this).css("z-index",j--).css("display","block");	
+			}else{
+            $(this).css("z-index",j--).css("display","none");
+			}
+        });
+		imgCount = 1;
+		interval = setInterval(doSlide,2000);
+	});
+	interval = setInterval(doSlide,2000);
+	btns.click(function(){
+			clearInterval(interval);
+		    var a = $(this).attr('href');
+			btns.removeClass("select");
+			$(".currentSlide").find("img").fadeOut(500);
+			btns.eq(a).addClass("select");
+			$(".currentSlide").find("img").eq(a).fadeIn(500);
+			imgCount = a+1;
+			interval = setInterval(doSlide,2000);
+
+		return false;
+	});
+	function doSlide(){
+			btns.removeClass("select");
+			$(".currentSlide").find("img").fadeOut(500);
+			var index = (imgCount++)%3;
+			btns.eq(index).addClass("select");
+			$(".currentSlide").find("img").eq(index).fadeIn(500);
+			
+	}	
+});
+</script>
+
+<div class="nav"><a id="prev" href="#"></a> 
+<a id="next" href="#"></a></div>
+
+<div id="title"></div>
+<div class="sl_paginationpart">
+	<ul id="slidya" class="slpagination">
+		<li><a href="0" class="number select"></a></li>
+		<li><a href="1" class="number"></a></li>
+		<li><a href="2" class="number"></a></li>
+	</ul>            	
+	</div>
+<div id="outer" >
+
+<div class="slideshow">
+	
+<!--Slide1--><div class="slide">
+	
+
+<div id="slidy" class="slidepart fl slidy">
+<img src="images/1a.jpg"><img src="images/1b.jpg"><img src="images/1c.jpg">
+
+</div>
+</div><!--end Slide1-->
+
+
+<!--Slide2-->
+<div class="slide">
+
+<div id="slidy" class="slidepart fl slidy">
+<img src="images/2a.jpg"><img src="images/2b.jpg"><img src="images/2c.jpg">
+
+</div>
+			
+</div><!--end Slide2-->
+
+<!--Slide3-->
+<div class="slide">
+		
+<div id="slidy" class="slidepart fl slidy">
+<img src="images/3a.jpg"><img src="images/3b.jpg"><img src="images/3c.jpg">
+
+</div>
+			
+</div><!--end Slide3-->
+
+
+
+
+</div> <!--end outer-->
+
+
+
+
+
+
+
+
+ </body>
+</html>

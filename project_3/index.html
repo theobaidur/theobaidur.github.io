@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    function adjust_starter(){
+		$('.starter_window_wrapper').height($(window).height());
+	}
+	
+	adjust_starter();
+	$(window).resize(adjust_starter);
+	var f=["left","right","left","right","left","right","left"];
+	var i = 0;
+	var a = $('.starter_carousal img');
+	a.eq(i++).css('float',f[1]).fadeIn();
+	setInterval(function(){
+		a.hide();
+		j = parseInt(Math.random()*8);
+		a.eq(i%3).css('float',f[j]).fadeIn();
+		i++;
+		},3000);
+		
+});
+</script>
+<title>My Shop</title>
+</head>
+
+<body>
+<div class="container-fluid starter_window_wrapper">
+	<div class="starter_carousal">
+    	<img src="img/chef_1.jpg" />
+        <img src="img/chef_2.jpg" />
+        <img src="img/chef_3.jpg" />
+    </div>
+	<div class="starter_window">
+        <div class="d2d_wrapper d2d_header">
+            <div class="container-fluid">
+                <div class="row-fluid d2d_navCon">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <div class="container">
+                               <a data-target=".nav_main" data-toggle="collapse" class="btn collapsed hidden-desktop type4" type="button">
+                                Menu
+                              </a>
+                                <div class="nav-collapse collapse nav_main" style="height: 0px;">
+                                <a href="#">Home</a>
+                                <a href="#">About us</a>
+                                <a href="#">Products</a>
+                                <a href="#">Cooks</a>
+                                <a href="#">Login</a>
+                                <a href="#">Register</a>
+                                <a href="#">Contact Us</a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search_container">
+        	<form>
+            	<span>I am looking for</span>
+                <input type="text" placeholder="Food Name" />
+                <span> near </span>
+                <input type="text" placeholder="Place Name" />
+                <input class="button" type="button" value="Search"/>
+            </form>
+        </div>
+            	
+    </div>
+</div>
+<div class="container-fluid">
+	<div class="container">
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+      	<h1 class="logo_con">
+        	<img src="img/logo.jpg" />
+        </h1>
+        <div class="row-fluid">
+        <h1>Bon Appetore</h1>
+        <p class="lead">Taste the world</p>
+        <a href="#" class="btn btn-large btn-success">Get started today</a>
+        </div>
+      </div>
+
+      <hr>
+
+      <!-- Example row of columns -->
+      <div class="row-fluid">
+        <div class="span4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a href="#" class="btn">View details »</a></p>
+        </div>
+        <div class="span4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a href="#" class="btn">View details »</a></p>
+       </div>
+        <div class="span4">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+          <p><a href="#" class="btn">View details »</a></p>
+        </div>
+      </div>
+
+      <hr>
+    </div>
+</div>
+<div class="container-fluid">
+<div class="container">
+	<div class="row-fluid margin_60">
+    	<div class="recent_title span3">
+        	<h1>Recent Items</h1>
+        </div>
+    </div>
+    <div class="row-fluid">
+    	<ul class="thumbnails">
+              <li class="span3">
+                <div class="thumbnail">
+                  <img style="width: 260px; height: 180px;" src="img/thumb.png">
+                  <div class="caption">
+                    <h3>Item Name</h3>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn" href="#">View details »</a> <a class="btn" href="#">Buy »</a> </p>
+                  </div>
+                </div>
+              </li>
+              <li class="span3">
+                <div class="thumbnail">
+                  <img style="width: 260px; height: 180px;" src="img/thumb.png">
+                  <div class="caption">
+                    <h3>Item Name</h3>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn" href="#">View details »</a> <a class="btn" href="#">Buy »</a> </p>
+                  </div>
+                </div>
+              </li>
+              <li class="span3">
+                <div class="thumbnail">
+                  <img style="width: 260px; height: 180px;" src="img/thumb.png">
+                  <div class="caption">
+                    <h3>Item Name</h3>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn" href="#">View details »</a> <a class="btn" href="#">Buy »</a> </p>
+                  </div>
+                </div>
+              </li>
+              <li class="span3">
+                <div class="thumbnail">
+                  <img style="width: 260px; height: 180px;" src="img/thumb.png">
+                  <div class="caption">
+                    <h3>Item Name</h3>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn" href="#">View details »</a> <a class="btn" href="#">Buy »</a> </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+    </div>
+    <div class="row-fluid margin_60">
+    	<div class="recent_title span3">
+        	<h1>Top Rated items</h1>
+        </div>
+    </div>
+    <div class="row-fluid">
+    	<ul class="thumbnails">
+              <li class="span3">
+                <div class="thumbnail">
+                  <img style="width: 260px; height: 180px;" src="img/thumb.png">
+                  <div class="caption">
+                    <h3>Item Name</h3>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn" href="#">View details »</a> <a class="btn" href="#">Buy »</a> </p>
+                  </div>
+                </div>
+              </li>
+              <li class="span3">
+                <div class="thumbnail">
+                  <img style="width: 260px; height: 180px;" src="img/thumb.png">
+                  <div class="caption">
+                    <h3>Item Name</h3>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn" href="#">View details »</a> <a class="btn" href="#">Buy »</a> </p>
+                  </div>
+                </div>
+              </li>
+              <li class="span3">
+                <div class="thumbnail">
+                  <img style="width: 260px; height: 180px;" src="img/thumb.png">
+                  <div class="caption">
+                    <h3>Item Name</h3>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn" href="#">View details »</a> <a class="btn" href="#">Buy »</a> </p>
+                  </div>
+                </div>
+              </li>
+              <li class="span3">
+                <div class="thumbnail">
+                  <img style="width: 260px; height: 180px;" src="img/thumb.png">
+                  <div class="caption">
+                    <h3>Item Name</h3>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn" href="#">View details »</a> <a class="btn" href="#">Buy »</a> </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+    </div>
+    <div class="row-fluid margin_60">
+    	<div class="recent_title span3">
+        	<h1>Most Sold Items</h1>
+        </div>
+    </div>
+    <div class="row-fluid">
+    	<ul class="thumbnails">
+              <li class="span3">
+                <div class="thumbnail">
+                  <img style="width: 260px; height: 180px;" src="img/thumb.png">
+                  <div class="caption">
+                    <h3>Item Name</h3>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn" href="#">View details »</a> <a class="btn" href="#">Buy »</a> </p>
+                  </div>
+                </div>
+              </li>
+              <li class="span3">
+                <div class="thumbnail">
+                  <img style="width: 260px; height: 180px;" src="img/thumb.png">
+                  <div class="caption">
+                    <h3>Item Name</h3>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn" href="#">View details »</a> <a class="btn" href="#">Buy »</a> </p>
+                  </div>
+                </div>
+              </li>
+              <li class="span3">
+                <div class="thumbnail">
+                  <img style="width: 260px; height: 180px;" src="img/thumb.png">
+                  <div class="caption">
+                    <h3>Item Name</h3>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn" href="#">View details »</a> <a class="btn" href="#">Buy »</a> </p>
+                  </div>
+                </div>
+              </li>
+              <li class="span3">
+                <div class="thumbnail">
+                  <img style="width: 260px; height: 180px;" src="img/thumb.png">
+                  <div class="caption">
+                    <h3>Item Name</h3>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn" href="#">View details »</a> <a class="btn" href="#">Buy »</a> </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+    </div>
+</div>
+</div>
+
+<div class="footer">
+	<div class="container">
+    	<hr>
+		<p>&copy; Company 2013</p>
+	</div>
+</div>
+</body>
+</html>

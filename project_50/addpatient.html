@@ -1,0 +1,949 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Add Patient zhealth</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script>
+/*function showMe(d_ID){
+    jQuery("#"+d_ID).slideToggle('slow');
+    jQuery("#sw_"+d_ID).html('<a onclick="hideMe('+"'"+d_ID+"'"+')">Appointments<img src="images/minus.png" alt=""/></a>');
+  }
+  function hideMe(d_ID){ 
+    jQuery("#"+d_ID).slideToggle('slow'); 
+    jQuery("#sw_"+d_ID).html('<a onclick="showMe('+"'"+d_ID+"'"+')">Appointments<img src="images/plus.png" alt=""/></a>');
+  }  */
+</script>
+<script>
+
+
+
+	 function showMe(d_ID){
+	$(".doctor_box_des").hide('slow');  
+    
+	if ($("#tab-"+d_ID).is(':visible')) {
+      $("#tab-"+d_ID).hide('slow');  
+    } else { $("#tab-"+d_ID).show('slow');   }
+	
+	if ($("#desc-"+d_ID).is(':visible')) {
+      $("#desc-"+d_ID).hide('slow');  
+    } else { $("#desc-"+d_ID).show('slow');   }
+  }
+</script>
+<script type="text/javascript">
+ $(document).ready(function() {
+	  
+	 
+      $(".add-ano-insur .add-ano-insur-tital a").click(function(e){
+		
+		  $(this).parents('.add-ano-insur-tital').find('span').addClass('appimage');
+		   $(this).parents('.add-ano-insur-tital').find('span').removeClass('appplus');
+		
+			if($(this).parents('.add-ano-insur').find('.add-ano-up-dow').is(':visible'))
+			{
+				$(".add-ano-up-dow").slideUp();
+				  
+			}
+			else
+			{
+      			$(".add-ano-up-dow").slideUp();
+		 $(".add-ano-insur").css('display','block');
+				$(this).parents('.add-ano-insur').find('.add-ano-up-dow').slideToggle();
+			$(this).parents('.add-ano-insur-tital').find('span').removeClass('appimage');
+				   $(this).parents('.add-ano-insur-tital').find('span').addClass('appplus');
+			}
+		
+        
+      });
+	        
+        
+		      
+	
+	 
+   $("#advance").click(function(){
+	$("#left-menu").slideToggle(function(){
+		$('.search_hldr').toggleClass('selecionado', $(this).is(':visible'));
+		$("#advance").toggleClass('advance', $(this).is(':visible'));
+		$(".appimage").toggleClass('appplus', $(this).is(':visible'));
+		});		
+ });   
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+	$( "#jig-datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+	$( "#addp" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+	$( "#edate" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+	$("#popupDatepicker").datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  });
+  
+  $(function() {
+    $( "#insurrenceaccordion" ).accordion({
+      collapsible: true
+    });
+  });
+  
+  
+  $("#sw_contentID2").click(function(e) {
+    $("#contentID2").slideToggle(function(){
+		
+		$(".appimage").toggleClass('appplus', $(this).is(':visible'));
+		});
+});
+
+  
+});
+</script>
+
+<!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+<section class="main_body">
+  <header class="row navigate">
+    <div class="logo" >zHealth</div>
+    <div class="navigate_left"> <a href="#">My Basket <span class="pending">2</span></a> <a href="new-massage.html" class="baket-icon"><img src="images/copose.jpg" width="24" height="auto" alt=" "></a> </div>
+    <div class="navigate_hldr"> <span class="toggleMenu"><a href="#">Menu</a></span>
+      <ul class="nav">
+        <li><span class="tt"><a href="indexd.html">Messaging</a> <span class="tooltip"> <span class="top"></span> <span class="middle">
+          <p><a href="index.html" title="">New Message</a><br />
+            <a href="index.html">View Messages</a></p>
+          </span> </span></span> <span class="pending">2</span> </li>
+        <li><span class="tt">Patient Communications <span class="tooltip"> <span class="top"></span> <span class="middle">
+          <p>New Communication<br />
+            View Communication</p>
+          </span> </span></span> <span class="pending">2</span> </li>
+        <li><span class="tt">My list <span class="tooltip"> <span class="top"></span> <span class="middle">
+          <p>View List<br />
+            Add Patient</p>
+          </span> </span> </span></li>
+      </ul>
+      <ul class="nav right nav42pt">
+        <li><a href="" >Reports</a></li>
+        <li><span class="tt">Medical Resources <span class="tooltip"> <span class="top"></span> <span class="middle">
+          <p>Resource 1<br />
+            Resource 2<br />
+            Intranet</p>
+          </span> </span> </span></li>
+      </ul>
+    </div>
+    <div class="navigate_right" id="divOne">
+      <div class="myaccount" > <span>Welcome Dr. Kanwar</span> <span  ><a href="#" >Your Account<img src="css/images/down-arrow.png"/></a></span> </div>
+      <div class="myaccountDtls" id="details">
+        <ul>
+          <li><a href="" >Settings</a></li>
+          <li><a href="" >Preferences</a></li>
+          <li><a href="" >Change password</a></li>
+          <li><a href="" >Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <section class="row main_container">
+    <article class="col_left">
+      <div class="col_left_hldr col_left_search">
+        <div class="add-patients"><span class="">Patients</span> <a href="addpatient.html"><span class="plussign tt">&nbsp;+<span class="tooltip"> <span class="top"></span> <span class="middle"><p>Add Patient</p>          </span> </span> </span></a> </div>
+        <div class="search_hldr">
+          <form action="#">
+            <input type="text" value="Name or MRN" class="search_inpt" onFocus="this.value=''" onBlur="this.value='Name or MRN'"/>
+            <input type="submit" value="" class="search_sub" />
+          </form>
+        </div>
+        <a href="javascript:void(0)" title="" id="advance" class="advabce_srch"><span class="appimage"></span>Advanced</a> </div>
+      <div id="left-menu" class="el_hide">
+        <form>
+          <fieldset>
+            <input type="text" value="Name" >
+          </fieldset>
+          <fieldset>
+            <input type="text" value="zID" >
+          </fieldset>
+          <fieldset>
+            <input type="text" value="DOB" id="datepicker"  class="B_frm_inpt date_pic">
+          </fieldset>
+          <fieldset>
+            <input type="text" value="MRN" >
+          </fieldset>
+          <fieldset>
+            <input type="text" value="SSN" >
+          </fieldset>
+          <fieldset>
+            <input type="submit" value="Search" >
+          </fieldset>
+        </form>
+      </div>
+      <ul class="left-menu">
+        <li><a href="index.html" class="submenu">Inbox</a></li>
+        <li><a href="#">Archive</a></li>
+        <li><a href="#">Drafts</a></li>
+      </ul>
+    </article>
+        <article class="col_med" id="tabContainer">
+      <div class="col_med_title add_patient_title">Add Patient</div>
+      <div class="med_table">
+        <div class="screen3_right">
+          <div class="screen3_content">
+            <div class="tabs borderNone bgnone">
+              <ul>
+                <li id="tabHeader_1" class="Active">Basic</li>
+                <li id="tabHeader_2">Insurance</li>
+                <li id="tabHeader_3">Appointment</li>
+              </ul>
+            </div>
+            <div class="tabscontent borderfull">
+              <div class="tabpage screen3_tab_hldr" id="tabpage_1">
+                <form action="#">
+                  <ul class="basic_frm firstBfrm">
+                    <div class="formleft">
+                      <li><span class="B_frm_title el_relative">Name <sup class="el_sup">*</sup></span>
+                      <span class="width30per">
+                        <input type="text" class="B_frm_inpt"  value="First Name " onfocus="(this.value == 'First Name ') &amp;&amp; (this.value = '')" onblur="(this.value == '') &amp;&amp; (this.value = 'First Name ')">
+                        </span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="Midle " onfocus="(this.value == 'Midle ') &amp;&amp; (this.value = '')" onblur="(this.value == '') &amp;&amp; (this.value = 'Midle ')">
+                        </span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="Last "onfocus="(this.value == 'Last ') &amp;&amp; (this.value = '')" onblur="(this.value == '') &amp;&amp; (this.value = 'Last ')">
+                        </span></li>
+                      <li><span class="B_frm_title el_relative">Gender <sup class="el_sup">*</sup></span>
+                      <span class="width30per">
+                        <input type="checkbox" name="" id="radio_11">
+            <label for="radio_11"><span class="el_41"></span></label> <label class="el_cb" for="radio_11">Male</label>
+                      </span>
+                      <span class="width30per">
+                        <input type="checkbox" name="" id="radio_12">
+            <label for="radio_12"><span class="el_41"></span></label> <label class="el_cb" for="radio_12">Female</label>
+                      </span>
+
+                      </li>
+
+  
+                      <li><span class="B_frm_title el_relative">Date of Birth <sup class="el_sup">*</sup></span><span class="el_2">
+                        <input type="text" id="addp" value="MM/DD/YYYY"  class="B_frm_inpt date_pic">
+                        </span></li>
+                      <li><span class="B_frm_title">SSN :</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">
+                        <select>
+                          <option>Mobile</option>
+                          <option>Mobile</option>
+                        </select>
+                        </span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">
+                        <select>
+                          <option>Home Phone</option>
+                          <option>Office Phone</option>
+                        </select>
+                        </span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">Email :</span><span>
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">
+                        <select>
+                          <option>Home Address</option>
+                          <option>Office Address</option>
+                        </select>
+                        </span><span>
+                        <input type="text" class="B_frm_inpt" value="Street Address " onfocus="(this.value == 'Street Address ') &amp;&amp; (this.value = '')" onblur="(this.value == '') &amp;&amp; (this.value = 'Street Address ')">
+                        </span></li>
+                      <li><span class="B_frm_title">&nbsp;</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="City " onfocus="(this.value == 'City ') &amp;&amp; (this.value = '')" onblur="(this.value == '') &amp;&amp; (this.value = 'City ')">
+                        </span><span class="width30per">
+                        <select class="el_5">
+                          <option>Home Address</option>
+                          <option>Office Address</option>
+                        </select>
+                        </span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="Zip " onfocus="(this.value == 'Zip ') &amp;&amp; (this.value = '')" onblur="(this.value == '') &amp;&amp; (this.value = 'Zip ')">
+                        </span></li>
+                      <li><span class="B_frm_title pre-lan-wid">Prefered Language :</span><span class="pre-lan-wid-span">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                          <li><span class="B_frm_title pre-lan-wid">Comments :</span><span class="pre-lan-wid-span">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                        
+                      <li><hr>                      </li>
+                      <li class="textcenter"><strong >Demographics</strong></li>
+                      <li><span class="B_frm_title">Ethinicity :</span><span>
+                        <select>
+                          <option>Not Haspinic or Latina</option>
+                          <option>Not Haspinic or Latina</option>
+                        </select>
+                        </span></li>
+                      <li><span class="B_frm_title">Race :</span><span>
+                        <select>
+                          <option>African or African American</option>
+                          <option>African or African American</option>
+                        </select>
+                        </span></li>
+                    </div>
+                    <div class="formright">
+                      <li class="textcenter"><strong >Emergency Contact-1</strong></li>
+                      <li><span class="B_frm_title el_relative">Name <sup class="el_sup">*</sup></span><span class="width30per">
+                        <input type="text" class="B_frm_inpt"  value="First Name " onfocus="(this.value == 'First Name ') &amp;&amp; (this.value = '')" onblur="(this.value == '') &amp;&amp; (this.value = 'First Name ')">
+                        </span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="Midle " onfocus="(this.value == 'Midle ') &amp;&amp; (this.value = '')" onblur="(this.value == '') &amp;&amp; (this.value = 'Midle ')">
+                        </span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="Last "onfocus="(this.value == 'Last ') &amp;&amp; (this.value = '')" onblur="(this.value == '') &amp;&amp; (this.value = 'Last ')">
+                        </span></li>
+                      <li><span class="B_frm_title">Relationship :</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">
+                        <select>
+                          <option>Mobile</option>
+                          <option>Mobile</option>
+                        </select>
+                        </span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">
+                        <select>
+                          <option>Home Phone</option>
+                          <option>Office Phone</option>
+                        </select>
+                        </span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">
+                        <select>
+                          <option>Home Address</option>
+                          <option>Office Address</option>
+                        </select>
+                        </span><span>
+                         <input type="text" class="B_frm_inpt" value="Street Address " onfocus="(this.value == 'Street Address ') &amp;&amp; (this.value = '')" onblur="(this.value == '') &amp;&amp; (this.value = 'Street Address ')">
+                        </span></li>
+                      <li><span class="B_frm_title">&nbsp;</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="City " onfocus="(this.value == 'City ') &amp;&amp; (this.value = '')" onblur="(this.value == '') &amp;&amp; (this.value = 'City ')">
+                        </span><span class="width30per">
+                        <select class="el_5">
+                          <option>Home Address</option>
+                          <option>Office Address</option>
+                        </select>
+                        </span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="Zip " onfocus="(this.value == 'Zip ') &amp;&amp; (this.value = '')" onblur="(this.value == '') &amp;&amp; (this.value = 'Zip ')">
+                        </span></li>
+                      <li>
+                        <hr>
+                      </li>
+                      <li class="textcenter"><strong >Emergency Contact-2</strong></li>
+                      <li><span class="B_frm_title el_relative">Name <sup class="el_sup">*</sup></span><span class="width30per">
+                        <input type="text" class="B_frm_inpt"  value="First Name " onfocus="(this.value == 'First Name ') &amp;&amp; (this.value = '')" onblur="(this.value == '') &amp;&amp; (this.value = 'First Name ')">
+                        </span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="Midle " onfocus="(this.value == 'Midle ') &amp;&amp; (this.value = '')" onblur="(this.value == '') &amp;&amp; (this.value = 'Midle ')">
+                        </span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="Last "onfocus="(this.value == 'Last ') &amp;&amp; (this.value = '')" onblur="(this.value == '') &amp;&amp; (this.value = 'Last ')">
+                        </span></li>
+                      <li><span class="B_frm_title">Relationship :</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">
+                        <select>
+                          <option>Mobile</option>
+                          <option>Mobile</option>
+                        </select>
+                        </span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">
+                        <select>
+                          <option>Home Phone</option>
+                          <option>Office Phone</option>
+                        </select>
+                        </span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">
+                        <select>
+                          <option>Home Address</option>
+                          <option>Office Address</option>
+                        </select>
+                        </span><span>
+                         <input type="text" class="B_frm_inpt" value="Street Address " onfocus="(this.value == 'Street Address ') &amp;&amp; (this.value = '')" onblur="(this.value == '') &amp;&amp; (this.value = 'Street Address ')">
+                        </span></li>
+                      <li><span class="B_frm_title">&nbsp;</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="City " onfocus="(this.value == 'City ') &amp;&amp; (this.value = '')" onblur="(this.value == '') &amp;&amp; (this.value = 'City ')">
+                        </span><span class="width30per">
+                        <select class="el_5">
+                          <option>Home Address</option>
+                          <option>Office Address</option>
+                        </select>
+                        </span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="Zip " onfocus="(this.value == 'Zip ') &amp;&amp; (this.value = '')" onblur="(this.value == '') &amp;&amp; (this.value = 'Zip ')">
+                        </span></li>
+                      <li>  <hr></li>
+                        <li><span class="B_frm_title">Existing MRN :</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                    </div>
+                    <br>
+                    <li><span class="cancelbtn">
+                      <input type="submit"  value="Cancel" >
+                      </span><span class="addpbtn">
+                      <input type="submit" class="B_frm_sub" value="Add Patient">
+                      </span></li>
+                  </ul>
+                </form>
+              </div>
+              <div class="tabpage screen3_tab_hldr" id="tabpage_2">
+                <form action="#">
+                  <ul class="basic_frm firstBfrm">
+                    <div class="formleft">
+                      <li><span class="B_frm_title">Patient Name :</span><span class="el_6"> Robert Anderson</span></li>
+                      <li><span class="B_frm_title">MRN :</span><span class="width30per"> 12345678 </span></li>
+                      <li><span class="B_frm_title">zID :</span><span class="width30per"> 123456789 </span></li>
+                      <li><span class="B_frm_title">Insurance :</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span>&nbsp;&nbsp;<span class="medical-22-blog">
+      <input type="checkbox" name="" id="radio_35">
+      <label for="radio_35"><span class="el_41"></span></label> <label class="el_cb" for="radio_35">Self pay</label> 
+    </span></li>
+                      <li><span class="B_frm_title">Plan :</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">Priority :</span><span class="medical-18-blog">
+      <input type="checkbox" name="" id="radio_34">
+      <label for="radio_34"><span class="el_41"></span></label> <label class="el_cb" for="radio_34">Primary</label> 
+    </span>
+    <span class="medical-22-blog">
+      <input type="checkbox" name="" id="radio_35">
+      <label for="radio_35"><span class="el_41"></span></label> <label class="el_cb" for="radio_35">Secondary</label> 
+    </span>
+    <span class="medical-18-blog">
+      <input type="checkbox" name="" id="radio_36">
+      <label for="radio_36"><span class="el_41"></span></label> <label class="el_cb" for="radio_36">Other</label> 
+    </span></li>
+                      <li><span class="B_frm_title">Insurance ID :</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">Group ID :</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">Effective Date :</span><span class="el_2">
+                        <input type="text" id="edate" value="MM/DD/YYYY" class="date_pic B_frm_inpt">
+                        </span></li>
+                      <li><span class="B_frm_title">Copay :</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span><span class="width25per">
+      <span class="medical-100-blog dollar_box">
+        <input type="checkbox" name="" id="radio_17">
+        <label for="radio_17"><span class="el_41"></span></label> <label class="el_cb" for="radio_17">Dollar&nbsp;</label>
+        <input type="checkbox" name="" id="radio_18">
+        <label for="radio_18"><span class="el_41"></span></label> <label class="el_cb" for="radio_18">%</label> 
+      </span> 
+    </span></li>
+                      <li><span class="B_frm_title">Relation to Insured :</span><span class="width20per el_mr10i">
+      <span class="medical-100-blog">
+        <input type="checkbox" name="" id="radio_39">
+        <label for="radio_39"><span class="el_41"></span></label> <label class="el_cb" for="radio_39">Self</label> 
+      </span> 
+    </span>
+    <span class="width20per el_mr10i">
+      <span class="medical-100-blog">
+        <input type="checkbox" name="" id="radio_40">
+        <label for="radio_40"><span class="el_41"></span></label> <label class="el_cb" for="radio_40">Spouse</label> 
+      </span> 
+    </span> 
+    <span class="width20per el_mr10i">
+      <span class="medical-100-blog">
+        <input type="checkbox" name="" id="radio_41">
+        <label for="radio_41"><span class="el_41"></span></label> <label class="el_cb" for="radio_41">Child</label> 
+      </span> 
+    </span>
+    <span class="width20per">
+      <span class="medical-100-blog">
+        <input type="checkbox" name="" id="radio_42">
+        <label for="radio_42"><span class="el_41"></span></label> <label class="el_cb" for="radio_42">Others</label> 
+      </span>
+    </span></li>
+                      <li><span class="B_frm_title">Insurance Address :</span><span>
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">Employer :</span><span>
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">Notes :</span><span>
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                    </div>
+                    <div class="formright">
+                      
+                     <h3 class="add-ano-insur" >
+                     	<div class="add-ano-insur-tital">
+                     		<a href="#"> Add Another Insurance</a><span class="appimage el_relative right el_1"></span>
+                     	</div>
+                     <div class="add-ano-up-dow"  >
+                      <li><span class="B_frm_title">Insurance :</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value=""></span>
+                        </li>
+                      <li><span class="B_frm_title">Plan :</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">Priority :</span><span class="medical-18-blog">
+      <input type="checkbox" name="" id="radio_34">
+      <label for="radio_34"><span class="el_41"></span></label> <label class="el_cb" for="radio_34">Primary</label> 
+    </span>
+    <span class="medical-22-blog">
+      <input type="checkbox" name="" id="radio_35">
+      <label for="radio_35"><span class="el_41"></span></label> <label class="el_cb" for="radio_35">Secondary</label> 
+    </span>
+    <span class="medical-18-blog">
+      <input type="checkbox" name="" id="radio_36">
+      <label for="radio_36"><span class="el_41"></span></label> <label class="el_cb" for="radio_36">Other</label> 
+    </span></li>
+                      <li><span class="B_frm_title">Insurance ID :</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">Group ID :</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">Effective Date :</span><span class="el_2">
+                        <input type="text" id="edate" value="MM/DD/YYYY" class="date_pic B_frm_inpt">
+                        </span></li>
+                      <li><span class="B_frm_title">Copay :</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span><span class="width25per">
+      <span class="medical-100-blog dollar_box">
+        <input type="checkbox" name="" id="radio_17">
+        <label for="radio_17"><span class="el_41"></span></label> <label class="el_cb" for="radio_17">Dollar&nbsp;</label>
+        <input type="checkbox" name="" id="radio_18">
+        <label for="radio_18"><span class="el_41"></span></label> <label class="el_cb" for="radio_18">%</label> 
+      </span> 
+    </span></li>
+                      <li><span class="B_frm_title">Relation to Insured :</span><span class="width20per el_mr10i">
+      <span class="medical-100-blog">
+        <input type="checkbox" name="" id="radio_39">
+        <label for="radio_39"><span class="el_41"></span></label> <label class="el_cb" for="radio_39">Self</label> 
+      </span> 
+    </span>
+    <span class="width20per el_mr10i">
+      <span class="medical-100-blog">
+        <input type="checkbox" name="" id="radio_40">
+        <label for="radio_40"><span class="el_41"></span></label> <label class="el_cb" for="radio_40">Spouse</label> 
+      </span> 
+    </span> 
+    <span class="width20per el_mr10i">
+      <span class="medical-100-blog">
+        <input type="checkbox" name="" id="radio_41">
+        <label for="radio_41"><span class="el_41"></span></label> <label class="el_cb" for="radio_41">Child</label> 
+      </span> 
+    </span>
+    <span class="width20per">
+      <span class="medical-100-blog">
+        <input type="checkbox" name="" id="radio_42">
+        <label for="radio_42"><span class="el_41"></span></label> <label class="el_cb" for="radio_42">Others</label> 
+      </span>
+    </span></li>
+                      <li><span class="B_frm_title">Insurance Address :</span><span>
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li> 
+                      
+                        </div>
+                        
+                     </h3>
+                        
+                        
+                       
+                     <h3 class="add-ano-insur el_hide">
+                     <div class="add-ano-insur-tital">
+                     
+                     <a href="#"> Add Third Insurance</a><span class="appimage el_relative right el_1"></span>
+                     </div> 
+                        <div class="add-ano-up-dow" >
+                      <li><span class="B_frm_title">Insurence :</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value=""></span>
+                        </li>
+                      <li><span class="B_frm_title">Plan :</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">Priority :</span><span class="medical-18-blog">
+      <input type="checkbox" name="" id="radio_34">
+      <label for="radio_34"><span class="el_41"></span></label> <label class="el_cb" for="radio_34">Primary</label> 
+    </span>
+    <span class="medical-22-blog">
+      <input type="checkbox" name="" id="radio_35">
+      <label for="radio_35"><span class="el_41"></span></label> <label class="el_cb" for="radio_35">Secondary</label> 
+    </span>
+    <span class="medical-18-blog">
+      <input type="checkbox" name="" id="radio_36">
+      <label for="radio_36"><span class="el_41"></span></label> <label class="el_cb" for="radio_36">Other</label> 
+    </span></li>
+                      <li><span class="B_frm_title">Insurence ID :</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">Group ID :</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li>
+                      <li><span class="B_frm_title">Effective Date :</span><span class="el_2">
+                        <input type="text" id="edate" value="MM/DD/YYYY" class="date_pic B_frm_inpt">
+                        </span></li>
+                      <li><span class="B_frm_title">Copay :</span><span class="width30per">
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span><span class="width25per">
+      <span class="medical-100-blog dollar_box">
+        <input type="checkbox" name="" id="radio_17">
+        <label for="radio_17"><span class="el_41"></span></label> <label class="el_cb" for="radio_17">Dollar&nbsp;</label>
+        <input type="checkbox" name="" id="radio_18">
+        <label for="radio_18"><span class="el_41"></span></label> <label class="el_cb" for="radio_18">%</label> 
+      </span> 
+    </span></li>
+                      <li><span class="B_frm_title">Relation to Insured :</span><span class="width20per el_mr10i">
+      <span class="medical-100-blog">
+        <input type="checkbox" name="" id="radio_39">
+        <label for="radio_39"><span class="el_41"></span></label> <label class="el_cb" for="radio_39">Self</label> 
+      </span> 
+    </span>
+    <span class="width20per el_mr10i">
+      <span class="medical-100-blog">
+        <input type="checkbox" name="" id="radio_40">
+        <label for="radio_40"><span class="el_41"></span></label> <label class="el_cb" for="radio_40">Spouse</label> 
+      </span> 
+    </span> 
+    <span class="width20per el_mr10i">
+      <span class="medical-100-blog">
+        <input type="checkbox" name="" id="radio_41">
+        <label for="radio_41"><span class="el_41"></span></label> <label class="el_cb" for="radio_41">Child</label> 
+      </span> 
+    </span>
+    <span class="width20per">
+      <span class="medical-100-blog">
+        <input type="checkbox" name="" id="radio_42">
+        <label for="radio_42"><span class="el_41"></span></label> <label class="el_cb" for="radio_42">Others</label> 
+      </span>
+    </span></li>
+                      <li><span class="B_frm_title">Insurence Address :</span><span>
+                        <input type="text" class="B_frm_inpt" value="">
+                        </span></li> 
+                      
+                        </div>
+                       </h3>
+                      </div>
+                  
+                    <br>
+                    <li><span class="cancelbtn">
+                      <input type="submit"  value="Back" >
+                      </span><span class="addpbtn">
+                      <input type="submit" class="B_frm_sub" value="Save">
+                      </span>
+                      <span class="nextbtn">
+                      <input type="submit"  value="Next" >
+                      </span>
+                       </li>
+                  </ul>
+                </form>
+              </div>
+              <div class="tabpage screen3_tab_hldr" id="tabpage_3">
+                <form action="#">
+                  <ul class="basic_frm LastBfrm">
+                    <li><span class="B_frm_title">Patient Name :</span><span>John Smith</span></li>
+                    <li><span class="B_frm_title">MRN :</span><span>234-567-8901</span></li>
+                    <li><span class="B_frm_title">zID :</span><span>234-567-8901</span></li>
+                    <li><span class="B_frm_title el_relative">Physician<sup class="el_sup">*</sup></span><span class="width30per">
+                      <select name="">
+                        <option value="Dr. Albert Einstein">Dr. Albert Einstein</option>
+                        <option value="Dr. Anand Singh">Dr. Anand Singh</option>
+                        <option value="Dr. Andrew Smith">Dr. Andrew Smith</option>
+                        <option value="Dr. John Smith">Dr. John Smith</option>
+                        <option value="Dr. Susan Whitman">Dr. Susan Whitman</option>
+                      </select>
+                      </span></li>
+                       <li><span class="B_frm_title el_relative" >Facility <sup class="el_sup">*</sup></span><span class="width30per">
+                      <select name="">
+                        <option value="Dr. Albert Einstein">Dr. Albert Einstein</option>
+                        <option value="Dr. Anand Singh">Dr. Anand Singh</option>
+                        <option value="Dr. Andrew Smith">Dr. Andrew Smith</option>
+                        <option value="Dr. John Smith">Dr. John Smith</option>
+                        <option value="Dr. Susan Whitman">Dr. Susan Whitman</option>
+                      </select>
+                      </span></li>
+                    <li><span class="B_frm_title">Chief Complaint :</span><span class="width30per">
+                      <input type="text" class="B_frm_inpt" value="">
+                      </span></li>
+                    <li><span class="B_frm_title">Start :</span> <span class="width20per">
+                      <input type="text" class="B_frm_inpt date_pic app_date_pic" value="MM/DD/YYYY" id="popupDatepicker">
+                      </span> <span class="width20per">
+                      <select name="" class="time_select">
+                        <option value="8:00 AM">8:00 AM</option>
+                        <option value="8:30 AM">8:30 AM</option>
+                        <option value="9:00 AM">9:00 AM</option>
+                        <option value="9:30 AM">9:30 AM</option>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="10:30 AM">10:30 AM</option>
+                        <option value="11:00 AM">11:00 AM</option>
+                        <option value="11:30 AM">11:30 AM</option>
+                        <option value="12:00 PM">12:00 PM</option>
+                        <option value="12:30 PM">12:30 PM</option>
+                        <option value="1:00 PM">1:00 PM</option>
+                        <option value="1:30 PM">1:30 PM</option>
+                        <option value="2:00 PM">2:00 PM</option>
+                        <option value="2:30 PM">2:30 PM</option>
+                        <option value="3:00 PM">3:00 PM</option>
+                        <option value="3:30 PM">3:30 PM</option>
+                        <option value="4:00 PM">4:00 PM</option>
+                        <option value="4:30 PM">4:30 PM</option>
+                        <option value="5:00 PM">5:00 PM</option>
+                        <option value="5:30 PM">5:30 PM</option>
+                        <option value="6:00 PM">6:00 PM</option>
+                      </select>
+                      </span><span class="width20per el_ml15i el_mr5"> End </span> <span class="width20per">
+                      <select name="" class="time_select">
+                        <option value="8:00 AM">8:00 AM</option>
+                        <option value="8:30 AM">8:30 AM</option>
+                        <option value="9:00 AM">9:00 AM</option>
+                        <option value="9:30 AM">9:30 AM</option>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="10:30 AM">10:30 AM</option>
+                        <option value="11:00 AM">11:00 AM</option>
+                        <option value="11:30 AM">11:30 AM</option>
+                        <option value="12:00 PM">12:00 PM</option>
+                        <option value="12:30 PM">12:30 PM</option>
+                        <option value="1:00 PM">1:00 PM</option>
+                        <option value="1:30 PM">1:30 PM</option>
+                        <option value="2:00 PM">2:00 PM</option>
+                        <option value="2:30 PM">2:30 PM</option>
+                        <option value="3:00 PM">3:00 PM</option>
+                        <option value="3:30 PM">3:30 PM</option>
+                        <option value="4:00 PM">4:00 PM</option>
+                        <option value="4:30 PM">4:30 PM</option>
+                        <option value="5:00 PM">5:00 PM</option>
+                        <option value="5:30 PM">5:30 PM</option>
+                        <option value="6:00 PM">6:00 PM</option>
+                      </select>
+                      </span></li>
+                      <li><span class="B_frm_title">Type :</span><span class="width30per">
+                      <select name="">
+                        <option value="Dr. Albert Einstein">Dr. Albert Einstein</option>
+                        <option value="Dr. Anand Singh">Dr. Anand Singh</option>
+                        <option value="Dr. Andrew Smith">Dr. Andrew Smith</option>
+                        <option value="Dr. John Smith">Dr. John Smith</option>
+                        <option value="Dr. Susan Whitman">Dr. Susan Whitman</option>
+                      </select>
+                      </span></li>
+                    <li>
+                      <div class="date_form">
+                        <h6>Fri 2/21/2014</h6>
+                        <div class="date_frm_hldr  content-add mCustomScrollbar _mCS_1">
+                          <table id="date_frm" width="100%">
+                            <tbody>
+                              <tr>
+                                <td>8:00 – 8:30 AM</td>
+                                <td>John Smith</td>
+                              </tr>
+                              <tr>
+                                <td>8:00 – 8:30 AM</td>
+                                <td class="Bgfff">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td>8:00 – 8:30 AM</td>
+                                <td>John Smith</td>
+                              </tr>
+                              <tr>
+                                <td>8:00 – 8:30 AM</td>
+                                <td>John Smith</td>
+                              </tr>
+                              <tr>
+                                <td>8:00 – 8:30 AM</td>
+                                <td class="Bgfff">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td>8:00 – 8:30 AM</td>
+                                <td>John Smith</td>
+                              </tr>
+                              <tr>
+                                <td>8:00 – 8:30 AM</td>
+                                <td>John Smith</td>
+                              </tr>
+                              <tr>
+                                <td>8:00 – 8:30 AM</td>
+                                <td class="Bgfff">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td>8:00 – 8:30 AM</td>
+                                <td>John Smith</td>
+                              </tr>
+                              <tr>
+                                <td>8:00 – 8:30 AM</td>
+                                <td>John Smith</td>
+                              </tr>
+                              <tr>
+                                <td>8:00 – 8:30 AM</td>
+                                <td class="Bgfff">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td>8:00 – 8:30 AM</td>
+                                <td>John Smith</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </li>
+                    <li><span class="cancelbtn">
+                      <input type="submit" class="B_frm_sub" value="Back">
+                      </span><span class="addpbtn">
+                      <input type="submit" class="B_frm_sub" value="Add Appointment">
+                      </span></li>
+                  </ul>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    
+    
+    <article class="inner_right el_3">
+      <div class="add-patients"> <span>Appointments</span><span class="plussign tt">&nbsp;+<span class="tooltip"> <span class="top"></span> <span class="middle">
+        <p>Add Appointmemts</p>
+        </span> </span></span> </div>
+      <div class="col_right_title inner_appoinment"><span id="sw_contentID2"><a onclick="showMe('contentID2')"><span class="appimage el_relative left el_4"></span></a></span>
+        <input type="text" value="05/26/2014" id="jig-datepicker" class="B_frm_inpt date_pic">
+        <a href="#" class="morebtn">More</a> </div>
+      <div class="col_right_hldr inner_right-1_content  mCustomScrollbar _mCS_1" id="contentID2" >
+        <ul>
+          <li><a href="" title="" target="_blank"><span>9:00 am  Brett Tramposh Throat  Pain</span>
+            <span class="textLeft">MRN: 188- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>9:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>9:00 am  Cynthia Stoddard  Flu</span>
+            <span>MRN: 188- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>9:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>10:00 am  Jeff Smith  Annual Checkup</span>
+            <span>MRN: 188- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>10:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>10:30 am  Reid Foster  Colonoscopy</span>
+            <span>MRN: 111- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>10:30 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>11:00 am  Judy Green  Mammogram</span>
+            <span>MRN: 265- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>11:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>11:30 am  Rachel Ross  Blood Work</span>
+            <span>MRN: 240- 567-1901</span></a><span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>11:30 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>1:00 pm  Aaron Bawa  Flu</span>
+            <span>MRN: 176- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>1:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>1:30 pm  Fred Mangers  Checkup</span>
+            <span>MRN: 100- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>1:30 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>2:00 pm  Sue McKinnon  Flu</span>
+            <span>MRN: 200- 567-1901</span></a><span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>2:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>2:30 pm  Tracy Bird  Knee Pain</span>
+            <span>MRN: 290- 567-1901</span></a><span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>2:30 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>3:00 pm  Randy Collins  Breathing trouble</span>
+            <span>MRN: 200- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>3:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>3:30 pm  Tom O’Neil  Leg Injury</span>
+            <span>MRN: 234- 567-8901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>3:30 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>4:00 pm  Bob Lutz  Annual Checkup</span>
+            <span>MRN: 224- 167-8001</span></a><span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>4:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>4:30 pm  Jake Maroc  Colonoscopy</span>
+                      <span>MRN: 734- 567-8901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>4:30 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+        </ul>
+      </div>
+    </article>
+    <div class="today_date">7:25 am<br />
+      11/22/2013</div>
+  </section>
+</section>
+<script src="js/script.js" type="text/javascript"></script> 
+<script>
+
+		(function($){
+			$(window).load(function(){
+				
+				$(".content").each(function(index, element) {
+                  $(this).mCustomScrollbar({
+					scrollInertia:150
+				});
+                });
+				
+			});
+		})(jQuery);
+
+	</script>
+</body>
+</html>

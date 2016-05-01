@@ -1,0 +1,255 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tmiint</title>
+<link href="css/main-style.css" rel="stylesheet" type="text/css">
+<script src="js/jquery.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $(".button-popup").click(function(e) {
+		
+		
+       	$("body").append('<div class="overlay"></div>');
+		
+		$("#display-login").show(); 
+        $(".close").click(function(e) { 
+            $("#display-login, .overlay").hide(); 
+        });
+		
+		 
+    }); 
+});
+</script>
+</head>
+
+<body>
+<div class="wrapper">
+	<div class="wrapper-header">
+    	<div class="heder-back1"></div>
+        <div class="heder-back2"></div>
+        <div class="header">
+        	<div class="center">
+            	<div class="poster"></div>
+                <div class="head-right">
+                	<div class="logo"></div>
+                    <div class="right-name">
+                    	<p class="orng">sentinel</p>
+                        <p class="gray">platform</p>
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+                <div class="menu">
+                	<ul>
+                    	<li><a href="Dhasboard.html">Executive Summary</a></li>
+                        <li><a href="technical.html" class="active">Technical Summary</a></li>
+                        <li><a href="#" class="plus">+</a></li>
+                    </ul>
+                </div>
+                <div class="right-login">
+                	<div class="welcome">
+                    	<li>Welcome | 01 August 2013</li>
+                    </div>
+                    <div class="login">
+                    	<li><a class="button-popup" href="#">Logout</a></li>
+                    </div> 
+                </div>
+                <div style="clear: both;"></div>
+                <div class="line-red"></div>
+                <div class="line-red-bottom">
+                	<div class="left_triangle"></div>
+                    <div class="right_triangle"></div>
+                </div>
+            </div>		<!-- end of center -->
+        </div>		<!-- end of header -->  
+    </div>		<!-- end of wrapper-header -->
+    <div class="main-content">
+    	<div class="layer-one">
+            <div class="one-upper-bar">
+                <div class="hed-left">
+                    <h1>192.168.0.1 -HP ProCurve Switch</h1>
+                </div>
+                <div class="hed-right">
+                	<a href="#" class="button-dhasb">Back to Dhasboard</a>
+                    <div class="print-icon"></div>
+                </div>
+            </div>		<!-- end of one-upper-bar -->
+            <div class="one-content-body">
+                <div class="left-one-content-body">
+                	<div class="upper">
+                    	<div class="one"><p>EOL/Obsolete Software SNMP Version Detected</p></div>
+                        <div class="two">
+                        	<div class="vby">VBY's</div>
+                            <div class="white">7</div>
+                        </div>
+                        <div class="three">
+                        	<div class="vby">VBY Status</div>
+                            <div class="white"><img src="img/rak.png" alt=""/></div>
+                        </div>
+                    </div>
+                    <div class="lower">
+                    	<div class="two-color">
+                        	<div class="two-color-red">QID</div>
+                            <div class="two-color-white">105459</div>
+                        </div>
+                        <div class="two-color">
+                        	<div class="two-color-red">Service Modified</div>
+                            <div class="two-color-white">23/12/2012</div>
+                        </div>
+                        <div class="two-color">
+                        	<div class="two-color-red">Category</div>
+                            <div class="two-color-white">Security Policy</div>
+                        </div>
+                        <div class="two-color">
+                        	<div class="two-color-red">User Modified</div>
+                            <div class="two-color-white">Security Policy</div>
+                        </div>
+                        <div class="two-color">
+                        	<div class="two-color-red">CVE ID</div>
+                            <div class="two-color-white">-</div>
+                        </div>
+                        <div class="two-color">
+                        	<div class="two-color-red">Edited</div>
+                            <div class="two-color-white">No</div>
+                        </div>
+                        <div class="two-color">
+                        	<div class="two-color-red">Vendor Reference
+</div>
+                            <div class="two-color-white">-</div>
+                        </div>
+                        <div class="two-color">
+                        	<div class="two-color-red">PCI Vulnerability</div>
+                            <div class="two-color-white">Yes</div>
+                        </div>
+                        <div class="two-color">
+                        	<div class="two-color-red">Bugtraq ID</div>
+                            <div class="two-color-white">-</div>
+                        </div>
+                        <div class="two-color">
+                        	<div class="two-color-red"></div>
+                            <div class="two-color-white"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-one-content-body">
+                	<div class="two-color">
+                        <div class="two-color-red">CVSS</div>
+                        <div class="two-color-white">4.7 Active</div>
+                    </div>
+                    <div class="two-color">
+                        <div class="two-color-red">CVSS Base</div>
+                        <div class="two-color-white">6.4 [1]</div>
+                    </div>
+                    <div class="two-color">
+                        <div class="two-color-red">CVSS Temporal</div>
+                        <div class="two-color-white">4.7</div>
+                    </div>
+                </div>
+            </div>		<!-- end of one-content-body -->
+            <div class="one-lowar-bar">
+                <div class="lowar-bar-left">
+                	<p>First Detected: 08/15/2012 at 11:19:18 (GMT +0200)  /  Last Detected: 05/08/2013 at 11:19:18 (GMT +0200)</p>
+                </div>
+                <div class="lowar-bar-right">
+                    <div class="two-color-red">Times Detected</div>
+                    <div class="two-color-white">5</div>
+                </div>
+            </div>		<!-- end of one-lowar-bar -->
+        </div>		<!-- end of layer-one -->
+        <div class="layer-two">
+        	<div class="layer-two-left">
+            	<h2>Threat</h2>
+                <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in enim vel magna tempus consectetur. Suspendisse in luctus ante. Sed nec erat a lectus scelerisque porta non in enim. Vestibulum malesuada molestie faucibus. Praesent viverra nisl egestas, elementum purus id, tristique massa. Aliquam in lectus euismod, pharetra lacus vitae, accumsan nibh. Integer fringilla rhoncus odio vestibulum mattis. Maecenas quis sapien felis. Etiam sed luctus nunc, ut mattis purus. Fusce at euismod felis, a cursus erat.<br><br>
+
+
+Morbi scelerisque libero augue, sit amet cursus justo condimentum rutrum. Integer in lacus fermentum, condimentum risus egestas, rutrum urna. Quisque mollis scelerisque massa, ut bibendum est rhoncus in. Nunc sit amet posuere eros. Pellentesque nulla elit, porttitor in justo non, commodo tincidunt ipsum. Phasellus condimentum erat eu orci varius placerat. Nulla eget elementum libero. Sed gravida turpis id massa lacinia imperdiet. Nullam lacus felis, semper eget elit non, fringilla mollis est. <br><br>
+
+
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in enim vel magna tempus consectetur. Suspendisse in luctus ante. Sed nec erat a lectus scelerisque porta non in enim. Vestibulum malesuada molestie faucibus. Praesent viverra nisl egestas, elementum purus id, tristique massa. Aliquam in lectus euismod, pharetra lacus vitae, accumsan nibh. Integer fringilla rhoncus odio vestibulum mattis. Maecenas quis sapien felis. 
+                </p>
+            </div>
+            <div class="layer-two-right">
+            	<div class="upper">
+                	<h2>CVSS Environments</h2>
+                    <div class="two-color">
+                        <div class="two-color-red">Asset Group</div>
+                        <div class="two-color-white">Not Defined / Not Available</div>
+                    </div>
+                    <div class="two-color">
+                        <div class="two-color-red">Collateral Damage Potential</div>
+                        <div class="two-color-white">Not Defined / Not Available</div>
+                    </div>
+                    <div class="two-color">
+                        <div class="two-color-red">Target Distribution</div>
+                        <div class="two-color-white">Not Defined / Not Available</div>
+                    </div>
+                    <div class="two-color">
+                        <div class="two-color-red">Confidentiality Requirement</div>
+                        <div class="two-color-white">Not Defined / Not Available</div>
+                    </div>
+                    <div class="two-color">
+                        <div class="two-color-red">Availability Requirement</div>
+                        <div class="two-color-white">Not Defined / Not Available</div>
+                    </div>
+                </div>
+                <div class="lower">
+                	<h2>Impact</h2>
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in enim vel magna tempus consectetur. Suspendisse in luctus ante. Sed nec erat a lectus scelerisque porta non in enim. Vestibulum malesuada molestie faucibus. Praesent viverra nisl egestas, elementum purus id, tristique massa. Aliquam in lectus euismod, pharetra lacus vitae, accumsan nibh. Integer fringilla rhoncus odio vestibulum mattis. Maecenas quis sapien felis. Etiam sed luctus nunc, ut mattis purus. Fusce at euismod felis, a cursus erat. Morbi scelerisque libero augue, sit amet cursus justo condimentum rutrum.</p>
+                </div>
+            </div>
+        </div>		<!-- end of layer-two -->
+        <div class="layer-three">
+        	<h2>Threat</h2>
+        	<div class="rap">
+            	<p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in enim vel magna tempus consectetur. Suspendisse in luctus ante. Sed nec erat a lectus scelerisque porta non in enim. Vestibulum malesuada molestie faucibus. Praesent viverra nisl egestas, elementum purus id, tristique massa. Aliquam in lectus euismod, pharetra lacus vitae, accumsan nibh. Integer fringilla rhoncus odio vestibulum mattis. Maecenas quis sapien felis. Etiam sed luctus nunc, ut mattis purus. Fusce at euismod felis, a cursus erat.<br><br>
+    
+    Morbi scelerisque libero augue, sit amet cursus justo condimentum rutrum. Integer in lacus fermentum, condimentum risus egestas, rutrum urna. Quisque mollis scelerisque massa, ut bibendum est rhoncus in. Nunc sit amet posuere eros. Pellentesque nulla elit, porttitor in justo non, commodo tincidunt ipsum. Phasellus condimentum erat eu orci varius placerat. Nulla eget elementum libero. Sed gravida turpis id massa lacinia imperdiet. Nullam lacus felis, semper eget elit non, 
+                </p>
+                <div class="inside">
+                    <div class="colored">
+                        <h2>Impact</h2>
+                        <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in enim vel magna tempus consectetur. Suspendisse in luctus ante. Sed nec erat a lectus scelerisque porta non in enim. Vestibulum malesuada molestie faucibus. Praesent viverra nisl egestas, elementum purus id, tristique massa. Aliquam in lectus euismod, pharetra lacus vitae, accumsan nibh. Integer fringilla rhoncus odio vestibulum mattis. Maecenas quis sapien felis. Etiam sed luctus nunc, ut mattis purus. Fusce at euismod felis, a cursus erat. Morbi scelerisque libero augue, sit amet cursus justo condimentum rutrum.</p>
+                    </div>
+                    <div class="colored">
+                        <h2>Impact</h2>
+                        <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in enim vel magna tempus consectetur. Suspendisse in luctus ante. Sed nec erat a lectus scelerisque porta non in enim. Vestibulum malesuada molestie faucibus. Praesent viverra nisl egestas, elementum purus id, tristique massa. Aliquam in lectus euismod, pharetra lacus vitae, accumsan nibh. Integer fringilla rhoncus odio vestibulum mattis. Maecenas quis sapien felis. Etiam sed luctus nunc, ut mattis purus. Fusce at euismod felis, a cursus erat. Morbi scelerisque libero augue, sit amet cursus justo condimentum rutrum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>		<!-- end of layer-three -->
+        <div class="layer-four">
+        	<div class="layer-four-left">
+            	<h2>Compliance</h2>
+                <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in enim vel magna tempus consectetur. Suspendisse in luctus ante. Sed nec erat a lectus scelerisque porta non in enim. Vestibulum malesuada molestie faucibus. </p>
+            </div>
+            <div class="layer-four-right">
+            	<h2>Results</h2>
+                <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in enim vel magna tempus consectetur. Suspendisse in luctus ante. Sed nec erat a lectus scelerisque porta non in enim. Vestibulum malesuada molestie faucibus.</p>
+            </div>
+        </div>		<!-- end of layer-four -->
+    </div>		<!-- end of main-content -->
+    <div class="footer">
+    	<div class="center">
+        	<div class="footer-left">
+            	<li><a href="#">Administration</a></li>
+                <li>|</li>
+                <li><a href="#">Terms & conditions</a></li> 
+                <p>@Magix security (Pty) Ltd 2013</p>
+            </div>
+            <div class="footer-right">
+            	<li><a href="#">support@magix.com</a></li>
+            </div>
+        </div>
+    </div>
+</div>	<!-- end of wrapper -->
+
+</body>
+</html>

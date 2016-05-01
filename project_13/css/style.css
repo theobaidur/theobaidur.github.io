@@ -1,0 +1,218 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	min-width:300px;
+	overflow-x:hidden;
+	background:url(../image/map.jpg) repeat center top;
+}
+
+/*Layout*/
+.pr_wrapper{
+	float:left;
+	display:inline;
+	width:100%;
+}
+	
+.pr_center{
+	width:1112px;
+	margin:0 auto;
+}
+	
+.container-fluid{
+	padding:0px 0px;
+}
+
+.folder{
+	float:left;
+	display:inline;
+	width:100%;
+	height:605px;
+	background:url(../image/folder.png) no-repeat center top;
+}
+
+.tex_div{
+	float:right;
+	display:inline;
+	width:100%;
+	height:487px;
+	margin-top:80px;
+	background:url(../image/text_bg.png) no-repeat center top;
+}
+
+.tex_slideArea{
+	float:left;
+	display:inline;
+	width:86%;
+	height:40px;
+	margin-top:5px;
+	margin-left:1%;
+}
+
+.text_area{
+	float:left;
+	display:inline;
+	width:82%;
+	height:110px;
+	margin-top:175px;
+	margin-left:5%;
+}
+
+.text_area h1{
+	font-size:34px;
+	line-height:30px;
+	margin-top:30px;
+	text-align:right;
+	margin-right:30px;
+}
+
+
+	
+@media (max-width:940px){
+body{
+	padding:0px !important;
+}
+
+.pr_center{
+	width:100%;
+}	
+		
+}	
+	
+/*Header*/
+.pr_header{
+	height:auto;
+	background:#FAFAFA;
+}
+	
+
+@media handheld, only screen and (max-width: 480px){
+.pr_header{
+	height:auto;
+	background:#FAFAFA;
+	}
+
+.tex_slideArea{
+	float:left;
+	display:inline;
+	width:100%;
+	height:40px;
+	margin-top:5px;
+	background:#f60;
+}
+
+.text_area{
+	float:left;
+	display:inline;
+	width:100%;
+	height:110px;
+	margin-top:175px;
+}
+
+
+					
+}
+	
+	
+/*main-area*/
+.pr_blockwrapper{
+	background:#FAFAFA;
+	}
+
+
+.map{
+	background:url(../image/map.jpg);
+	min-height:708px;
+}
+
+.pr_block{
+	margin-bottom:10px;
+	}
+
+.pr_block .pr_block_thumb{
+	text-align:center;
+	height:255px;
+	line-height:255px !important;
+	}
+	
+.pr_block .row{
+	margin:0px;
+	}	
+
+	
+/*Main content*/
+
+.pr_mainContent{
+	background:#57A63B;
+	padding:10px 0px;
+	}
+	
+.pr_adportal .title{
+	float:left;
+	display:inline;
+	width:98%;
+	height:auto;
+	padding:0px 1%;
+	text-align:left;
+	padding:5px 0px;
+	}
+	
+.pr_adportal .platform{
+	float:left;
+	display:inline;
+	width:100%;
+	height:auto;
+	text-align:left;
+	padding:5px 0px;	
+	}
+
+	
+.pr_adportal .order{
+	float:left;
+	display:inline;
+	width:100%;
+	height:auto;
+	text-align:center;
+	padding:5px 0px;	
+	}
+	
+.pr_border_left{
+	border-left:#BDB9B9 solid 1px; 
+	}
+	
+.pr_border_right{
+	border-right:#BDB9B9 solid 1px; 
+	}
+	
+.pr_border_top{
+	border-top:#BDB9B9 solid 1px; 
+	}
+	
+
+@media (max-width: 767px){
+
+.map{
+	background:url(../image/map.jpg);
+	min-height:1250px;
+}
+
+.tex_slideArea{
+	float:left;
+	display:inline;
+	width:100%;
+	height:40px;
+	margin-top:5px;
+	background:#f60;
+}
+
+.text_area{
+	float:left;
+	display:inline;
+	width:90%;
+	height:110px;
+	background:#0C9;
+	margin-top:175px;
+}
+
+
+}
+

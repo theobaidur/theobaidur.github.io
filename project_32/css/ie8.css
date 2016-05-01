@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+    font-family: 'latolight_italic';
+    src: url('../fonts/lato-lightitalic-webfont.eot');
+    src: url('../fonts/lato-lightitalic-webfont.eot?#iefix') format('embedded-opentype')
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'latoregular';
+    src: url('../fonts/lato-regular-webfont.eot');
+    src: url('../fonts/lato-regular-webfont.eot?#iefix') format('embedded-opentype')
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#main .bloque h2 { font-family: 'latoregular' !important; font-weight:300; color:#ffffff; letter-spacing:-10px; position:relative; text-shadow: 0px 4px 2px rgba(0,0,0, 0.5); z-index:1;  behavior: url(js/PIE.htc); }
+#main .bloque h3 { font-family: 'latolight_italic' !important; color:#ffffff; letter-spacing:-5px; position:relative; text-shadow: 0px 4px 2px rgba(0,0,0, 0.5); filter: dropshadow(color=#050505, offx=0, offy=4); z-index:1}#about #about-container h2.title2 {  font-family: 'latolight_italic' !important; font-size:130px; color:#FFFFFF; position:absolute; top:357px;
+text-shadow: 0px 2px 2px rgba(0,0,0, 0.5); filter: dropshadow(color=#050505, offx=0, offy=2); z-index:1
+}
+#news #news-content article h4 { font-size:21px; font-family: 'latolight_italic' !important; font-style:italic; line-height:30px; margin-bottom:20px }
+
+#contact #contact-content #form-container form input[type='text'] { width:365px; height:50px; background-color:#e9e9e9; border:none; margin-bottom:10px; color:#1abc9c; font-family: 'latoregular' !important; font-size:18px; padding-left:15px; behavior: url(js/PIE.htc); vertical-align:middle}
+
+#contact #contact-content #form-container form textarea { width:365px; height:105px; background-color:#e9e9e9; border:none; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; margin-bottom:10px; font-family: 'Lato', sans-serif; font-style:italic; font-size:18px; color:#1abc9c; padding:15px 0 0 15px; font-weight:bold}
+
+#contact #contact-content #form-container form input[type='submit'] { width:380px; height:50px; background-color:#d60750; border:none; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; margin-bottom:10px; color:#FFFFFF; font-family: 'Lato', sans-serif; font-style:italic; font-size:18px; font-weight:bold }

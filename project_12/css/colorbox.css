@@ -1,0 +1,57 @@
+/*
+    ColorBox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative;}
+#cboxLoadedContent{overflow:auto;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%; height:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+.cboxPhoto{float:left; margin:auto; border:0; display:block;}
+.cboxIframe{width:100%; height:100%; display:block; border:0;}
+
+/* 
+    User Style:
+    Change the following styles to modify the appearance of ColorBox.  They are
+    ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+#cboxOverlay{background:#000;}
+#colorbox{}
+    #cboxContent{margin-top:20px;}
+        .cboxIframe{background:#fff;}
+        #cboxError{padding:50px; border:1px solid #ccc;}
+        #cboxLoadedContent{border:5px solid #000; background:#fff;}
+        #cboxTitle{position:absolute; top:-20px; left:0; color:#ccc;}
+        #cboxCurrent{position:absolute; top:-20px; right:0px; color:#ccc;}
+        #cboxSlideshow{position:absolute; top:-20px; right:90px; color:#fff;}
+        #cboxPrevious{position:absolute; top:50%; left:5px; margin-top:-32px; background:url(../images/controls.png) no-repeat top left; width:28px; height:65px; text-indent:-9999px;}
+        #cboxPrevious:hover{background-position:bottom left;}
+        #cboxNext{position:absolute; top:50%; right:5px; margin-top:-32px; background:url(../images/controls.png) no-repeat top right; width:28px; height:65px; text-indent:-9999px;}
+        #cboxNext:hover{background-position:bottom right;}
+        #cboxLoadingOverlay{background:#000;}
+        #cboxLoadingGraphic{background:url(../images/loading.gif) no-repeat center center;}
+        #cboxClose{position:absolute; border:none; top:-20px; right:0px; background:url(../images/controls.png) no-repeat top center; width:32px; height:32px; text-indent:-9999px;}		
+				
+.yt-channel-holder { width: 100%; font-size: 14px;}
+.yt-channel-holder .yt-channel-list { background-color:  #000; list-style-position: outside; list-style-type: none; margin: 0; padding: 0; }
+.yt-channel-holder .yt-channel-list .yt-channel-title {background:#CCC;height: 30px; line-height: 30px; font-size: 14px; font-weight: bold; text-align: center; color: #fff; text-align:center;}
+.yt-channel-holder .yt-channel-list .yt-channel-title a { text-decoration: none; color: #000; font-size:18px; }
+.yt-channel-holder .yt-channel-list .yt-channel-title a:hover { text-shadow: 1px 1px 2px #999; }
+
+.yt-channel-holder .yt-channel-list .yt-channel-video { padding: 2px 4px; }
+.yt-channel-holder .yt-channel-list .yt-channel-video:hover { background-color: #333; }
+.yt-channel-holder .yt-channel-list .yt-channel-video a { display: block; overflow: hidden; text-decoration: none; color: #fff; }
+.yt-channel-holder .yt-channel-list .yt-channel-video a .thumb-wrap { position: relative; float: left; margin: 0 6px 0 0; padding: 4px; border: 1px solid #ddd; background-color: #666; }
+.yt-channel-holder .yt-channel-list .yt-channel-video a .thumb-wrap img.vid-thumb { width: 96px; }
+.yt-channel-holder .yt-channel-list .yt-channel-video a .thumb-wrap span.vid-duration { position: absolute; bottom: 3px; right: 3px; font-size: 12px; font-weight: bold; background-color: #444; color: #eee; }
+.yt-channel-holder .yt-channel-list .yt-channel-video a .vid-details { position: relative; float: left; width: 180px; height: 82px; color: #fff; }
+.yt-channel-holder .yt-channel-list .yt-channel-video a .vid-details span.vid-title { position: absolute; top: 0; left: 0; font-size: 14px; }
+.yt-channel-holder .yt-channel-list .yt-channel-video a .vid-details span.vid-views { position: absolute; bottom: 5px; right: 5px; font-size: 12px; }
+
+.yt-channel-holder .yt-channel-list .yt-channel-video:hover { background-color: #333; }
+.yt-channel-holder .yt-channel-list .yt-channel-video:hover a .vid-details span.vid-title { text-decoration: underline; }
+
+.yt-channel-holder .yt-channel-list .yt-channel-copy { height: 12px; line-height: 10px; font-size: 10px; text-align: right; color: #444; }

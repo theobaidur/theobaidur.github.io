@@ -1,0 +1,91 @@
+.socialInfoWrapperOuter{
+		display: inline-block;
+		position: relative;
+		font-family: arial;
+		}
+
+
+
+	.socialInfoWrapperOuter .socialInfoWrapper{
+		padding: 4px;
+		border: #ccc solid 1px;
+		display: block;
+
+	} 
+
+	.socialInfoWrapperOuter .socialInfoWrapper a{
+		text-decoration: underline;
+		color: #10ADF5;
+	}
+
+	.socialInfoWrapperOuter .socialInfoSuggestion{
+		list-style: none;
+		padding: 0;
+		margin-top: 0;
+		position: absolute;
+		width: 190px;
+		height: 300px;
+		overflow: auto;
+	} 
+
+	.socialInfoWrapperOuter .socialInfoSuggestion li{
+		padding: 5px;
+		border: #ccc solid 1px;
+		border-top: 0;
+		font-size: 14px;
+		background: #fff;
+	}
+
+	.socialInfoWrapperOuter .socialInfoSuggestion li:first-child{
+		border-top: #ccc solid 1px;
+	}
+
+	.socialInfoWrapperOuter .socialInfoSuggestion li a{
+		text-decoration: none;
+		color: #10ADF5;
+	}
+
+	.socialInfoWrapperOuter .socialInfoSuggestion li.socialInfoTitle{
+		background: #efefef;
+		font-weight: bold;
+	}
+
+	.socialInfoWrapperOuter .socialInfoSuggestion li.socailInfoLink{
+		padding-left: 30px;
+		position: relative;
+		min-height: 20px;
+		
+	}
+
+	.socialInfoWrapperOuter .socialInfoSuggestion li.socailInfoLink:hover{
+		background: #EAF5FF;
+		cursor: pointer;
+	}
+
+	.socialInfoWrapperOuter .socialInfoSuggestion li.socailInfoLink span{
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		left: 5px;
+		top: 5px;
+		background: url(icons/facebook.png) center center no-repeat;
+	}
+
+	.socialInfoWrapperOuter [contenteditable=true]:empty:before{
+		  content: attr(placeholder);
+		}
+
+	.socialInfoWrapperOuter [contenteditable="true"].single-line {
+        white-space: nowrap;
+        width:200px;
+        overflow: hidden;
+    } 
+    .socialInfoWrapperOuter [contenteditable="true"].single-line br {
+        display:none;
+
+    }
+    .socialInfoWrapperOuter [contenteditable="true"].single-line * {
+        display:inline;
+        white-space:nowrap;
+    }

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Cordes map application</title>
+		
+		<meta charset="utf-8">
+		<meta name="description" content="Cordes map application">
+		<meta name="keywords" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/mapstyle.css"/>
+	</head>
+	<body>
+		<div id="map"></div>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en&iwloc=near"></script>
+		<script src="js/infobox.js"></script>
+		<script>	
+		
+				var contacts = [
+					{name: 'Teju Ravilochan', pic: 'img/fellows/teju.png', description: "<a target='_blank' href='http://www.unreasonableinstitute.org/'>Unreasonable Institute</a><br/><br/><b>Mission:</b> Our mission is to give entrepreneurs tackling the world's greatest challenges an unreasonable advantage.<br/><br/><div class='social-icons'><a target='_blank' href='https://twitter.com/tejuravi' class='tw'></a> <a target='_blank' href='https://www.linkedin.com/in/tejuravilochan' class='in'></a><a target='_blank' href='https://www.facebook.com/tejuravilochan' class='fb'></a></div>", year: '2012', country_region: 'United States', issue_area: 'A', latitude: 40, longitude: -105.279},
+					
+					{name: 'Gerald Richards', pic: 'img/fellows/Gerald.jpg', description: "<a target='_blank' href='http://www.826national.org/'>826 National</a><br/><br/><b>Mission:</b> 826 National provides strategic leadership, administration and other resources to ensure the success of our network of writing and tutoring centers.<br/><br/><div class='social-icons'><a target='_blank' href='www.twitter.com/http://twitter.com/826national' class='tw'></a> <a target='_blank' href='https://www.linkedin.com/in/tejuravilochan' class='in'></a><a target='_blank' href='http://facebook.com/826National' class='fb'></a></div>", year: '2012', country_region: 'United States', issue_area: 'A', latitude: 37, longitude: -122},
+					
+				{name: 'Britt Yamamoto', pic: 'img/fellows/Britt.jpg', description: "<a target='_blank' href='http://www.iLEAP.org/'>iLEAP</a><br/><br/><b>Mission:</b> The iLEAP Mission is to renew and inspire social leaders and global citizens through integrated leadership programs that ignite hope and transformation in the world.<br/><br/><div class='social-icons'><a target='_blank' href='http://twitter.com/dryamamoto' class='tw'></a> <a target='_blank' href='http://www.linkedin.com/in/dryamamoto/' class='in'></a><a target='_blank' href='https://www.facebook.com/pages/iLEAP/105967641096?ref_type=bookmark' class='fb'></a></div>", year: '2014', country_region: 'United States', issue_area: 'A', latitude: 47.609, longitude: -122.331},
+
+
+				{name: 'Julie Hammerman', pic: 'img/fellows/Julie.jpg', description: "<a target='_blank' href='http://www.jlensnetwork.org/'>JLens network</a><br/><br/><b>Mission:</b> The mission of JLens is to engage the Jewish community on impact investing through a Jewish lens to inspire tikkun olam (repair the world). <br/><br/><div class='social-icons'><a target='_blank' href='@jlensnetwork' class='tw'></a> <a target='_blank' href='http://www.linkedin.com/in/juliehammerman/' class='in'></a><a target='_blank' href='https://www.facebook.com/jlensnetwork' class='fb'></a></div>", year: '2014', country_region: 'United States', issue_area: 'A', latitude: 40, longitude: -119},
+				
+				{name: 'Ka Lun Lee', pic: 'img/fellows/Ka.jpg', description: "<a target='_blank' href='http://www.geilitoday.org/'>Geili today</a><br/><br/><b>Mission:</b> To empower global social changers through exchange <br/><br/><div class='social-icons'><a target='_blank' href='' class='tw'></a> <a target='_blank' href='http://lnkd.in/b-yHd7U/' class='in'></a><a target='_blank' href='https://www.facebook.com/clive.kllee?ref=tn_tnmn' class='fb'></a></div>", year: '2013', country_region: 'China', issue_area: 'A', latitude: 22.267, longitude: 114.18,},
+				
+					{name: 'BP Agrawal', pic: 'img/fellows/bp.jpg', description: "<a target='_blank' href='http://www.si-usa.org'>Sustainable Innovations</a><br/><br/><b>Mission:</b> Sustainable Innovations is a non-profit organization based in Fairfax, Virginia, USA, to harvest innovations for people to demonstrate lasting solutions for social problems.", year: '2013', country_region: 'United States', issue_area: 'A', latitude: 38.8526, longitude: -77.3},
+				
+ 
+ 
+				{name: 'Nancy Hughes', pic: 'img/fellows/nancy.jpg', description: "<a target='_blank' href='http://www.stoveteam.org'>Stovetea</a><br/><br/><b>Mission:</b> StoveTeam International promotes the local production of safe, affordable, fuel-efficient cookstoves in the developing world. <br/><br/><div class='social-icons'><a target='_blank' href='@StoveTeam' class='tw'></a> <a target='_blank' href='https://twitter.com/StoveTeam?refsrc=email' class='in'></a><a target='_blank' href='https://www.facebook.com/StoveTeam' class='fb'></a></div>", year: '2012', country_region: 'United States', issue_area: 'A', latitude: 44.05, longitude: -123.9867},
+				
+			
+					{name: 'Xavier Alpasa', pic: 'img/fellows/xavier.jpg', description: "<a target='_blank' href='http://www.slb.ph'>SLB</a><br/><br/><b>Mission:</b> Jesuit Social Entrepreneur who passionately bridge especially the extremes. <br/><br/><div class='social-icons'><a target='_blank' href='xavieralpasa' class='tw'></a> <a target='_blank' href='http://linkedin.com/xavieralpasa' class='in'></a><a target='_blank' href='http://facebook.com/xavieralpasa' class='fb'></a></div>", year: '2010', country_region: 'Philippines', issue_area: 'A', latitude: 14.633, longitude: 121.033},
+				
+				
+				{name: 'Benjamin Cokelet', pic: 'img/fellows/benjamin.jpg', description: "<a target='_blank' href='http://www.rindecuentas.org'>Rinde Cuentas</a><br/><br/><b>Mission:</b> To improve corporate transparency and accountability in Latin America.<br/><br/><div class='social-icons'><a target='_blank' href='http://twitter.com/ProjectPODER' class='tw'></a> <a target='_blank' href='http://mx.linkedin.com/in/projectpoder' class='in'></a></div>", year: '2011', country_region: 'United States', issue_area: 'A', latitude: 40.75, longitude: -73.866},
+				
+					{name: 'Roshan Paul', pic: 'img/fellows/Roshan.jpg', description: "<a target='_blank' href='http://amaniinstitute.org'>Amani Institute</a><br/><br/><b>Mission:</b> Build a world without boundaries, especially the boundary between making a living and making a difference. <br/><br/><div class='social-icons'><a target='_blank' href='@amaniinst / @roshpaul' class='tw'></a> <a target='_blank' href='https://www.linkedin.com/profile/view?id=6070257&trk=nav_responsive_tab_profile' class='in'></a><a target='_blank' href='http://facebook.com/theamaniinstitute' class='fb'></a></div>", year: '2014', country_region: 'Kenya', issue_area: 'A', latitude: -1.2833, longitude: 36.816},
+					
+					
+
+
+
+				{name: 'Devi Prasad Rao', pic: 'img/fellows/Devi.jpg', description: "<a target='_blank' href='http://arohana.in'>Arohana</a><br/><br/><b>Mission:</b> To lead rural communities to a better tomorrow <br/><br/><div class='social-icons'><a target='_blank' href='' class='tw'></a> <a target='_blank' href='http://in.linkedin.com/in/deviprasadrao' class='in'></a><a target='_blank' href='' class='fb'></a></div>", year: '2013', country_region: 'India', issue_area: 'A', latitude: 10.78, longitude: 79.1313},
+				
+				
+				{name: 'Barbara Magnoni', pic: 'img/fellows/Barbara.jpg', description: "<a target='_blank' href='http://www.eac-global.com'>eac-global</a><br/><br/><b>Mission:</b> Supporting initiatives that facilitate access to finance, markets and social protection for low income segments of the world's population. <br/><br/><div class='social-icons'><a target='_blank' href='BarbaraarEA' class='tw'></a> <a target='_blank' href='' class='in'></a><a target='_blank' href='' class='fb'></a></div>", year: '2011', country_region: 'United States', issue_area: 'A', latitude: 41, longitude: -74},
+				
+				{name: 'Margaret Blood', pic: 'img/fellows/NoPic.jpg', description: "<a target='_blank' href='http://www.milmilagris.org'>milmilagris</a><br/><br/><b>Mission:</b> <br/><br/><div class='social-icons'><a target='_blank' href='' class='tw'></a> <a target='_blank' href='' class='in'></a><a target='_blank' href='' class='fb'></a></div>", year: '2013', country_region: 'United States', issue_area: 'A', latitude: 42.3581, longitude: -71.0636},
+				
+				
+				{name: 'Mayyada Abu Jaber', pic: 'img/fellows/Mayyada.jpg', description: "<a target='_blank' href='http://www.worldofletters.net'>World Of Letters</a><br/><br/><b>Mission:</b> To develop human resources through quality education, communication and skill development.<br/><br/><div class='social-icons'><a target='_blank' href='mayyadajaber' class='tw'></a> <a target='_blank' href='https://www.linkedin.com/profile/view?id=21877744&trk=nav_responsive_tab_profile_pic' class='in'></a><a target='_blank' href='' class='fb'></a></div>", year: '2012', country_region: 'Jordan', issue_area: 'A', latitude: 31.933, longitude: 35.933},
+				
+				
+				{name: 'Jithin C Nedumala', pic: 'img/fellows/Jithin.jpg', description: "<a target='_blank' href='http://www.makeadiff.in'>makeadiff</a><br/><br/><b>Mission:</b> One day even the most vulnerable children will have access to equitable outcomes. <br/><br/><div class='social-icons'><a target='_blank' href='https://twitter.com/makeadiff' class='tw'></a> <a target='_blank' href='http://www.linkedin.com/pub/jithin-c-nedumala/8/531/ba4' class='in'></a><a target='_blank' href='http://www.facebook.com/makeadiff' class='fb'></a></div>", year: '2010', country_region: 'India', issue_area: 'A', latitude: 12.967, longitude: 77.5668},
+				
+				
+				{name: 'Anushka Ratnayake', pic: 'img/fellows/Anushka.jpg', description: "<a target='_blank' href='http://www.myagro.org'>myagro</a><br/><br/><b>Mission:</b> We help small scale farmers get out of poverty. <br/><br/><div class='social-icons'><a target='_blank' href='myAgro Farms' class='tw'></a> <a target='_blank' href='' class='in'></a><a target='_blank' href='http://www.facebook.com/myagro.org' class='fb'></a></div>", year: '2012', country_region: 'Mali', issue_area: 'A', latitude: 12.65, longitude: -8},
+				
+				
+			{name: 'Rahama Wright', pic: 'img/fellows/Rahama.jpg', description: "<a target='_blank' href='http://www.sheayeleen.com'>sheayeleen</a><br/><br/><b>Mission:</b> To promote sustainable economic development in rural sub-Saharan Africa, empower and train women-owned shea butter cooperatives, and educate consumers in the U.S. about natural beauty care products and fair trade.<br/><br/><div class='social-icons'><a target='_blank' href='twitter.com/sheayeleen' class='tw'></a> <a target='_blank' href='http://www.linkedin.com/in/rahamawright/' class='in'></a><a target='_blank' href='http://facebook.com/sheayeleen' class='fb'></a></div>", year: '2014', country_region: 'United States', issue_area: 'A', latitude: 38.8951, longitude: -77.03},
+			
+			
+			
+			{name: 'Pazhaniappan Rajasekharan', pic: 'img/fellows/NoPic.jpg', description: "<a target='_blank' href='http://www.v-shesh.com'>v-shesh</a><br/><br/><b>Mission:</b> To create social impact by improving access to opportunity for those who are disadvantaged due to factors beyond their control.<br/><br/><div class='social-icons'><a target='_blank' href='https://twitter.com/rajavshesh' class='tw'></a> <a target='_blank' href='https://www.linkedin.com/rajavshesh' class='in'></a><a target='_blank' href='https://www.facebook.com/vsheshco' class='fb'></a></div>", year: '2010', country_region: 'India', issue_area: 'A', latitude: 13.08, longitude: 80.27},
+			
+			
+			
+			{name: 'Martin Burt', pic: 'img/fellows/Martin.jpg', description: "<a target='_blank' href='http://www.fundacionparaguaya.org.py-www.teachamantofish.org.uk'>Teach A Man To Fish</a><br/><br/><b>Mission:</b> To develop and disseminate new methodologies to eliminate  multidimensional poverty. <br/><br/><div class='social-icons'><a target='_blank' href='' class='tw'></a> <a target='_blank' href='https://www.linkedin.com/in/martinburt' class='in'></a><a target='_blank' href='' class='fb'></a></div>", year: '2010', country_region: 'Paraguay', issue_area: 'A', latitude: -25.28, longitude: -57.635},
+			
+			{name: 'Saif Kamal', pic: 'img/fellows/Saif.jpg', description: "<a target='_blank' href='http://www.toru-bd.org'>toru-bd</a><br/><br/><b>Mission:</b> To create an ecosystem for social innovation that can be scaled up and taken to market to become part of solution economy.  <br/><br/><div class='social-icons'><a target='_blank' href='twitter.com/saifkamal' class='tw'></a> <a target='_blank' href='http://www.linkedin.com/pub/saif-kamal/4/684/253' class='in'></a><a target='_blank' href='' class='fb'></a></div>", year: '2014', country_region: 'Bangladesh', issue_area: 'A', latitude: 24.7, longitude: 89.37},
+			
+			
+			
+			{name: 'Scot Frank', pic: 'img/fellows/Scot.jpg', description: "<a target='_blank' href='http://www.oneearthdesigns.com'>One Earth Designs</a><br/><br/><b>Mission:</b> One Earth Designs powers zero emissions cooking in low-income households globally using solar-thermal energy. <br/><br/><div class='social-icons'><a target='_blank' href='twitter.com/oneearthdesigns' class='tw'></a> <a target='_blank' href='https://www.linkedin.com/company/one-earth-designs' class='in'></a><a target='_blank' href='http://facebook.com/OneEarthDesigns' class='fb'></a></div>", year: '2012', country_region: 'China', issue_area: 'A', latitude: 23.38, longitude: 114.19},
+			
+			
+			
+			{name: 'Mark Arnoldy', pic: 'img/fellows/Mark.jpg', description: "<a target='_blank' href='http://www.possiblehealth.org'>Possible Health</a><br/><br/><b>Mission:</b> Possible is a nonprofit healthcare company that delivers high-quality, low-cost healthcare to the poor.<br/><br/><div class='social-icons'><a target='_blank' href='https://twitter.com/possiblehealth' class='tw'></a> <a target='_blank' href='https://www.linkedin.com/company/possible-health?trk=company_name' class='in'></a><a target='_blank' href='https://www.facebook.com/possiblehealth' class='fb'></a></div>", year: '2012', country_region: 'United States', issue_area: 'A', latitude: 39.75, longitude: -74.8},
+
+
+			{name: 'Leila Ben-Gacem', pic: 'img/fellows/Leila.jpg', description: "<a target='_blank' href='http://www.bluefish.me'>Bluefish</a><br/><br/><b>Mission:</b> Designing people empowering, heritage preserving economic opportunities <br/><br/><div class='social-icons'><a target='_blank' href='https://twitter.com/bluefishme' class='tw'></a> <a target='_blank' href='https://www.linkedin.com/profile/view?id=7068782&trk=spm_pic&_mSplash=1' class='in'></a><a target='_blank' href='' class='fb'></a></div>", year: '2014', country_region: 'Tunisia', issue_area: 'A', latitude: 34, longitude: 9},
+			
+				
+		{name: 'Jose-Pablo Fernandez', pic: 'img/fellows/Jose-Pablo.jpg', description: "<a target='_blank' href='http://www.parentsalliance.org'>Parents Alliance</a><br/><br/><b>Mission:</b> To empower low-income, low-education Hispanic parents to become changemakers and full partners in their children's educational attainment. <br/><br/><div class='social-icons'><a target='_blank' href='' class='tw'></a> <a target='_blank' href='https://www.linkedin.com/profile/view?id=106778552&authType=NAME_SEARCH&authToken=_czH&locale=en_US&srchid=1067785521403479991448&srchindex=1&srchtotal=61&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A1067785521403479991448%2CVSRPtargetId%3A106778552%2C' class='in'></a><a target='_blank' href='http://Facebook.com/parentsalliance' class='fb'></a></div>", year: '2013', country_region: 'United States', issue_area: 'A', latitude: 29.67, longitude: -95.3831},
+			
+			
+			{name: 'Leonard Falex', pic: 'img/fellows/Leonard.jpg', description: "<a target='_blank' href='http://www.icriafrica.org'>ICRI Africa</a><br/><br/><b>Mission:</b> To equip communities to fight poverty and assure the health and safety of children, youth and families. <br/><br/><div class='social-icons'><a target='_blank' href='' class='tw'></a> <a target='_blank' href='' class='in'></a><a target='_blank' href='https://www.facebook.com/ThriiveKenya?ref=hl' class='fb'></a></div>", year: '2011', country_region: 'Kenya', issue_area: 'A', latitude: -1.283, longitude: 36.81},
+			
+			
+			{name: 'Korvi Rakshand', pic: 'img/fellows/Korvi.jpg', description: "<a target='_blank' href='http://www.jaago.com.bd'>Jaago</a><br/><br/><b>Mission:</b> JAAGO aims to bring about substantial improvement in the lives of disadvantaged people with special emphasis on their literacy and nourishment. <br/><br/><div class='social-icons'><a target='_blank' href='http://twitter.com/KorviRakshand' class='tw'></a> <a target='_blank' href='http://bd.linkedin.com/in/korvi' class='in'></a><a target='_blank' href='http://www.facebook.com/jaagofoundation' class='fb'></a></div>", year: '2012', country_region: 'Bangladesh', issue_area: 'A', latitude: 22.7, longitude: 91},
+			
+			
+			{name: 'Taddy Blecher', pic: 'img/fellows/NoPic.jpg', description: "<a target='_blank' href='http://www.maharishiinstitute.org'>Maharishi Institute</a><br/><br/><b>Mission:</b> <br/><br/><div class='social-icons'><a target='_blank' href='' class='tw'></a> <a target='_blank' href='http://za.linkedin.com/in/taddyblecher' class='in'></a><a target='_blank' href='https://www.facebook.com/taddy.blecher' class='fb'></a></div>", year: '2012', country_region: 'South Africa', issue_area: 'A', latitude: -26.2, longitude: 28.04},
+
+			{name: 'Sohini Bhattacharya', pic: 'img/fellows/NoPic.jpg', description: "<a target='_blank' href='http://www.breakthrough.tv'>Break Through</a><br/><br/><b>Mission:</b> To prevent violence against women and girls by transforming the norms and cultures that enable it. <br/><br/><div class='social-icons'><a target='_blank' href='https://twitter.com/SohiniBee' class='tw'></a> <a target='_blank' href='http://lnkd.in/7M6-8A' class='in'></a><a target='_blank' href='https://www.facebook.com/binihos' class='fb'></a></div>", year: '2011', country_region: 'India', issue_area: 'A', latitude: 28.47, longitude: 77.03},
+			
+			{name: 'Felipe Dib', pic: 'img/fellows/Felipe.jpg ', description: "<a target='_blank' href='http://www.voceaprendeagora.com/'>voceaprendeagora</a><br/><br/><b>Mission:</b> Teach English to every citizen in the world who wants or needs to communicate in this language by offering free classes online + quizzes and Certificate in low-cost options.<br/><br/><div class='social-icons'><a target='_blank' href='' class='tw'></a> <a target='_blank' href='http://br.linkedin.com/pub/felipe-dib/35/685/4a3' class='in'></a><a target='_blank' href='http://facebook.com/voceaprendeagora' class='fb'></a></div>", year: '2013', country_region: 'Brazil', issue_area: 'A', latitude: -15.7, longitude: -47.86},
+			
+			
+			{name: 'Aila Malik', pic: 'img/fellows/Aila.jpg', description: "<a target='_blank' href='http://www.flyprogram.org'>Fly Program</a><br/><br/><b>Mission:</b> To prevent juvenile crime and incarceration through legal education, mentoring, and leadership training services.<br/><br/><div class='social-icons'><a target='_blank' href='' class='tw'></a> <a target='_blank' href='' class='in'></a><a target='_blank' href='' class='fb'></a></div>", year: '2012', country_region: 'United States', issue_area: 'A', latitude: 37.389, longitude: -122.08},
+			
+			
+			{name: 'Rodrigo Villar', pic: 'img/fellows/Rodrigo.jpg', description: "<a target='_blank' href='http://www.nvm.org.mx'>NVM</a><br/><br/><b>Mission:</b> To catalyze the growth of green and social SMEs in Latin America.<br/><br/><div class='social-icons'><a target='_blank' href='https://twitter.com/rorrovillar' class='tw'></a> <a target='_blank' href='' class='in'></a><a target='_blank' href='https://www.facebook.com/rodrigo.v.esquivel' class='fb'></a></div>", year: '2011', country_region: 'Mexico', issue_area: 'A', latitude: 19.433, longitude: -99.133},
+			{name: 'Raja Moubarak', pic: 'img/fellows/NoPic.jpg', description: "<a target='_blank' href='http://2bdesign.biz'>2b Design</a><br/><br/><b>Mission:</b> To restore the unseen beauty of the broken.  We turn architectural salvage from conflict zones (Lebanon,Syria...) into high end home decor by employing the 'unemployable'.<br/><br/><div class='social-icons'><a target='_blank' href='https://twitter.com/beytby2bdesign' class='tw'></a> <a target='_blank' href='https://www.linkedin.com/in/rajamoubarak' class='in'></a><a target='_blank' href='https://www.facebook.com/beytby2bdesign' class='fb'></a></div>", year: '2012', country_region: 'United States', issue_area: 'A', latitude: 42.373, longitude: -71.11},
+				
+		
+				{name: 'Leila Makarechi', pic: 'img/fellows/LeilaM.jpg', description: "<a target='_blank' href='http://www.microclinics.org'>Micro Clinics</a><br/><br/><b>Mission:</b> <br/><br/><div class='social-icons'><a target='_blank' href='' class='tw'></a> <a target='_blank' href='' class='in'></a><a target='_blank' href='' class='fb'></a></div>", year: '2012', country_region: 'United States', issue_area: 'A', latitude: 35, longitude: -115},
+				
+				{name: 'Eric Glustrom', pic: 'img/fellows/Eric.jpg', description: "<a target='_blank' href='http://www.watsonuniversity.org'>Watson University</a><br/><br/><b>Mission:</b>We help students develop and advance solutions to the toughest challenges facing the world.<br/><br/><div class='social-icons'><a target='_blank' href='http://www.facebook.com/ewglustrom' class='fb'></a></div>", year: '2014', country_region: 'United States', issue_area: 'A', latitude: 39.017, longitude: -106},
+				
+				{name: 'Dalys Rodriguez', pic: 'img/fellows/Dalys.jpg', description: "<a target='_blank' href='http://www.fundacioncalicanto.org'>Fundacion Calicanto</a><br/><br/><b>Mission:</b>To safeguard the historic and human heritage of a heritage site in Panama City through social, educational and conservation efforts.<br/><br/><div class='social-icons'><a target='_blank' href='' class='tw'></a> <a target='_blank' href='http://pa.linkedin.com/pub/dalys-rodriguez/6b/43b/307/' class='in'></a><a target='_blank' href='http://www.facebook.com/fundacioncalicanto.org' class='fb'></a></div>", year: '2013', country_region: 'Panama', issue_area: 'A', latitude: 39, longitude: -114},
+			
+			{name: 'Guy Futi', pic: 'img/fellows/Guy.jpg', description: "<a target='_blank' href='http://www.majiwater.com'>MMaji Water</a><br/><br/><b>Mission:</b><br/><br/><div class='social-icons'><a target='_blank' href='www.twitter.com/guyfuti' class='tw'></a> <a target='_blank' href='http://ca.linkedin.com/in/guyfuti' class='in'></a><a target='_blank' href='http://www.facebook.com/majih2o' class='fb'></a></div>", year: '2013', country_region: 'Canada', issue_area: 'A', latitude: 45.5, longitude: -73},
+			
+						{name: 'Adam Braun', pic: 'img/fellows/Adam.jpg', description: "<a target='_blank' href='http://www.pencilsofpromise.org'>Pencils of Promise</a><br/><br/><b>Mission:</b>We create schools, programs, and global communities around the common goal of education for all.<br/><br/><div class='social-icons'><a target='_blank' href='http://twitter.com/adambraun' class='tw'></a> <a target='_blank' href='http://www.linkedin.com/in/arbraun' class='in'></a><a target='_blank' href='http://www.facebook.com/arbraun' class='fb'></a></div>", year: '2010', country_region: 'United States', issue_area: 'A', latitude: 40.9, longitude: -74},
+						
+						{name: 'Ramon Leon', pic: 'img/fellows/Ramon.jpg', description: "<a target='_blank' href='http://www.ledc-mn.org'>Ledc-mn</a><br/><br/><b>Mission:</b>To transform our community by creating economic opportunity for Latinos, and a socially responsible community.<br/><br/><div class='social-icons'><a target='_blank' Latinocdc' class='tw'></a> <a target='_blank' href='http://www.linkedin.com/pub/ramon-leon/3/a6/507/' class='in'></a><a target='_blank' href='https://www.facebook.com/pages/LEDC-MN/187683408557?ref_type=bookmark' class='fb'></a></div>", year: '2010', country_region: 'United States', issue_area: 'A', latitude: 45.83, longitude: -92.255},
+			
+			{name: 'Yolanda Cotterall', pic: 'img/fellows/NoPic.jpg', description: "<a target='_blank' href=''></a><br/><br/><b>Mission:</b>Use my knowledge, skills and talents to increase opportunities for people to create and engage in economic development alone or with others.<br/><br/><div class='social-icons'><a target='_blank'' class='tw'></a> <a target='_blank' href='' class='in'></a><a target='_blank' href='http://yolandacotterall@yahoo.com' class='fb'></a></div>", year: '2011', country_region: 'United States', issue_area: 'A', latitude: 44.983, longitude: -93.2667},
+
+			{name: 'Sakena Yacoobi', pic: 'img/fellows/NoPic.jpg', description: "<a target='_blank' href='http://www.afghaninstituteoflearning.org'>Afghanistan Institute Of Learning</a><br/><br/><b>Mission:</b>To empower all Afghans by providing comprehensive, quality education, training and health services.<br/><br/><div class='social-icons'><a target='_blank'https://twitter.com/AIL_education' class='tw'></a><a target='_blank' href='http://af.linkedin.com/pub/sakena-yacoobi/73/295/56' class='in'></a><a target='_blank' href='' class='fb'></a></div>", year: '2010', country_region: 'United States', issue_area: 'A', latitude: 42.314, longitude: -83.2133},
+			
+{name: 'Amie Williams', pic: 'img/fellows/Amie.jpg', description: "<a target='_blank' href='http://www.globalgirlmedia.org'>Global Girl Media</a><br/><br/><b>Mission:</b>To develop the voice and media literacy of young women in underserved communities by teaching them to create and share digital journalism.<br/><br/><div class='social-icons'><a target='_blank' href='https://twitter.com/globalgirlmedia' class='tw'></a><a target='_blank' href='' class='in'></a><a target='_blank' href='https://www.facebook.com/globalgirlmedia' class='fb'></a></div>", year: '2013', country_region: 'United States', issue_area: 'A', latitude: 34, longitude: -118},
+			
+						{name: 'Timothy Prestero', pic: 'img/fellows/Timothy.jpg', description: "<a target='_blank' href='http://www.designthatmatters.org/'>Design That Matters</a><br/><br/><b>Mission:</b>To solve problems in global health for the poor in developing countries. Our goal is to make the right tools for the right context. <br/><br/><div class='social-icons'><a target='_blank' href='https://twitter.com/dtm_tweets' class='tw'></a><a target='_blank' href='' class='in'></a><a target='_blank' href='https://www.facebook.com/pages/Design-that-Matters/138033226253117' class='fb'></a></div>", year: '2010', country_region: 'United States', issue_area: 'A', latitude: 42.5, longitude: -70.89},
+			
+			{name: 'Nathaniel Dunigan, PhD', pic: 'img/fellows/Nathaniel.jpg', description: "<a target='_blank' href=http://www.nathanieldunigan.com'>Nathanieldunigan</a><br/><br/><b>Mission:</b>To serve orphans living with HIV/AIDS who do not have the support of extended families in Uganda, East Africa.<br/><br/><div class='social-icons'><a target='_blank' href='@NDunigan' class='tw'></a><a target='_blank' href='http://www.linkedin.com/pub/nathaniel-dunigan-phd/20/454/a45' class='in'></a><a target='_blank' href='http://www.facebook.com/nathaniel.dunigan' class='fb'></a></div>", year: '2012', country_region: 'United States', issue_area: 'A', latitude: 28.1, longitude: -81},
+			
+					{name: 'Michiel Mollen', pic: 'img/fellows/NoPic.jpg', description: "<a target='_blank' href='></a><br/><br/><b>Mission:</b>Better informed decision making in disaster response. Accurate and real time demographics and population trends made easily accessible to decision makers. One simple data mining service, by combining drone technology, thermal image processing, and GIS. More effective disaster response, faster, cheaper, easier, safer.<br/><br/><div class='social-icons'><a target='_blank' href='https://twitter.com/CorpsAfrica' class='tw'></a><a target='_blank' href='http://nl.linkedin.com/in/michielmollen' class='in'></a><a target='_blank' href='' class='fb'></a></div>", year: '2011', country_region: 'Netherland', issue_area: 'A', latitude: 52.366, longitude: 4.9},
+			
+			{name: 'Liz Fanning', pic: 'img/fellows/Liz.jpg', description: "<a target='_blank' href='http://www.corpsafrica.org'>Corps Africa</a><br/><br/><b>Mission:</b>We recruit men and women to move to high-poverty communities and initiate projects that fulfill key needs and whose impact and success can be carefully measured and monitored.<br/><br/><div class='social-icons'><a target='_blank' href='https://twitter.com/CorpsAfrica' class='tw'></a><a target='_blank'href='https://www.linkedin.com/profile/view?id=23278347&trk=nav_responsive_tab_profile' class='in'></a><a target='_blank' href='https://www.facebook.com/pages/CorpsAfrica/153199434727837?ref_type=bookmark' class='fb'></a></div>", year: '2013', country_region: 'United States', issue_area: 'A', latitude: 41, longitude: -122},
+			
+			  {name: 'Heather Fleming', pic: 'img/fellows/Heather.jpg', description: "<a target='_blank' href=http://www.catapultdesign.org'>Catapult Design</a><br/><br/><b>Mission:</b>Billions of people lack access to life's basic needs. We design and deliver human-centered solutions to help them thrive. <br/><br/><div class='social-icons'><a target='_blank' href='twitter.com/catapult_design' class='tw'></a><a target='_blank' href='' class='in'></a><a target='_blank' href='https://www.facebook.com/CatapultDesign' class='fb'></a></div>", year: '2010', country_region: 'United States', issue_area: 'A', latitude: 45, longitude: -118},
+		   
+		    {name: 'Bartlomiej Skorupa', pic: 'img/fellows/Bartlomiej.jpg', description: "<a target='_blank' href=http://www.goworks.org'>Go Works</a><br/><br/><b>Mission:</b>GO invests in leaders who have the capacity to end poverty in their communities.<br/><br/><div class='social-icons'><a target='_blank' href='https://twitter.com/bartskorupa' class='tw'></a><a target='_blank' href='http://www.linkedin.com/in/bartlomiejskorupa/' class='in'></a><a target='_blank' href='https://www.facebook.com/bartlomiej.skorupa' class='fb'></a></div>", year: '2014', country_region: 'United States', issue_area: 'A', latitude: 38, longitude: -118},
+			
+			{name: 'Natasha Goldstein', pic: 'img/fellows/Natasha.png', description: "<a target='_blank' href=http://www.mcesocap.org'>MCESOCAP</a><br/><br/><b>Mission:</b><br/><br/><div class='social-icons'><a target='_blank' href='' class='tw'></a><a target='_blank' href='' class='in'></a><a target='_blank' href='' class='fb'></a></div>", year: '2011', country_region: 'United States', issue_area: 'A', latitude: 40.69, longitude: -73.999},
+
+			{name: 'Dan Sutera', pic: 'img/fellows/Dan.jpg', description: "<a target='_blank' href=http://impactenterprises.org'>Impact Enterprises</a><br/><br/><b>Mission:</b>Creating digital jobs for African youth.<br/><br/><div class='social-icons'><a target='_blank' href='' class='tw'></a><a target='_blank' href='' class='in'></a><a target='_blank' href='http://fb.com/impactenterprises' class='fb'></a></div>", year: '2011', country_region: 'United States', issue_area: 'A', latitude: 38.69, longitude: -74.99},
+					
+			{name: 'Katie Meyler', pic: 'img/fellows/Katie.jpg', description: "<a target='_blank' href=http://www.morethanme.org'>More Than Me</a><br/><br/><b>Mission:</b>To make sure education and opportunity, not exploitation and poverty, define the lives of the most vulnerable girls from the West Point Slum of Liberia.<br/><br/><div class='social-icons'><a target='_blank' href='www.twitter.com/morethanmeorg' class='tw'></a><a target='_blank' href='https://www.linkedin.com/in/katiemeyler' class='in'></a><a target='_blank' href='http://www.facebook.com/morethanme' class='fb'></a></div>", year: '2012', country_region: 'United States', issue_area: 'A', latitude: 40, longitude: -74},
+			
+			{name: 'Wanjiru Kamau-Rutenberg', pic: 'img/fellows/Wanjiru.jpg', description: "<a target='_blank' href=http://www.awardfellowships.org'>Award Fellowship</a><br/><br/><b>Mission:</b>To equips top women agricultural scientists across sub-Saharan Africa to accelerate agricultural gains by strengthening their research and leadership skills.<br/><br/><div class='social-icons'><a target='_blank' href='www.twitter.com/wanjirukr' class='tw'></a><a target='_blank' href='https://www.linkedin.com/in/wanjirukr' class='in'></a><a target='_blank' href='https://www.facebook.com/AWARDFellowships' class='fb'></a></div>", year: '2011', country_region: 'Kenya', issue_area: 'A', latitude: -1.283, longitude: 36.816},
+			
+			{name: 'Emily Karechio', pic: 'img/fellows/Emily.jpg', description: "<a target='_blank' href=http://www.muthaafoundation'>Muthaa Foundation</a><br/><br/><b>Mission:</b>Our Mission is;    We use innovative technologies that are relevant in Africa to empower and facilitate positive change in the community.<br/><br/><div class='social-icons'><a target='_blank' href='@emilyKarechio, @emilyKarechio' class='tw'></a><a target='_blank' href='https://www.linkedin.com/nhome/?trk=nav_responsive_tab_home' class='in'></a><a target='_blank' href='http://www.facebook.com/MuthaaFoundation' class='fb'></a></div>", year: '2014', country_region: 'Kenya', issue_area: 'A', latitude: -1, longitude: 35},
+			
+				{name: 'Maria Amalia Souza', pic: 'img/fellows/NoPic.jpg', description: "<a target='_blank' href=http://www.casa.org.br'>CASA</a><br/><br/><b>Mission:</b>To promote environmental conservation and sustainability, democracy and social justice by supporting and strengthening the capacities and initiatives of civil society.<br/><br/><div class='social-icons'><a target='_blank' href='@mariamaliassouza' class='tw'></a><a target='_blank' href='http://www.linkedin.com/profile/view?id=15960608&trk=nav_responsive_tab_profile' class='in'></a><a target='_blank' href='https://www.facebook.com/mariamaliasouza?ref=tn_tnmn' class='fb'></a></div>", year: '2011', country_region: 'Brazil', issue_area: 'A', latitude: -25.5, longitude: -46},	
+				
+					{name: 'Robert (Barry) Childs', pic: 'img/fellows/Robert.jpg', description: "<a target='_blank' href=http://www.africabridge.org'>Africa Bridge</a><br/><br/><b>Mission:</b>To empower village communities to transform the lives of themselves and their vulnerable children.<br/><br/><div class='social-icons'><a target='_blank' href='' class='tw'></a><a target='_blank' href='' class='in'></a><a target='_blank' href='' class='fb'></a></div>", year: '2014', country_region: 'United States', issue_area: 'A', latitude: 45.3, longitude: -122.6},
+					
+						{name: 'Bernard Botchway', pic: 'img/fellows/Bernard.jpg', description: "<a target='_blank' href='#'></a><br/><b>Mission:</b>To ensure that education is advanced and that human rights go beyond the surface rights but to include economic empowerment.<br/><br/><div class='social-icons'><a target='_blank' href='' class='tw'></a><a target='_blank' href='https://www.linkedin.com/pub/bernard-botchway/51/492/772' class='in'></a><a target='_blank' href='http://www.facebook.com/st.nortey' class='fb'></a></div>", year: '2014', country_region: 'United States', issue_area: 'A', latitude: 42.3, longitude: -71},
+						
+						{name: 'Rania Seddik', pic: 'img/fellows/Rania.jpg', description: "<a target='_blank' href=http://www.gebraa.com'>GebRaa</a><br/><br/><b>Mission:</b>Protect disappearing traditional Egyptian crafts using mostly natural resources with low environmental footprint<br/><br/><div class='social-icons'><a target='_blank' href='https://twitter.com/raniasalah' class='tw'></a><a target='_blank' href='http://eg.linkedin.com/pub/rania-salah-seddik/11/7a5/874/' class='in'></a><a target='_blank' href='https://www.facebook.com/rania.seddik' class='fb'></a></div>", year: '2011', country_region: 'Egypt', issue_area: 'A', latitude: 30.05, longitude: 31.2},
+						
+					
+			{name: 'Sara Potler LaHayne', pic: 'img/fellows/Sara.jpg', description: "<a target='_blank' href=http://www.movethisworld.org'>Move This World</a><br/><br/><b>Mission:</b>To empower individuals with self and social awareness so that they have the tools to be empathetic in their interactions with others. <br/><br/><div class='social-icons'><a target='_blank' href='http://twitter.com/move_thisworld' class='tw'></a><a target='_blank' href='http://www.linkedin.com/in/sarapotler' class='in'></a><a target='_blank' href='https://www.facebook.com/MoveThisWorld' class='fb'></a></div>", year: '2011', country_region: 'United States', issue_area: 'A', latitude: 40.1, longitude: -74},
+			
+			{name: 'Jamils Achunji Anguaseh', pic: 'img/fellows/NoPic.jpg', description: "<a target='_blank' href=http://www.glowacameroon.org'>Glow A Cameroon</a><br/><br/><b>Mission:</b>To nurture a culture of respect for human rights, particularly those of children and women, and fight against the systematic abuses faced by the most vulnerable.<br/><br/><div class='social-icons'><a target='_blank' href='https://twitter.com/glowa' class='tw'></a><a target='_blank' href='http://www.linkedin.com/pub/jamils-a/3/165/236/' class='in'></a><a target='_blank' href='https://www.facebook.com/anguaseh' class='fb'></a></div>", year: '2014', country_region: 'Cameroon', issue_area: 'A', latitude: 5.93, longitude: 10.17},
+			
+			{name: 'Anima Baa', pic: 'img/fellows/NoPic.jpg', description: "<a target='_blank' href=http://www.svwst.org'>SWST</a><br/><br/><b>Mission:</b>Improving opportunities for marginalised communities to engage in sustainable livelihoods and be safe from trafficking.<br/><br/><div class='social-icons'><a target='_blank' href='' class='tw'></a><a target='_blank' href='' class='in'></a><a target='_blank' href='http://www.facebook.com/SVWST' class='fb'></a></div>", year: '2014', country_region: 'India', issue_area: 'A', latitude: 23.25, longitude: 85},
+
+			{name: 'Leonardo Letelier', pic: 'img/fellows/LeonardoL.jpg', description: "<a target='_blank' href=http://www.sitawi.net'>Sitawi</a><br/><br/><b>Mission:</b>To bring more capital, more types of capital and more efficient use and allocation of capital to change more lives.<br/><br/><div class='social-icons'><a target='_blank' href='' class='tw'></a><a target='_blank' href='' class='in'></a><a target='_blank' href='' class='fb'></a></div>", year: '2013', country_region: 'Brazil', issue_area: 'A', latitude: -22.9, longitude: -43.16},
+
+            {name: 'James Bao', pic: 'img/fellows/James.jpg', description: "<a target='_blank' href=http://htttp://onevietnam.org'>One Vietnam</a><br/><br/><b>Mission:</b>Empower immigrant & diaspora communities to crowdfund projects in their home country.<br/><br/><div class='social-icons'><a target='_blank' href='http://twitter.com/onevietnam' class='tw'></a><a target='_blank' href='' class='in'></a><a target='_blank' href='http://facebook.com/onevietnam' class='fb'></a></div>", year: '2010', country_region: 'United States', issue_area: 'A', latitude: 37, longitude: 122}
+
+			
+	];
+				
+				var mapControls = (function ( jQ ) {
+				
+					function dropdown(controloptions){
+						var dropdown = jQ('<div class="container"><div class="dropDownControl" id="dd_years">' + controloptions.name + '<img src="http://maps.gstatic.com/mapfiles/arrow-down.png" class="dropDownArrow"/></div></div>');
+						dropdown.append(dropdownOptionsDiv(controloptions.dropdown));
+						controloptions.map.controls[controloptions.position].push(dropdown.get(0));
+						google.maps.event.addDomListener(dropdown.children(":first").get(0),'click',function(){						
+							(jQ("#" + controloptions.dropdown.id).is(":visible")) ? 
+							
+							(function(){
+								jQ(".dropDownOptionsDiv").slideUp("fast");
+							})() 
+							
+							: 
+							
+							(function(){
+								jQ(".dropDownOptionsDiv").slideUp("fast");
+								jQ("#" + controloptions.dropdown.id).slideDown("fast");
+							})()
+							
+						});						
+					}
+					
+					function dropdownOptionsDiv(divoptions){
+						var container = jQ('<div class="dropDownOptionsDiv" id="' + divoptions.id + '"></div>');
+						
+						//divoptions.items.push();
+						
+						for(i=0; i<divoptions.items.length; i++){
+							divoptions.items[i].appendTo(container);
+						}
+						
+						return container;	
+					}
+					
+					function checkBox(cboptions){
+						var cbcontainer = jQ('<div class="checkboxContainer"><span role="checkbox" class="checkboxSpan"><div class="blankDiv" id="' + cboptions.tickid + '"><input type="checkbox" id="' + cboptions.id + '" class="' + cboptions.class + '"/><img src="http://maps.gstatic.com/mapfiles/mv/imgs8.png" class="blankImg"/></div></span><label class="checkboxLabel">' + cboptions.checkbox_label.toString() + '</label></div>');
+						
+						google.maps.event.addDomListener(cbcontainer.get(0),'click',function(){
+							(jQ("#" + cboptions.tickid).is(":visible")) ? 
+							
+							(function(){
+								//Hide the tick
+								jQ("#" + cboptions.tickid).hide();
+								//Set the checkbox to false
+								jQ("#" + cboptions.id).prop("checked", false);
+								//Trigger filter update
+								cboptions.callback();
+							})() 
+							
+							: 
+							
+							(function(){
+								//Show the tick
+								jQ("#" + cboptions.tickid).show();
+								//Set the checkbox to true
+								jQ("#" + cboptions.id).prop("checked", true);
+								//Trigger filter update
+								cboptions.callback();
+							})()
+						});
+						
+						return cbcontainer;						
+					}
+					
+					function attribution(options){
+						var container = jQ('<img class="' + options.class + '" src="' + options.src + '" alt="' + options.alt + '"/>');
+						options.map.controls[options.position].push(container.get(0));
+					}
+					
+					return{
+						createDropDown: function(opts){
+							dropdown(opts);
+						},
+						createCheckBox: function(opts){
+							return checkBox(opts);
+						},
+						createAttribution: function(opts){
+							attribution(opts);
+						}
+					};
+				}) ($);
+				
+				var contactMap = (function ( jQ ) {
+					
+					var map = null;
+					var infowindow = new google.maps.InfoWindow();
+					var infobox = new InfoBox();
+					var pins = [];
+					var mapstyle = [
+					  {
+						"featureType": "administrative",
+						"stylers": [
+						  { "visibility": "off" }
+						]
+					  },{
+						"featureType": "road",
+						"stylers": [
+						  { "visibility": "off" }
+						]
+					  },{
+						"featureType": "water",
+						"elementType": "labels",
+						"stylers": [
+						  { "visibility": "off" }
+						]
+					  },{
+						"featureType": "water",
+						"stylers": [
+						  { "color": "#383838" }
+						]
+					  },{
+						"featureType": "landscape",
+						"stylers": [
+						  { "color": "#191919" }
+						]
+					  },{
+						"featureType": "transit",
+						"stylers": [
+						  { "visibility": "off" }
+						]
+					  },{
+						"featureType": "poi",
+						"stylers": [
+						  { "visibility": "off" }
+						]
+					  },{
+						"featureType": "landscape.natural.terrain",
+						"stylers": [
+						  { "color": "#151515" }
+						]
+					  },{
+						"featureType": "water",
+						"stylers": [
+						  { "visibility": "simplified" },
+						  { "saturation": -100 },
+						  { "weight": 0.1 }
+						]
+					  }
+					];
+					var center = new google.maps.LatLng(40, 8);
+					var vertical = false;
+					
+					function init(){
+						map = new google.maps.Map(document.getElementById("map"), {
+							center: center,
+							mapTypeId: google.maps.MapTypeId.ROADMAP,
+							zoom:2,
+							disableDefaultUI: true,
+							styles: mapstyle							
+						});
+						
+						mapEvents();
+						initControls();
+					}
+										
+					function mapEvents(){
+						google.maps.event.addListener(map, "dragend", function(){
+							center = map.getCenter();
+						});
+						google.maps.event.addListener(map, "click", function(){
+							if(infobox.getVisible()){
+								infobox.close();
+							}
+						});						
+					}
+				 
+					function initControls(){
+						
+						var years = {text: [], checkboxes: []};
+						var countries = {text: [], checkboxes: []};
+						var areas = {text: [], checkboxes: []};
+						
+						for(i=0;i<contacts.length;i++){
+							if(jQ.inArray(contacts[i]['year'], years["text"])<0){
+								years["text"].push(contacts[i]['year']);
+								years["checkboxes"].push(mapControls.createCheckBox({id: "cb_" + contacts[i]['year'], tickid: 'cb_' + contacts[i]['year'] + '_t', checkbox_label: contacts[i]['year'], class:"year", callback: contactMap.preFilterContacts}));
+							}
+							if(jQ.inArray(contacts[i]['country_region'], countries["text"])<0){
+								countries["text"].push(contacts[i]['country_region']);
+								countries["checkboxes"].push(mapControls.createCheckBox({id: "cb_h" + contacts[i]['country_region'].toLowerCase(), tickid: 'cb_' + contacts[i]['country_region'].toLowerCase() + '_t', checkbox_label: contacts[i]['country_region'], class:"country", callback: contactMap.preFilterContacts}));
+							}
+							if(jQ.inArray(contacts[i]['issue_area'], areas["text"])<0){
+								areas["text"].push(contacts[i]['issue_area']);
+								areas["checkboxes"].push(mapControls.createCheckBox({id: "cbia_" + contacts[i]['issue_area'].toLowerCase(), tickid: 'cbia_' + contacts[i]['issue_area'].toLowerCase() + '_t', checkbox_label: contacts[i]['issue_area'], class:"issuearea", callback: contactMap.preFilterContacts}));
+							}							
+						}
+						
+						mapControls.createDropDown({
+							map: map, 
+							name: "Year", 
+							id: "dd_year",
+							position: google.maps.ControlPosition.TOP_LEFT, 
+							dropdown: {
+								id: "dd_year_container", 
+								items: years["checkboxes"]
+							}
+						});
+						
+						mapControls.createDropDown({
+							map: map, 
+							name: "Country", 
+							id: "dd_country", 
+							position: google.maps.ControlPosition.TOP_LEFT,
+							dropdown: {
+								id: "dd_country_container",
+								items: countries["checkboxes"]
+							}
+						});
+						
+						mapControls.createDropDown({
+							map: map, 
+							name: "Issue Area",
+							id: "dd_issuearea", 
+							position: google.maps.ControlPosition.TOP_LEFT,
+							dropdown: {
+								id: "dd_issuearea_container",
+								items: areas["checkboxes"]
+							}
+						});
+						
+						mapControls.createAttribution({'src': 'img/cordes_logo.png', 'alt': 'Cordes Logo', 'map': map, 'position': google.maps.ControlPosition.RIGHT_BOTTOM, 'class': 'attribution'});
+					}
+					
+					function loaddata(data){
+						var bounds = new google.maps.LatLngBounds();
+						for(i=0;i<data.length;i++){
+							//Put the marker in the pins array
+							pins.push(createPin(data[i]));
+							bounds.extend(new google.maps.LatLng(parseFloat(data[i]['latitude']),parseFloat(data[i]['longitude'])));	
+						}
+						if(!bounds.isEmpty()){
+							map.fitBounds(bounds);
+						}					
+					}
+					
+					function assignIcon(year){
+						switch(year){
+							case '2010':
+								return "img/pink_dot.png";
+							break;
+							case '2011':
+								return "img/red_dot.png";
+							break;
+							case '2012':
+								return "img/blue_dot.png";
+							break;
+							case '2013':
+								return "img/yellow_dot.png";
+							break;
+							case '2014':
+								return "img/white_dot.png";
+							break;
+						}
+					}
+					
+					function createPin(row){
+						//Create the marker object from the attributes stored in the array member
+						var marker = new google.maps.Marker({
+							position: new google.maps.LatLng(parseFloat(row.latitude), parseFloat(row.longitude)),
+							map: map,
+							icon: assignIcon(row.year)
+						});
+							
+						//Assign properties to the marker object
+						for(j in row){
+							marker[j] = row[j];
+						}
+						
+						google.maps.event.addListener(marker, "click", function(){
+							/*var content = '<div id="map_bubble" class="borderbox">' +
+							'<div id="map_avatar" class="borderbox"><img src="' + row['pic'] + '"/></div>'+
+							'<div id="map_header" class="borderbox"><h4>' + row['name'] + '</h4></div>'+
+							'<div id="map_description" class="borderbox">' + row['description'] + '</div>'+
+							'</div>';*/
+							
+							var content = '<div class="borderbox" id="map_bubble">' +
+							'<div class="borderbox" id="map_avatar"><img src="' + row['pic'] + '"/></div>'+
+							'<div class="borderbox" id="map_header"><h4>' + row['name'] + '</h4></div>'+
+							'<div class="borderbox" id="map_description">' + row['description'] + '</div>'+
+							'</div>';							
+							
+							var myOptions = {
+								 content: content
+								,disableAutoPan: false
+								,maxWidth: 0
+								,pixelOffset: new google.maps.Size(-200, -210)
+								,zIndex: null
+								,boxStyle: { 
+								  opacity: 1
+								  ,height: "180px",
+								  width: "440px",
+								  background: "url('img/arrow.png') 190px 180px no-repeat",
+								  "z-index":"9999",
+								  "padding-bottom": "20px"
+								 }
+								,closeBoxMargin: "5px 5px 0px 0px"
+								,closeBoxURL: "img/close.png"
+								,infoBoxClearance: new google.maps.Size(1, 1)
+								,isHidden: false
+								,pane: "floatPane"
+								,enableEventPropagation: false
+							};
+
+							infobox.setOptions(myOptions);
+							infobox.open(map, marker);
+
+							
+							/*infowindow.setOptions({
+								content: content
+							});						
+							infowindow.open(map, marker);*/
+						});
+						
+						return marker;				
+					}
+					
+					function filterdata(options){
+						//First, loop through all the markers in the pins array
+						var bounds = new google.maps.LatLngBounds();
+						
+						for(i=0;i<pins.length;i++){
+							//then apply the filters passed with the options parameter
+							
+							var filters = [
+								(options.years.length>0) ? 	(function(){ return (jQ.inArray(pins[i].year, options.years)>-1); })() : true,
+								(options.countries.length>0) ? 	(function(){ return (jQ.inArray(pins[i].country_region, options.countries)>-1); })() : true,
+								(options.areas.length>0) ? 	(function(){ return (jQ.inArray(pins[i].issue_area, options.areas)>-1); })() : true
+							];
+							
+							var filterswitch = filters.every(function(value,index,ar){
+								if(value){
+									return true;
+								}
+								else
+								{
+									return false
+								}
+							});
+							
+							if(filterswitch){
+								pins[i].setMap(map);
+								bounds.extend(pins[i].getPosition());
+							}
+							else
+							{
+								pins[i].setMap(null);
+							}
+						}
+						
+						if(!bounds.isEmpty()){
+							map.fitBounds(bounds);
+							if(map.getZoom()>16){
+								map.setZoom(10);
+							}
+						}
+					}
+					
+					return{
+						//Function to initialize the map
+						start: function(){
+							init();
+						},
+						centerMap: function(){
+							map.setCenter(center);
+						},
+						loadContacts: function(contacts){
+							//Contacts is a js array containing object literals representing each contact and its attributes
+							loaddata(contacts);
+						},
+						filterContacts: function(options){
+							//options should look something like {years: [], countries: [], areas: []}
+							//the value arrays would hold the actual filter parameters
+							filterdata(options);
+						},
+						preFilterContacts: function(){
+							var years = [];
+							var countries = [];
+							var areas = [];
+							
+							jQ("input:checkbox.year").each(function(){
+								if(jQ(this).prop("checked")){
+									years.push(jQ(this).parent().parent().parent().find('label').html());
+								}
+							});
+
+							jQ("input:checkbox.country").each(function(){
+								if(jQ(this).prop("checked")){
+									countries.push(jQ(this).parent().parent().parent().find('label').html());
+								}
+							});
+							
+							jQ("input:checkbox.issuearea").each(function(){
+								if(jQ(this).prop("checked")){
+									areas.push(jQ(this).parent().parent().parent().find('label').html());
+								}
+							});							
+
+							filterdata({'years': years, 'countries': countries, 'areas': areas});
+						},
+						realignControls: function(width){
+							if(width<330){
+								jQ(".container").css("position", "");
+							}
+							else
+							{
+								jQ(".container").css("position", "absolute");
+							}
+						}
+					};
+				 
+				// Pull in jQuery
+				}) ($);		
+		
+			window.onload = function(){
+				contactMap.start();
+				contactMap.loadContacts(contacts);
+				//Left here for starting the map already filtered, just in case
+				//contactMap.filterContacts({years: [2010,2011,2012], countries: ['Norway', 'USA'], areas: ['B','C']});
+			};	
+			
+			window.onresize = function(){
+				contactMap.centerMap();
+				contactMap.realignControls(document.getElementById("map").offsetWidth);
+			}
+		</script>
+	</body>
+</html>	

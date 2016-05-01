@@ -1,0 +1,119 @@
+
+
+		<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+		<html>
+		<head>
+
+			<meta http-equiv="content-type" content="text/html; charset=utf-8">
+			<title>MobileIQ | Route Planning for Small Business</title>
+			<link rel="shortcut icon" href="./images/favicon.ico" >
+
+		    <link href="clients/resources/css/bootstrap.css" rel="stylesheet">
+		    <link href="clients/resources/css/bootstrap-responsive.css" rel="stylesheet">
+		    <link href="clients/sparklean/site.css" rel="stylesheet">
+
+		</head>
+
+		<body>
+
+		    <div class="container">
+		    	<div class="messageContainer hide-print">
+		    		<div id="serviceStatus" class="alert alert-info">
+		    			<button type="button" class="close close-alert">&times;</button>
+		    			<span></span>
+		    		</div>
+		    	</div>
+		    <img src="images/logos/logo_150px.jpg" class="hide-print">
+
+				<form id="formReportOptions" name="formReportOptions" class="well form-horizontal form-report hide-print" action="" method="post" enctype="multipart/form-data">
+						<div class="row">
+							<fieldset>
+
+				          <legend>Welcome to the Sparklean Laundry Report</legend>
+				          	
+						  
+			
+				          
+							</fieldset>
+				        	
+						</div>
+						<div class="row">
+							<div class="span3">
+								<div class="control-group">
+								    <label class="control-label" for="route">Select route</label>
+								    <div class="controls">
+								      <select id="route">
+							          	<option value="-1">Loading</option>
+
+							          </select>
+								    </div>
+								  </div>
+							</div>
+							<div class="span3">
+								<div class="control-group">
+								    <label class="control-label" for="date">Select date</label>
+								    <div class="controls">
+								      <select id="date">
+							          	<option value="-1">Loading</option>
+
+							          </select>
+								    </div>
+								  </div>
+							</div>
+							<div class="span3">
+								<div class="control-group">
+								    <div class="controls">
+								  		<button id="formRunBtn" class="btn btn-primary">Run Report</button>
+								    </div>
+								</div>
+							</div>
+						</div>
+				        
+				</form>
+			  	<div class="container report-table-container">
+			  		<table width="100%" class="report-table table table-bordered">
+			  			<tr>
+			  				<th colspan="6" class="align-center">
+			  					<h3>Sparklean</h3>
+			  					<h3>Client Pick-Up/Turn In Log</h3>
+			  				</th>
+			  			</tr>
+			  			<tr>
+			  				<td colspan="2"> <b>Date :</b> <span class="date-name"></span></td>
+			  				<td colspan="2"> <b>Route :</b> <span class="route-name"></span></td>
+			  				<td colspan="2">&nbsp;</td>
+			  			</tr>
+			  			<tr>
+			  				<th>Company</th>
+			  				<th>Weight</th>
+			  				<th>#Bags / Carts</th>
+			  				<th>Due Date</th>
+			  				<th>Special Instructions</th>
+			  				<th>Initials</th>
+			  			</tr>
+			  		</table>
+			  		<p class="well hide-print">
+			  			<button class="btn btn-info" type="button" id="print-report">PRINT REPORT <i class="icon-print icon-white"></i></button>
+			  			<button class="btn btn-info" type="button" id="download-report">DOWNLOAD REPORT <i class="icon-download-alt icon-white"></i></button>
+			  		</p>
+			  	</div>
+		        <footer class="hide-print">
+		        	<p>&copy; 2015 MobileIQ, Inc. </p>
+			    </footer>
+
+		    </div><!--/.fluid-container-->
+
+			<!-- Placed at the end of the document so the pages load faster -->
+			<script src="clients/resources/js/jquery.js"></script>
+			<script src="clients/resources/js/jquery.form.js"></script>
+
+			<script src="clients/resources/js/bootstrap-transition.js"></script>
+			<script src="clients/resources/js/bootstrap-alert.js"></script>
+			<script src="clients/resources/js/bootstrap-modal.js"></script>
+			<script src="clients/resources/js/bootstrap-dropdown.js"></script>
+
+			<script type="text/javascript" src="clients/sparklean/site.js"></script>
+
+		</body>
+
+		</html>

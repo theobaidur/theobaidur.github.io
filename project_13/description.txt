@@ -1,0 +1,21 @@
+hi
+this is the first page, you can see how it looks in the "preview.jpg" image.
+
+1/ this site works only on horisontal view. if the iphone/samsung is standing verticaly - a message pop up has to say: please rotate screen (you can take it from here: http://mesisa.co.il/doctors/main/index.html
+)
+2/ the resolution - please make it for all smartphones - please make the bg image 100% always - no white or black edges - not in ipad, not in phone5 etc...)
+
+3/ you have in the page 2 windows: folder and text. please make them pop in a nice animation: the windows are entering from the bottom.
+
+4/ after user click on 1 buttom - the windows are going outside in a nice animation - going out to the top side.
+
+5/ the arrows make also the "out" animation
+
+6/ the V has to have 2 options: V on and V off
+
+7/ all texts are in Arial fot in Hebrew - this is right to left language (RTL) - please enter "demo" text":
+???? ???? ???? ????
+
+do you understand?
+
+if this project will be good - i have more and more sites and projects

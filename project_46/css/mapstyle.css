@@ -1,0 +1,331 @@
+#map{
+	position:absolute;
+	top:0px;
+	left:0px;
+	bottom:0px;
+	right:0px;
+}
+
+#mapContainer{
+    position: relative;
+    width: 100%;
+    padding-bottom: 15px;
+     height: 540px;
+    clear:both;
+    float: right;
+
+}
+
+#receiver{
+    width: 100%;
+    height: 640px;
+    position: absolute;
+    left: 0;
+	border:1px solid black;
+	
+}
+
+/*Map inline control styles*/
+
+.attribution{
+	display:block;
+	margin-right:5px;
+}
+
+.container{
+  min-width: 160px; 
+  z-index: 1; 
+  margin: 15px;
+  cursor: pointer;
+  text-align: left;
+  z-index: 0;
+
+}
+
+.dropDownControl{
+    direction: ltr; 
+    overflow-x: hidden; 
+    overflow-y: hidden; 
+    text-align: left; 
+    position: relative; 
+	font-family: "Helvetica", sans-serif;
+	-webkit-font-smoothing: antialiased;
+    -webkit-user-select: none; 
+    font-size: 13px; 
+    padding-top: 10px; 
+    padding-right: 6px; 
+    padding-bottom: 10px; 
+   /* border-top-width: 1px; 
+    border-right-width: 1px; 
+    border-bottom-width: 1px; 
+    border-left-width: 1px; 
+    border-top-style: solid; 
+    border-right-style: solid; 
+    border-bottom-style: solid; 
+    border-left-style: solid; 
+    border-top-color: rgb(113, 123, 135); 
+    border-right-color: rgb(113, 123, 135); 
+    border-bottom-color: rgb(113, 123, 135); 
+    border-left-color: rgb(113, 123, 135); 
+    border-image: initial; */
+  /*  -webkit-box-shadow: rgba(0, 0, 0, 0.398438) 0px 2px 4px; 
+    box-shadow: rgba(0, 0, 0, 0.398438) 0px 2px 4px; */
+    color: rgb(0, 0, 0); 
+    padding-left: 6px; 
+    font-weight: bold; 
+    background-image: initial; 
+    background-attachment: initial; 
+    background-origin: initial; 
+    background-clip: initial; 
+    background-color: rgb(255, 255, 255); 
+    background-position: initial initial; 
+    background-repeat: initial initial;     
+    z-index: 2;
+}   
+
+.dropDownArrow{
+    -webkit-user-select: none; 
+    border-width: 0px; 
+    border-style: initial; 
+    border-color: initial; 
+    border-image: initial; 
+    padding: 0px; 
+    margin-right: 5px; 
+    margin-bottom: 0px; 
+    margin-left: 0px; 
+    position: absolute; 
+    right: 6px; 
+    top: 50%;
+    margin-top: -2px; 
+    width: 7px; 
+    height: 4px; 
+}
+
+.dropDownOptionsDiv{
+    background-color: white; 
+    z-index: 0; 
+    padding-top: 2px; 
+   /* border-right-width: 1px; 
+    border-bottom-width: 1px; 
+    border-left-width: 1px; 
+    border-right-style: solid; 
+    border-bottom-style: solid; 
+    border-left-style: solid; 
+    border-right-color: rgb(113, 123, 135); 
+    border-bottom-color: rgb(113, 123, 135); 
+    border-left-color: rgb(113, 123, 135); 
+    border-image: initial; 
+    border-top-width: 0px; 
+    border-top-style: initial; 
+    border-top-color: initial; */
+   /* -webkit-box-shadow: rgba(0, 0, 0, 0.398438) 0px 2px 4px; 
+    box-shadow: rgba(0, 0, 0, 0.398438) 0px 2px 4px; */
+    position: relative; 
+    text-align: left; 
+    display: none;
+}
+
+.dropDownItemDiv{
+	font-family: "Helvetica", sans-serif;
+	-webkit-font-smoothing: antialiased;
+    -webkit-user-select: none; 
+    font-size: 16px; 
+    padding-top: 2px; 
+    padding-right: 5px; 
+    padding-bottom: 3px; 
+    padding-left: 5px; 
+    background-color: rgb(255, 255, 255); 
+    color: black;       
+}
+.dropDownItemDiv:hover, .checkboxContainer:hover{
+    background-color: rgb(235, 235, 235);       
+
+}
+.dropDownControl:hover{
+	background:#EEEEEE;
+    /*background: -webkit-linear-gradient(top,rgb(255,255,255),rgb(230,230,230));*/
+}
+.separatorDiv{
+    margin-top: 1px; 
+    margin-right: 0px; 
+    margin-bottom: 1px; 
+    margin-left: 0px; 
+    border-top-width: 1px; 
+    border-top-style: solid; 
+    border-top-color: rgb(235, 235, 235); 
+}
+.checkboxContainer{
+    font-family: Arial, sans-serif; 
+    -webkit-user-select: none; 
+    font-size: 16px; 
+    padding-top: 5px; 
+    padding-bottom: 8px; 
+    padding-left: 5px; 
+    direction: ltr; 
+    text-align: left; 
+    background-color: rgb(255, 255, 255); 
+    white-space: nowrap; 
+    padding-right: 8px; 
+    color: rgb(0, 0, 0); 
+}       
+.checkboxSpan{
+    box-sizing: border-box; 
+    position: relative; 
+    line-height: 0; 
+    font-size: 0px; 
+    margin-top: 0px; 
+    margin-right: 5px; 
+    margin-bottom: 0px; 
+    margin-left: 0px; 
+    display: inline-block; 
+    background-color: rgb(255, 255, 255); 
+    border-width: 1px; 
+    border-style: solid; 
+    border-color: initial; 
+    border-image: initial; 
+    border-top-left-radius: 1px; 
+    border-top-right-radius: 1px; 
+    border-bottom-right-radius: 1px; 
+    border-bottom-left-radius: 1px; 
+    width: 15px; 
+    height: 15px; 
+    vertical-align: middle; 
+    -webkit-box-shadow: none; 
+    box-shadow: none; 
+    border-color: rgb(198, 198, 198);       
+}
+
+.checkboxSpan input[type="checkbox"]{
+	display:none;
+}
+
+.blankDiv{
+    position: absolute; 
+    left: 1px; 
+    top: -2px; 
+    width: 13px; 
+    height: 11px; 
+    overflow-x: hidden; 
+    overflow-y: hidden; 
+    display: none; /*when = block -> this is the "check" symbol*/ 
+}
+
+.blankImg{
+    position: absolute; 
+    left: -52px; 
+    top: -44px; 
+    -webkit-user-select: none; 
+    border-width: 0px; 
+    border-style: initial; 
+    border-color: initial; 
+    border-image: initial; 
+    padding: 0px; 
+    margin: 0px; 
+    -webkit-user-drag: none; 
+    width: 68px; 
+    height: 67px; 
+}
+
+.checkboxLabel{
+    vertical-align: middle; 
+    cursor: pointer;
+}
+
+/*Info window styles*/
+
+.borderbox{-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+
+#map_bubble{
+	width:100%;height:185px;background:white;padding:5px;
+}
+
+a{
+	text-decoration:none;
+	color: #aaaaaa;
+}
+#map_avatar{
+	float:left;
+	vertical-align:top;
+	display:inline-block;
+	width:122px;
+	height:162px;
+}
+
+#map_avatar img{
+	width:100%;
+	height:100%;
+}
+
+#map_header{
+	float:left;
+	vertical-align:top;
+	display:inline-block;
+	height:30px;
+	width:278px;
+	padding: 5px 5px 5px 15px !important;
+}
+#map_header h4{margin:0;padding:0;line-height: 20px;font-size: 18px;}
+
+#map_description{
+	width:278px;
+	height:122px;
+	display:inline-block;
+	float:left;
+	padding: 5px 5px 5px 15px !important;
+	font-size:12px;
+}
+
+/*social icons*/
+.tw, .in, .fb{
+	display:inline-block;
+	vertical-align:top;
+	border-right:1px dotted #e5e5e5;
+	width:30px;
+	height:30px;
+	font-size:0;
+}
+.tw{
+	background:url(../images/twitter.png) no-repeat;
+}
+.in{
+	background:url(../images/linkdin.png) no-repeat;
+}
+.fb{
+	background:url(../images/facebook.png) no-repeat;
+}
+
+/*Media queries*/
+
+@media (max-width: 600px) {
+	.container{
+		width:100%;
+		padding-right:5px;
+		position:static !important;
+	}
+	
+	.dropDownControl{
+		padding-right:5px;
+		margin-right:30px;
+		font-size:11px;
+	}
+	
+	.dropDownOptionsDiv{
+		margin-right:30px;	
+		padding-right:5px;
+	}
+	
+	.checkboxLabel{
+		font-size:10px;
+	}
+	
+	.checkboxSpan{
+		width:10px;
+		height:10px;
+	}
+	
+	.checkboxContainer{
+		padding-bottom:3px;
+		padding-top:0px;
+	}
+	
+}

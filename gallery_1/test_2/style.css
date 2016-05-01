@@ -1,0 +1,36 @@
+        body{
+            background-color: #000000;
+        }
+        .outer{
+            margin:50px auto;
+            width:800px;
+            height:450px;
+            overflow:hidden;
+            position:relative;
+            background:#111;
+        }
+
+        .inner{
+            float:left;
+            display:inline;
+            width:200%;
+            height:450px;
+
+        }
+
+        .thumb{
+            float:left;
+            margin: 5px;
+			margin-bottom: 5px;
+            width:170px;
+            height:138px;
+
+            border:#222 solid 1px;
+            text-align:center;
+            line-height:140px;
+        }
+
+        .inner .thumb img{
+            height:100%;
+            max-width:100%;
+        }	

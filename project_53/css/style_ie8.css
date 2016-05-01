@@ -1,0 +1,41 @@
+header .navbar-default{
+	background: rgb(17,33,50) !important;
+}
+
+header H1{
+	margin-top: 150px;
+}
+
+
+
+header .navbar-default .navbar-nav > li.last > a{
+   border-right: 0
+}
+
+header .navbar-default .navbar-nav > li.last > a{
+   background: #f26522 !important;
+   border-radius: 20px;
+   padding:8px 20px;
+   border-right: 0;
+   margin-left:10px;
+   margin-top: -7px;
+   outline: none !important;
+  text-decoration: none !important; 
+    
+}
+
+
+
+
+header .navbar-default .navbar-nav > li.last:hover > a, header .navbar-default .navbar-nav >li.last > a:focus{
+  background: #e7630d !important; /* Old browsers */
+  background: -moz-linear-gradient(top, #e7630d 0%, #f58700 100%) !important; /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e7630d), color-stop(100%,#f58700)) !important; /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #e7630d 0%,#f58700 100%) !important; /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #e7630d 0%,#f58700 100%) !important; /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #e7630d 0%,#f58700 100%) !important; /* IE10+ */
+  background: linear-gradient(to bottom, #e7630d 0%,#f58700 100%) !important; /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7630d', endColorstr='#f58700',GradientType=0 ); /* IE6-9 */
+   text-decoration: none;
+   color: #fff !important;
+}

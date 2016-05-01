@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Title</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<script type="text/javascript" src="js/jquery.js"></script>
+<!--[if lt IE 9]>
+		<script type="text/javascript" src="js/PIE.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style_ie.css"/>
+      	<script src="js/html5shiv.js"></script>
+        <script type="text/javascript" src="js/ie.js"></script>
+<![endif]-->
+</head>
+
+<!--[if lt IE 9]>
+<body class="ie8">
+<![endif]-->
+<!--[if !lt IE 9]>-->
+<body>
+<!--<![endif]-->
+	<div class="wrapper topbar">
+    	<div class="center">
+        	<div class="topbar_container">
+            	<div class="topbar_logo">
+        			<a href="#">IKEA Portland Gift Registry</a>    
+            	</div>
+                <ul>
+                	<li><a href="#">New Search</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="login_page wrapper">
+        <div class="wrapper">
+            <div class="center">
+            <a href="#" class="ikea_logo"><img src="img/ikea_logo.png"/></a>
+            </div>
+        </div>
+        <div class="wrapper">
+        	<div class="center">
+            	<div class="login_container">
+                	<div class="inner">
+                    	<div class="block inactive">
+                        	<div class="overlay"></div>
+                        	<h3 class="title">New to IKEA Portland Gift Registry ? <a href="#">Create a Registry</a></h3>
+                            <div class="form">
+                            	<div class="fb_connect">
+                                	<a href="#">Connect</a>
+                                </div>
+                                <p class="or">- or -</p>
+                                <div class="row">
+                                	<span class="lable">Your email address:</span>
+                                    <input type="text"/>
+                                </div>
+                                <div class="row">
+                                	<span class="lable">Choose a password:</span>
+                                    <input type="text"/>
+                                </div>
+                                <div class="row">
+                                	<span class="lable">Retype password:</span>
+                                    <input type="text"/>
+                                </div>
+                                <div class="row">
+                                	<button type="submit">SIGN-UP</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block inactive">
+                        	<div class="overlay"></div>
+                        	<h3 class="title">Already have an account ? <a href="#">Login</a></h3>
+                            <div class="form">
+                            	<div class="fb_connect">
+                                	<a href="#">Connect</a>
+                                </div>
+                                <p class="or">- or -</p>
+                                <div class="row">
+                                	<span class="lable">Your email address:</span>
+                                    <input type="text"/>
+                                </div>
+                                <div class="row">
+                                	<span class="lable">Your password:</span>
+                                    <input type="text"/>
+                                </div>
+                                <div class="row">
+                                	<a href="#" class="forgot_pass">Forgot password</a>
+                                </div>
+                                <div class="row">
+                                	<button type="submit">SIGN-UP</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper footer">
+    </div>
+    
+</body>
+<script type="text/javascript">
+$(function(){
+	$(".block").mouseenter(function(){
+		$(".block").addClass("inactive");
+		$(this).removeClass("inactive");	
+	});	
+	
+	
+});
+</script>
+</html>

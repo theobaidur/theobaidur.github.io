@@ -1,0 +1,91 @@
+.sbHolder:focus{outline:0px; }
+.sbHolder{
+	background-color: #fff;
+	border: solid 1px #00b0f0;
+    height: 22px;
+	font-size: 12px;
+	font-weight: normal;
+	
+	position: relative;
+	width: 92%;
+	border-radius:5px ;
+}
+.sbHolder li{padding:0 0%; width:100%}
+.immuniza-data .sbHolder{border: solid 2px #f4f4f4 ;}
+
+
+.sbHolder a{display: block;
+	
+	padding: 4px 0 2px 4px !important;
+	font-size:12px;
+  color: #000 !important;
+  text-decoration:none;
+  }
+.sbSelector{
+	display: block;
+	
+	left: 0;
+	
+	outline: none;
+	overflow: hidden;
+	position: absolute;
+	text-indent: 0.01px;
+	top: 0;
+	width:100%;
+	color: #000 ;
+  text-decoration:none;
+ 
+}
+
+.sbToggle{
+	background: url(images/date-picker-bg.png) no-repeat;
+	display: block;
+	height: 22px;
+	outline: none;
+	position: absolute;
+	right:0%;
+	top: 40%;
+	width: 10px;
+}
+
+
+.sbOptions{
+	
+	border: solid 1px #00b0f0;
+	list-style: none;
+	left: -1px;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 22px !important;
+	width: 100%;
+	z-index: 1;
+
+	height:auto !important;
+	background-color: #fff;
+}
+
+.sbOptions a{
+	
+	display: block;
+	
+	padding: 2px 0 2px 4px !important;
+	font-size:12px;
+  color: #000;
+  text-decoration:none;
+}
+.immuniza-data .sbOptions a{border: solid 2px #f4f4f4 !important;}
+.sbOptions a:hover{
+	background:#00b0f0;
+	color:#fff  !important;
+	outline: none;
+	text-decoration: none;
+}
+.patient_blog .sbHolder li{padding:0 0%; width:100%}
+.patient_blog .sbHolder a{text-align:left;	padding: 0px 0 0px 5px !important;  }
+
+.patient_blog .sbHolder{border: solid 1px #00b0f0 ; }
+.patient_blog  .sbOptions{border: solid 1px #BFBFBF ;}
+.history_select  .sbOptions{border: solid 1px #00b0f0 ;}
+.history_select .sbHolder{border: solid 1px #00b0f0 ;}
+.patient_blog .Patient_formright .medical-58-blog .sbHolder{ width:100%}

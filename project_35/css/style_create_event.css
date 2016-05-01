@@ -1,0 +1,619 @@
+/*Font family*/
+@font-face {
+	font-family: 'verdanaregular';
+	src: url('verdana-webfont.eot');
+	src: url('verdana-webfont.eot?#iefix') format('embedded-opentype'), url('verdana-webfont.woff') format('woff'), url('verdana-webfont.ttf') format('truetype'), url('verdana-webfont.svg#verdanaregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'verdanabold';
+	src: url('verdanab-webfont.eot');
+	src: url('verdanab-webfont.eot?#iefix') format('embedded-opentype'), url('verdanab-webfont.woff') format('woff'), url('verdanab-webfont.ttf') format('truetype'), url('verdanab-webfont.svg#verdanabold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+*{
+	margin:0;
+	padding:0;
+	font-family: 'verdanaregular';
+
+	}
+	
+body{
+	min-width:320px;
+	overflow-x:hidden;
+	background:url(../img/bg_main.jpg);
+	}
+	
+a{
+	text-decoration:none;
+	}
+	
+ul,li{
+	list-style:none;
+	}
+	
+img{
+	border:none;
+	}
+	
+	
+	
+/*General styles*/
+
+.wrapper{
+	float:left;
+	display:block;
+	width:100%;
+	}
+	
+.center{
+	max-width:960px;
+	margin:0 auto;
+	}
+	
+.center_2{
+	padding:0px 25px;
+	max-width:910px;
+	}
+	
+@media(max-width:960px){
+.center_2,
+.center{
+	max-width:960px;
+	padding:0px 10px;
+	}
+	
+}		
+
+@media(max-width:480px){
+.center_2{
+	padding:0px;
+	}
+	
+}		
+
+	
+	
+/*Top bar*/
+
+.topbar{
+	min-height:40px;
+	background:#4179ac;
+	}
+	
+.topbar_container{
+	padding:3px 0px;
+	}
+	
+.topbar_logo{
+	float:left;
+	display:inline-block;
+	}
+	
+.topbar_logo a{
+	display:inline-block;
+	padding-left:50px;
+	min-height:25px;
+	font-family: 'verdanaregular';
+	background:url(../img/home_icon.png) left center no-repeat;
+	color:#FFF;
+	font-size:18px;
+	padding-top:5px;
+	font-weight:bold;	
+		
+	}
+	
+.topbar ul{
+	float:right;
+	display:inline-block;
+	}
+	
+.topbar ul li{
+	float:left;
+	display:inline;
+	margin-left:40px;
+	}
+	
+.topbar ul li a{
+	display:inline-block;
+	min-height:25px;
+	font-family: 'verdanaregular';
+	color:#FFF;
+	font-size:18px;
+	padding-top:5px;
+	font-weight:bold;	
+	}
+	
+.topbar a:hover{
+	text-decoration:underline;
+	}
+
+/*Create event  page*/
+	
+.ev_create_page{
+	position:relative;
+	z-index:1;
+	}
+	
+.ev_create_page .center{
+	background:url(../img/bg_general.jpg) center top no-repeat;
+	overflow:auto;	
+	}
+	
+@media(max-width:1200px){
+	.ev_create_page{
+		background:none !important;
+		}
+	}	
+	
+@media(min-width:1200px){
+.ev_create_page{
+	background:url(../img/bg_general.jpg) center top no-repeat;
+	}
+	
+.ev_create_page .center{
+	background:none !important;
+	}
+	
+	}		
+	
+	
+.ikea_logo{
+	float:left;
+	display:inline-block;
+	margin-top:60px;
+	margin-bottom:20px;
+	margin-left:25px;
+	}
+	
+
+.ev_create_container{
+	float:left;
+	display:block;
+	width:100%;
+	margin:20px 0px 0px;
+	min-height: 648px;
+	}
+	
+.underline{
+	text-decoration:underline;
+}	
+	
+.ev_create_container .inner{
+	display:block;
+	background:url(../img/overlay_bg_2.png);
+	overflow:auto;
+	width:350px;
+	float:right;
+	margin-right:25px;
+	margin-top:60px;
+	}
+	
+.inner .block{
+	float:left;
+	display:inline-block;
+	width:100%;
+	height:auto;
+	background:url(../img/overlay_bg_2.png);
+	position:relative;
+	}
+	
+	
+.inner .title{
+	text-align:left;
+	font-size:24px;
+	color:#FFF;
+	font-family: 'verdanaregular';
+	font-weight:bold;
+	font-style:italic;
+	padding:10px 20px;
+	}
+	
+	
+.inner .form{
+	display:block;
+	padding:10px;
+	}
+
+.form .box{
+	padding-top:10px;
+	}	
+	
+.form .box h3{
+	text-align:left;
+	font-size:18px;
+	color:#FFF;
+	font-family: 'verdanaregular';
+	font-weight:100;
+	padding-left:30px;
+	min-height:24px;
+	background:url(../img/collapse_reg.png) left top no-repeat;
+	cursor:pointer;
+	margin-left:10px;	
+	}	
+	
+.form .box.active h3{
+	background:url(../img/collapse_down.png) left top no-repeat;
+	
+	}	
+	
+.form .row{
+	display:block;
+	margin:5px 0px;
+	overflow:hidden;
+	}
+	
+.form .row .lable{
+    color: #FFFFFF;
+    display: inline-block;
+    float: left;
+    font-family: 'verdanaregular';
+    font-size: 11px;
+    line-height: 30px;
+    min-height: 26px;
+     text-align: right;
+    width: 140px;
+}
+
+	
+.form .row input{
+	    border: 2px solid #5db4f0;
+    color: #4179AC;
+    display: inline-block;
+    float: right;
+    font-family: 'verdanaregular';
+    font-size: 14px;
+    line-height: 20px;
+    min-height: 20px;
+    padding: 3px 1%;
+    width: 51%;
+	}
+	
+
+.form .row .datepicker_outer{
+	float:right;
+	display:inline-block;
+	border:#5db4f0 solid 2px;
+	width:53%;
+	min-height:25px;
+	line-height:25px;
+	font-size:16px;
+	color:#4179AC;
+	font-family: 'verdanaregular';
+	position:relative;
+	}
+.form .row input.error,
+.form .row .datepicker_outer.error{
+	border-color:#F00;
+	}	
+	
+	
+.info_lable img{
+	margin-bottom:-7px;
+	}	
+	
+.form .row .datepicker_outer b{
+	display:inline-block;
+	width:27px;
+	height:25px;
+	background:url(../img/calender_icon.png) right center no-repeat;
+	position:absolute;
+	top:0px;
+	right:0px;
+	
+	}	
+
+.form .row .datepicker_outer.error b{
+	border-right: #F00 solid 1px;
+}	
+	
+	
+.form .row .datepicker_outer input{
+	float:left;
+	border:0px;
+	padding:0px 1%;
+	width:98%;
+	min-height:25px;
+	line-height:25px;
+	
+	}	
+
+
+.form .row select{
+	float:right;
+	}
+	
+.customSelect{
+	border:#5889B5 solid 1px;
+	padding:5px 1%;
+	width:51%;
+	min-height:25px;
+	line-height:25px;
+	font-size:16px;
+	color:#4179AC;
+	font-family: 'verdanaregular';
+	background:#fff;
+	float:right;
+	}					
+	
+.form button{
+	display:block;
+	width:100%;
+	background:#ffdf1b;
+	text-align:center;
+	font-size:18px;
+	font-family: 'verdanaregular';
+	font-weight:bold;
+	border:none;
+	color:#036cb6;
+	padding:3px 0px;
+	cursor:pointer;
+	margin:20px 0 10px 0;
+	}
+	
+#done.invalid{
+	background: #ccc;
+}	
+	
+.form small{
+	float:right;
+	color:#FFF;
+	font-family: 'verdanaregular';
+	}
+	
+.form small sup{
+	display:inline-block;
+	}		
+	
+	
+.inactive .form button{
+	background:#205efa;
+	color:#fff;
+	}	
+	
+	
+.block .box_2 .row{
+	display:none;
+	}			
+
+
+
+/*Footer*/	
+.footer{
+	min-height:26px;
+	background:#4179ac;
+	position:relative;
+	margin-top:-13px;
+	}										
+	
+
+	
+/* Dropdown control */
+.selectBox-dropdown {
+	float:right;
+	position: relative;
+    text-align: left;
+    outline: none;
+    vertical-align: middle;
+    display: inline-block;
+    cursor: default;
+	float:right;
+	border:#5db4f0 solid 2px;
+	width:51% !important;
+	padding:0px 1%;
+	min-height:25px;
+	line-height:25px;
+	font-size:16px;
+	color:#4179AC;
+	font-family: 'verdanaregular';
+	background:#fff;
+	
+}
+
+.selectBox-dropdown:focus,
+.selectBox-dropdown:focus .selectBox-arrow {
+    border-color: #666;
+}
+
+.selectBox-dropdown.selectBox-menuShowing-bottom {
+    -moz-border-radius-bottomleft: 0;
+    -moz-border-radius-bottomright: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -webkit-border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.selectBox-dropdown.selectBox-menuShowing-top {
+    -moz-border-radius-topleft: 0;
+    -moz-border-radius-topright: 0;
+    -webkit-border-top-left-radius: 0;
+    -webkit-border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.selectBox-dropdown .selectBox-label {
+    display: inline-block;
+    white-space: nowrap;
+	font-size:14px;
+}
+
+.selectBox-dropdown .selectBox-arrow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 27px;
+    height: 100%;
+    background:url(../img/dropdown_icon.png) 50% center no-repeat;
+    border-left: solid 1px #BBB;
+}
+
+/* Dropdown menu */
+.selectBox-dropdown-menu {
+    position: absolute;
+    z-index: 99999;
+    max-height: 200px;
+    min-height: 1em;
+    border: solid 1px #BBB; /* should be the same border width as .selectBox-dropdown */
+    background: #FFF;
+    -moz-box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+    -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Inline control */
+.selectBox-inline {
+    min-width: 150px;
+    outline: none;
+    border: solid 1px #BBB;
+    background: #FFF;
+    display: inline-block;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    overflow: auto;
+}
+
+.selectBox-inline:focus {
+    border-color: #666;
+}
+
+/* Options */
+.selectBox-options,
+.selectBox-options LI,
+.selectBox-options LI A {
+    list-style: none;
+    display: block;
+    cursor: default;
+    padding: 0;
+    margin: 0;
+}
+
+.selectBox-options.selectBox-options-top{
+    border-bottom:none;
+	margin-top:1px;
+	-moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.selectBox-options.selectBox-options-bottom{
+	border-top:none;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.selectBox-options LI A {
+    line-height: 1.5;
+    padding: 0 .5em;
+    white-space: nowrap;
+    overflow: hidden;
+    background: 6px center no-repeat;
+}
+
+.selectBox-options LI.selectBox-hover A {
+    background-color: #EEE;
+}
+
+.selectBox-options LI.selectBox-disabled A {
+    color: #888;
+    background-color: transparent;
+}
+
+.selectBox-options LI.selectBox-selected A {
+    background-color: #C8DEF4;
+}
+
+.selectBox-options .selectBox-optgroup {
+    color: #666;
+    background: #EEE;
+    font-weight: bold;
+    line-height: 1.5;
+    padding: 0 .3em;
+    white-space: nowrap;
+}
+
+/* Disabled state */
+.selectBox.selectBox-disabled {
+    color: #888 !important;
+}
+
+.selectBox-dropdown.selectBox-disabled .selectBox-arrow {
+    opacity: .5;
+    filter: alpha(opacity=50);
+    border-color: #666;
+}
+
+.selectBox-inline.selectBox-disabled {
+    color: #888 !important;
+}
+
+.selectBox-inline.selectBox-disabled .selectBox-options A {
+    background-color: transparent !important;
+}
+
+@media(max-width:767px){
+	.form .box h3{
+		font-size:18px;
+		}
+	
+	.ev_create_container .inner{
+		width:300px;
+		float:none;
+		margin:0 auto 20px auto;
+		}
+		
+	.topbar_container{
+		text-align:center;
+		}
+		
+	.topbar_container ul{
+		float:none;
+		}
+		
+	.ikea_logo{
+		margin:30px auto;
+		width:100%;
+		text-align:center;
+		}		
+	.topbar_logo{
+		width:100%;
+		}
+	.form .row .lable{
+		width:280px;
+		padding-bottom:5px;
+		text-align:left;
+		}
+	.form .row .datepicker_outer{
+		width:276px;
+		
+		}	
+	.selectBox-dropdown{
+		width:270px !important;		
+	}	
+	.form .row input{
+		width:270px !important;
+		padding:3px !important;
+		float:left;
+		}
+		
+	.form .row .datepicker_outer input{
+		width:270px !important;
+		padding:0px 3px !important;
+		}		
+	}			
+	

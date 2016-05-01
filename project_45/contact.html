@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>Dallas Auto Firm</title>
+
+		<!-- Bootstrap Core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom CSS -->
+		<link href="css/style.css" rel="stylesheet">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+	</head>
+
+	<body>
+		<div id="body" class="page-contact">
+			<!-- header-->
+			<header id="header">
+				<!-- Navigation -->
+				<nav class="navbar" role="navigation">
+					<div class="container">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="index.html"><img src="img/logo.png" /></a>
+						</div>
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav navbar-right">
+								<li>
+									<a href="index.html">Home</a>
+								</li>
+								<li>
+									<a href="inventory.html">Inventory</a>
+								</li>
+								<li>
+									<a href="story.html">Story</a>
+								</li>
+								<li>
+									<a href="contact.html" class="active">Contact</a>
+								</li>
+
+							</ul>
+						</div>
+						<!-- /.navbar-collapse -->
+					</div>
+					<!-- /.container -->
+				</nav>
+
+			</header>
+			<!-- /header-->
+			<div class="map" id="map">
+			</div>
+			<!-- Page Content -->
+			<div class="container contact-container">
+				<h2>CONTACT<b> US</b></h2>
+				<p>
+					2410 Tarpley Rd Suite 302
+					<br/>
+					Carrollton, TX 75006
+					<br/>
+					<br/>
+					214.715.7999
+					<br/>
+					<br/>
+					<a href="mailto:CONTACT@DALLASAUTOFIRM.COM">CONTACT@DALLASAUTOFIRM.COM</a>
+				</p>
+
+				<div class="social_con">
+					<a href="#"><img src="img/fb.png" /></a>
+					<a href="#"><img src="img/tw.png" /></a>
+					<a href="#"><img src="img/ins.png" /></a>
+				</div>
+
+			</div>
+			<!-- /.container -->
+
+		</div>
+
+		<!-- jQuery Version 1.11.0 -->
+		<script src="js/jquery-1.11.0.js"></script>
+
+		<!-- Bootstrap Core JavaScript -->
+		<script src="js/bootstrap.min.js"></script>
+
+		<!-- Script to Activate the Carousel -->
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+		<script>
+			function initialize() {
+				var mapOptions = {
+					zoom : 15,
+					center : new google.maps.LatLng(32.979374, -96.850872)
+				}
+				var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+				var image = 'img/map_pin.png';
+				var myLatLng = new google.maps.LatLng(32.979374, -96.850872);
+				var beachMarker = new google.maps.Marker({
+					position : myLatLng,
+					map : map,
+					icon : image
+				});
+			}
+
+
+			google.maps.event.addDomListener(window, 'load', initialize);
+
+		</script>
+
+	</body>
+
+</html>

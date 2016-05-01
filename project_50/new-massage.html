@@ -1,0 +1,403 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>:: zhealth ::</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script>
+/*function showMe(d_ID){
+    jQuery("#"+d_ID).slideToggle('slow');
+    jQuery("#sw_"+d_ID).html('<a onclick="hideMe('+"'"+d_ID+"'"+')">Appointments<img src="images/minus.png" alt=""/></a>');
+  }
+  function hideMe(d_ID){ 
+    jQuery("#"+d_ID).slideToggle('slow'); 
+    jQuery("#sw_"+d_ID).html('<a onclick="showMe('+"'"+d_ID+"'"+')">Appointments<img src="images/plus.png" alt=""/></a>');
+  }  */
+</script>
+<script>
+$(document).ready(function(e) {
+    $("#pati-mrn-sear").click(function(){
+    $(".new-msg-list").slideToggle();
+  });
+});
+$(function() {
+    $( document ).tooltip({
+      position: {
+        my: "center bottom-20",
+        at: "center top",
+        using: function( position, feedback ) {
+          $( this ).css( position );
+          $( "<div>" )
+            .addClass( "arrow" )
+            .addClass( feedback.vertical )
+            .addClass( feedback.horizontal )
+            .appendTo( this );
+        }
+      }
+    });
+  });
+
+
+	 function showMe(d_ID){
+	$(".doctor_box_des").hide('slow');  
+    
+	if ($("#tab-"+d_ID).is(':visible')) {
+      $("#tab-"+d_ID).hide('slow');  
+    } else { $("#tab-"+d_ID).show('slow');   }
+	
+	if ($("#desc-"+d_ID).is(':visible')) {
+      $("#desc-"+d_ID).hide('slow');  
+    } else { $("#desc-"+d_ID).show('slow');   }
+  }
+  
+  
+  
+  
+   function replyMe(d_ID){
+	   
+	$(".doctor_box_reply").hide('slow');  
+    
+	if ($("#tab-"+d_ID).is(':visible')) {
+      $("#tab-"+d_ID).hide('slow');  
+    } else { $("#tab-"+d_ID).show('slow');   }
+	
+	if ($("#reply-"+d_ID).is(':visible')) {
+      $("#reply-"+d_ID).hide('slow'); $("#desc-"+d_ID).hide('slow');;  
+    } else { $("#reply-"+d_ID).show('slow');   $("#desc-"+d_ID).hide('slow');}
+  }
+</script>
+<script type="text/javascript">
+ $(document).ready(function() {
+	 
+   $("#advance").click(function(){
+	$("#left-menu").slideToggle(function(){
+		$('.search_hldr').toggleClass('selecionado', $(this).is(':visible'));
+		$("#advance").toggleClass('advance', $(this).is(':visible'));
+		$(".appimage").toggleClass('appplus', $(this).is(':visible'));	
+		});		
+ });   
+  $(function() {
+  
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+	$( "#jig-datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  });
+  
+  
+  $("#sw_contentID2").click(function(e) {
+    $("#contentID2").slideToggle(function(){
+		
+		$(".appimage").toggleClass('appplus', $(this).is(':visible'));
+		});
+		
+		
+});
+ 
+/*  
+  $(".doctor_box_title").click(function(){
+	 $(this).find(".doctor_box_des").slideToggle(function(){
+		 $(".minimize").toggleClass('plush', $(this).is(':visible'));
+		
+		 });
+		  if($(".minimize").hasClass("plush")){
+			 $(this).find(".minimize").html("+");
+			 }
+		 else{$(this).find(".minimize").html("-");}
+	  });*/
+	 
+  
+});
+
+
+
+
+</script>
+
+<!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+<section class="main_body">
+  <header class="row navigate">
+    <div class="logo" >zHealth</div>
+    <div class="navigate_left"> <a href="#">My Basket <span class="pending">2</span></a> <a href="new-massage.html" class="baket-icon"><img src="images/copose.jpg" width="24" height="auto" alt=" "></a> </div>
+    <div class="navigate_hldr"> <span class="toggleMenu"><a href="#">Menu</a></span>
+      <ul class="nav">
+        <li><span class="tt"><a href="indexd.html">Messaging</a> <span class="tooltip"> <span class="top"></span> <span class="middle">
+          <p><a href="index.html" title="">New Message</a><br />
+            <a href="index.html">View Messages</a></p>
+          </span> </span></span> <span class="pending">2</span> </li>
+        <li><span class="tt">Patient Communications <span class="tooltip"> <span class="top"></span> <span class="middle">
+          <p>New Communication<br />
+            View Communication</p>
+          </span> </span></span> <span class="pending">2</span> </li>
+        <li><span class="tt">My list <span class="tooltip"> <span class="top"></span> <span class="middle">
+          <p>View List<br />
+            Add Patient</p>
+          </span> </span> </span></li>
+      </ul>
+      <ul class="nav right nav42pt">
+        <li><a href="" >Reports</a></li>
+        <li><span class="tt">Medical Resources <span class="tooltip"> <span class="top"></span> <span class="middle">
+          <p>Resource 1<br />
+            Resource 2<br />
+            Intranet</p>
+          </span> </span> </span></li>
+      </ul>
+    </div>
+    <div class="navigate_right" id="divOne">
+      <div class="myaccount" > <span>Welcome Dr. Kanwar</span> <span  ><a href="#" >Your Account<img src="css/images/down-arrow.png"/></a></span> </div>
+      <div class="myaccountDtls" id="details">
+        <ul>
+          <li><a href="" >Settings</a></li>
+          <li><a href="" >Preferences</a></li>
+          <li><a href="" >Change password</a></li>
+          <li><a href="" >Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <section class="row main_container">
+    <article class="col_left">
+      <div class="col_left_hldr col_left_search">
+        <div class="add-patients"><span class="">Patients</span> <a href="addpatient.html"><span class="plussign tt">&nbsp;+<span class="tooltip"> <span class="top"></span> <span class="middle"><p>Add Patient</p>          </span> </span> </span></a> </div>
+        <div class="search_hldr">
+          <form action="#">
+            <input type="text" value="Name or MRN" class="search_inpt" onFocus="this.value=''" onBlur="this.value='Name or MRN'"/>
+            <input type="submit" value="" class="search_sub" />
+          </form>
+        </div>
+        <a href="#" title="" id="advance" class="advabce_srch"><span class="appimage"></span>Advanced</a> </div>
+      <div id="left-menu" class="el_hide">
+        <form>
+          <fieldset>
+            <input type="text" value="Name" >
+          </fieldset>
+          <fieldset>
+            <input type="text" value="zID" >
+          </fieldset>
+          <fieldset>
+            <input type="text" value="DOB" id="datepicker"  class="B_frm_inpt date_pic">
+          </fieldset>
+          <fieldset>
+            <input type="text" value="MRN" >
+          </fieldset>
+          <fieldset>
+            <input type="text" value="SSN" >
+          </fieldset>
+          <fieldset>
+            <input type="submit" value="Search" >
+          </fieldset>
+        </form>
+      </div>
+      <ul class="left-menu">
+        <li><a href="index.html" class="submenu">Inbox</a></li>
+        <li><a href="#">Archive</a></li>
+        <li><a href="#">Drafts</a></li>
+      </ul>
+    </article>
+    <article class="col_med">
+      <div class="col_med_title newmessage">New Message
+        <div  class="col_med_back">&nbsp; &nbsp; <a href="#"><&nbsp; Back</a></div>
+      </div>
+      <div class="med_table">
+        <div class="new_massage">
+         <ul class="msg-list">
+              <li class="msg-icon" ><a href="#" onclick="replyMe('ID2');" class="minimize"><img src="images/miinimize.png" alt=""/></a></li>
+              <li class="msg-icon" ><a class="el_10" href>Cancel</a></li>
+              
+              <li class="patient-icon el_17pt"><a href="#" onclick="replyMe('ID2')" class="minimize">&nbsp;</a></li>
+              <li class="el_11">&nbsp;</li>
+              <li class="el_8pt">&nbsp;</li>
+              <li class="el_0pt">&nbsp;</li>
+              <li class="el_9pt textRight"><a href="#">Save Draft</a></li>
+              <li class="el_8pt textRight"><img src="images/green.png" alt=""/></li>
+              <li class="el_12"><a href="" title="">Send</a></li>
+            </ul>
+          <form action="">
+           
+            <div class="new_massage_to"> <span class="el_2pt">To:</span> <span class="el_98pt">
+              <input type="" value="" class="sms_to" />
+              </span> </div>
+            <div class="new_massage_to"> <span class="el_5pt">Subject:</span> <span class="el_95pt">
+              <input type="" value="" class="sms_to" />
+              </span> </div>
+            <div class="new_massage_to"> <span class="el_9pt">Patient MRN:</span> <span class="el_78pt">
+              <input type="" value="" class="sms_to" />
+              </span> <span class="right"><a   id="pati-mrn-sear" href="#">Search Patient MRN</a></span> </div>
+            <textarea class="el_13"></textarea>
+          </form>
+          <div class="new-msg-list">
+          <ul class="new-msg-det">
+              <li><input type="text" onblur="(this.value == '') && (this.value = 'Name ')" onfocus="(this.value == 'Name ') && (this.value = '')" value="Name "></li>
+              <li><input type="text" onblur="(this.value == '') && (this.value = 'Date of Birth ')" onfocus="(this.value == 'Date of Birth ') && (this.value = '')" value="Date of Birth "></li>
+              <li><input type="text"onblur="(this.value == '') && (this.value = 'SSN ')" onfocus="(this.value == 'SSN ') && (this.value = '')" value="SSN "></li>
+              <li><input type="submit"  value="Go"></li>
+            </ul>
+            <ul class="new-msg-det">
+              <li><b>Name</b></li>
+              <li><b>Date of Birth</b></li>
+              <li><b>SSN</b></li>
+              <li><b>MRN</b></li>
+              
+            </ul>
+            <ul class="new-msg-det" >
+              <li>John Edward</li>
+              <li>7/12/1965</li>
+              <li>123-45-6789</li>
+              <li>1123456789</li>
+              <li><input type="submit"  value="Select"></li>
+            </ul>
+            <ul class="new-msg-det" >
+              <li>John Edward jr.</li>
+              <li>7/12/1965</li>
+              <li>123-45-6789</li>
+              <li>1123456789</li>
+              <li><input type="submit"  value="Select"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="inner_right el_3">
+      <div class="add-patients"> <span>Appointments</span><span class="plussign tt">&nbsp;+<span class="tooltip"> <span class="top"></span> <span class="middle">
+        <p>Add Appointmemts</p>
+        </span> </span></span> </div>
+      <div class="col_right_title inner_appoinment"><span id="sw_contentID2"><a onclick="showMe('contentID2')"><span class="appimage el_relative left el_4"></span></a></span>
+        <input type="text" value="05/26/2014" id="jig-datepicker" class="B_frm_inpt date_pic">
+        <a href="#" class="morebtn">More</a> </div>
+      <div class="col_right_hldr inner_right_content  mCustomScrollbar _mCS_1" id="contentID2" >
+        <ul>
+          <li><a href="" title="" target="_blank"><span>9:00 am  Brett Tramposh Throat  Pain</span>
+            <span class="textLeft">MRN: 188- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>9:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>9:00 am  Cynthia Stoddard  Flu</span>
+            <span>MRN: 188- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>9:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>10:00 am  Jeff Smith  Annual Checkup</span>
+            <span>MRN: 188- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>10:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>10:30 am  Reid Foster  Colonoscopy</span>
+            <span>MRN: 111- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>10:30 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>11:00 am  Judy Green  Mammogram</span>
+            <span>MRN: 265- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>11:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>11:30 am  Rachel Ross  Blood Work</span>
+            <span>MRN: 240- 567-1901</span></a><span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>11:30 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>1:00 pm  Aaron Bawa  Flu</span>
+            <span>MRN: 176- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>1:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>1:30 pm  Fred Mangers  Checkup</span>
+            <span>MRN: 100- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>1:30 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>2:00 pm  Sue McKinnon  Flu</span>
+            <span>MRN: 200- 567-1901</span></a><span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>2:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>2:30 pm  Tracy Bird  Knee Pain</span>
+            <span>MRN: 290- 567-1901</span></a><span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>2:30 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>3:00 pm  Randy Collins  Breathing trouble</span>
+            <span>MRN: 200- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>3:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>3:30 pm  Tom O’Neil  Leg Injury</span>
+            <span>MRN: 234- 567-8901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>3:30 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>4:00 pm  Bob Lutz  Annual Checkup</span>
+            <span>MRN: 224- 167-8001</span></a><span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>4:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>4:30 pm  Jake Maroc  Colonoscopy</span>
+                      <span>MRN: 734- 567-8901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>4:30 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+        </ul>
+      </div>
+    </article>
+    <div class="today_date">7:25 am<br />
+      11/22/2013</div>
+  </section>
+</section>
+<script src="js/script.js" type="text/javascript"></script> 
+<script>
+
+		(function($){
+			$(window).load(function(){
+				
+				$(".content").each(function(index, element) {
+                  $(this).mCustomScrollbar({
+					scrollInertia:150
+				});
+                });
+				
+			});
+		})(jQuery);
+
+	</script>
+</body>
+</html>

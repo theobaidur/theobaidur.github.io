@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Index</title>
+<style type="text/css">
+body{
+	background:#000;
+	}
+.outer{
+	margin:50px auto;
+	width:900px;
+	height:450px;
+	overflow:hidden;
+	position:relative;
+	background:#111;
+	}
+	
+.inner{
+	float:left;
+	display:inline;
+	width:200%;
+	height:450px;
+	transition:transform 1s ease;
+	-webkit-transition:-webkit-transform 1s ease;
+	-moz-transition:-moz-transform 1s ease;
+	-o-transition:-o-transform 1s ease;
+	transform:scale(1);
+	-webkit-transform:scale(1);
+	-moz-transform:scale(1);
+	-o-transform:scale(1);
+	-ms-transform:scale(1);
+	}
+	
+.inner	.row{
+	float:left;
+	width:100%;
+	}
+	
+.inner .thumb{
+	float:left;
+	display:inline-block;
+	width:170px;
+	height:140px;
+	margin:4px;
+	border:#222 solid 1px;
+	text-align:center;
+	line-height:140px;
+	}
+	
+.inner .thumb img{
+	height:100%;
+	max-width:100%;
+	}			
+</style>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+jQuery.easing['jswing'] = jQuery.easing['swing'];
+
+jQuery.extend( jQuery.easing,
+{
+	def: 'easeOutQuad',
+	swing: function (x, t, b, c, d) {
+		//alert(jQuery.easing.default);
+		return jQuery.easing[jQuery.easing.def](x, t, b, c, d);
+	},
+	easeInQuad: function (x, t, b, c, d) {
+		return c*(t/=d)*t + b;
+	},
+	easeOutQuad: function (x, t, b, c, d) {
+		return -c *(t/=d)*(t-2) + b;
+	},
+	easeInOutQuad: function (x, t, b, c, d) {
+		if ((t/=d/2) < 1) return c/2*t*t + b;
+		return -c/2 * ((--t)*(t-2) - 1) + b;
+	},
+	easeInCubic: function (x, t, b, c, d) {
+		return c*(t/=d)*t*t + b;
+	},
+	easeOutCubic: function (x, t, b, c, d) {
+		return c*((t=t/d-1)*t*t + 1) + b;
+	},
+	easeInOutCubic: function (x, t, b, c, d) {
+		if ((t/=d/2) < 1) return c/2*t*t*t + b;
+		return c/2*((t-=2)*t*t + 2) + b;
+	},
+	easeInQuart: function (x, t, b, c, d) {
+		return c*(t/=d)*t*t*t + b;
+	},
+	easeOutQuart: function (x, t, b, c, d) {
+		return -c * ((t=t/d-1)*t*t*t - 1) + b;
+	},
+	easeInOutQuart: function (x, t, b, c, d) {
+		if ((t/=d/2) < 1) return c/2*t*t*t*t + b;
+		return -c/2 * ((t-=2)*t*t*t - 2) + b;
+	},
+	easeInQuint: function (x, t, b, c, d) {
+		return c*(t/=d)*t*t*t*t + b;
+	},
+	easeOutQuint: function (x, t, b, c, d) {
+		return c*((t=t/d-1)*t*t*t*t + 1) + b;
+	},
+	easeInOutQuint: function (x, t, b, c, d) {
+		if ((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
+		return c/2*((t-=2)*t*t*t*t + 2) + b;
+	},
+	easeInSine: function (x, t, b, c, d) {
+		return -c * Math.cos(t/d * (Math.PI/2)) + c + b;
+	},
+	easeOutSine: function (x, t, b, c, d) {
+		return c * Math.sin(t/d * (Math.PI/2)) + b;
+	},
+	easeInOutSine: function (x, t, b, c, d) {
+		return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
+	},
+	easeInExpo: function (x, t, b, c, d) {
+		return (t==0) ? b : c * Math.pow(2, 10 * (t/d - 1)) + b;
+	},
+	easeOutExpo: function (x, t, b, c, d) {
+		return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
+	},
+	easeInOutExpo: function (x, t, b, c, d) {
+		if (t==0) return b;
+		if (t==d) return b+c;
+		if ((t/=d/2) < 1) return c/2 * Math.pow(2, 10 * (t - 1)) + b;
+		return c/2 * (-Math.pow(2, -10 * --t) + 2) + b;
+	},
+	easeInCirc: function (x, t, b, c, d) {
+		return -c * (Math.sqrt(1 - (t/=d)*t) - 1) + b;
+	},
+	easeOutCirc: function (x, t, b, c, d) {
+		return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
+	},
+	easeInOutCirc: function (x, t, b, c, d) {
+		if ((t/=d/2) < 1) return -c/2 * (Math.sqrt(1 - t*t) - 1) + b;
+		return c/2 * (Math.sqrt(1 - (t-=2)*t) + 1) + b;
+	},
+	easeInElastic: function (x, t, b, c, d) {
+		var s=1.70158;var p=0;var a=c;
+		if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
+		if (a < Math.abs(c)) { a=c; var s=p/4; }
+		else var s = p/(2*Math.PI) * Math.asin (c/a);
+		return -(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+	},
+	easeOutElastic: function (x, t, b, c, d) {
+		var s=1.70158;var p=0;var a=c;
+		if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
+		if (a < Math.abs(c)) { a=c; var s=p/4; }
+		else var s = p/(2*Math.PI) * Math.asin (c/a);
+		return a*Math.pow(2,-10*t) * Math.sin( (t*d-s)*(2*Math.PI)/p ) + c + b;
+	},
+	easeInOutElastic: function (x, t, b, c, d) {
+		var s=1.70158;var p=0;var a=c;
+		if (t==0) return b;  if ((t/=d/2)==2) return b+c;  if (!p) p=d*(.3*1.5);
+		if (a < Math.abs(c)) { a=c; var s=p/4; }
+		else var s = p/(2*Math.PI) * Math.asin (c/a);
+		if (t < 1) return -.5*(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+		return a*Math.pow(2,-10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )*.5 + c + b;
+	},
+	easeInBack: function (x, t, b, c, d, s) {
+		if (s == undefined) s = 1.70158;
+		return c*(t/=d)*t*((s+1)*t - s) + b;
+	},
+	easeOutBack: function (x, t, b, c, d, s) {
+		if (s == undefined) s = 1.70158;
+		return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
+	},
+	easeInOutBack: function (x, t, b, c, d, s) {
+		if (s == undefined) s = 1.70158; 
+		if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
+		return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
+	},
+	easeInBounce: function (x, t, b, c, d) {
+		return c - jQuery.easing.easeOutBounce (x, d-t, 0, c, d) + b;
+	},
+	easeOutBounce: function (x, t, b, c, d) {
+		if ((t/=d) < (1/2.75)) {
+			return c*(7.5625*t*t) + b;
+		} else if (t < (2/2.75)) {
+			return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+		} else if (t < (2.5/2.75)) {
+			return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+		} else {
+			return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+		}
+	},
+	easeInOutBounce: function (x, t, b, c, d) {
+		if (t < d/2) return jQuery.easing.easeInBounce (x, t*2, 0, c, d) * .5 + b;
+		return jQuery.easing.easeOutBounce (x, t*2-d, 0, c, d) * .5 + c*.5 + b;
+	}
+});
+
+</script>
+<script type="text/javascript">
+var intr;
+function mouse_scroll(e){
+	if($(".thumb.active").length){
+		return;
+	}
+	var sliderWidth=$(".outer").width();
+	var totalContent=$(".inner").width();
+	if(totalContent>sliderWidth){
+		var mouseCoords=(e.pageX - this.offsetLeft);
+		var mousePercentX=mouseCoords/sliderWidth;
+		var destX=-(((totalContent-(sliderWidth))-sliderWidth)*(mousePercentX));
+		var thePosA=mouseCoords-destX;
+		var thePosB=destX-mouseCoords;
+		var animSpeed=600; //ease amount
+		var easeType='easeOutCirc';
+		if(mouseCoords==destX){
+			$('.inner').stop();
+		}
+		else if(mouseCoords>destX){
+			//$('#thumbScroller .container').css('left',-thePosA); //without easing
+			$('.inner').stop().animate({marginLeft: -thePosA}, animSpeed,easeType); //with easing
+		}
+		else if(mouseCoords<destX){
+			//$('#thumbScroller .container').css('left',thePosB); //without easing
+			$('.inner').stop().animate({marginLeft: thePosB}, animSpeed,easeType); //with easing
+		}
+	}
+}
+
+function maxElem(){
+var a = $(".inner").find(".row");
+var max = 0;
+a.each(function() {
+    if(max<$(this).find(".thumb").length){
+		max = $(this).find(".thumb").length;
+		}
+});
+return max;	
+}
+
+$(function(){
+var a = 0;
+var c = ["red","yellow","blue","green"];
+$(".thumb").each(function(){
+	//$(this).text(a++).css("background",c[a%4]);
+	});
+$('.outer').bind('touchmove', function(e) {
+	var touch = e.touches[0];
+    $("h2").text(touch.pageX + " - " + touch.pageY);});
+$(".outer").mousemove(mouse_scroll);		
+$(".thumb").click(function(){
+		var l = $(".inner").css("margin-left").replace("px","");
+		var b = $(this).index();
+		var e = (900 + 270 - (b*180*2)-l)/2;
+		var f = $(this).closest(".row").index();
+		var g = (225 + 75 - (f*150*2))/2;
+		a = $(this).hasClass("active")?1:0;
+		$(".thumb").removeClass("active");
+		
+		//e=g=0;
+		console.log(f);
+		var css;
+		//console.log($(".inner").width());
+		if(a){
+			css = {
+			"transform":"scale(1) translate(0px,0px)",
+			"-webkit-transform":"scale(1) translate(0px,0px)",
+			"-moz-transform":"scale(1) translate(0px,0px)",
+			"-o-transform":"scale(1) translate(0px,0px)",
+			"-ms-transform":"scale(1) translate(0px,0px)",
+			}
+			//$(".inner").css("margin-left",e);
+			}else{
+				$(this).addClass("active");
+				css = {
+			"transform":"scale(2) translate("+e+"px,"+g+"px)",
+			"-webkit-transform":"scale(2) translate("+e+"px,"+g+"px)",
+			"-moz-transform":"scale(2) translate("+e+"px,"+g+"px)",
+			"-o-transform":"scale(2) translate("+e+"px,"+g+"px)",
+			"-ms-transform":"scale(2) translate("+e+"px,"+g+"px)",
+			
+			}
+		}
+		$(".inner").css(css);
+
+		});
+
+
+	
+});
+</script>
+</head>
+
+<body>
+<div class="outer">
+	<div class="inner">
+    	<div class="row">
+        	<div class="thumb"><img src="G01.jpg" /></div>
+            <div class="thumb"><img src="G02.jpg" /></div>
+            <div class="thumb"><img src="G03.jpg" /></div>
+            <div class="thumb"><img src="G04.jpg" /></div>
+            <div class="thumb"><img src="G05.jpg" /></div>
+            <div class="thumb"><img src="G06.jpg" /></div>
+            <div class="thumb"><img src="G07.jpg" /></div>
+            <div class="thumb"><img src="G08.jpg" /></div>
+            <div class="thumb"><img src="G09.jpg" /></div>
+            <div class="thumb"><img src="G10.jpg" /></div>
+        </div>
+        <div class="row">
+            <div class="thumb"><img src="G11.jpg" /></div>
+            <div class="thumb"><img src="G12.jpg" /></div>
+            <div class="thumb"><img src="G13.jpg" /></div>
+            <div class="thumb"><img src="G14.jpg" /></div>
+            <div class="thumb"><img src="G15.jpg" /></div>
+        	<div class="thumb"><img src="G16.jpg" /></div>
+            <div class="thumb"><img src="G17.jpg" /></div>
+            <div class="thumb"><img src="G18.jpg" /></div>
+            <div class="thumb"><img src="G19.jpg" /></div>
+            <div class="thumb"><img src="G20.jpg" /></div>
+        </div>
+        <div class="row">
+        	<div class="thumb"><img src="G21.jpg" /></div>
+            <div class="thumb"><img src="G22.jpg" /></div>
+            <div class="thumb"><img src="G23.jpg" /></div>
+            <div class="thumb"><img src="G24.jpg" /></div>
+            <div class="thumb"><img src="G25.jpg" /></div>
+            <div class="thumb"><img src="G26.jpg" /></div>
+            <div class="thumb"><img src="G27.jpg" /></div>
+            <div class="thumb"><img src="G28.jpg" /></div>
+            <div class="thumb"><img src="G29.jpg" /></div>
+            <div class="thumb"><img src="G30.jpg" /></div>
+        </div>
+    </div>
+</div>
+<h2 style="color:#FFF"></h2>
+</body>
+</html>

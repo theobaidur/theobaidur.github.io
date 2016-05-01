@@ -1,0 +1,115 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DL Foodservice Design</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	var a = $(".explore");
+	var b = $(".main_nav");
+	var c = b.find("li").length;
+	var i = 0;
+	$(window).resize(function(e) {
+        if($(".explore:visible").length==0){
+			i=0;
+			b.stop().animate({height:50},1000);
+			}
+    });
+	a.click(function(e){
+		e.preventDefault();
+	i++;
+	if(i%2){
+		b.stop().animate({height:c*50},1000);
+		}else{
+		b.stop().animate({height:50},1000);
+			}	
+	});
+	
+	});
+</script>
+</head>
+
+<body>
+<header class="wrapper wrapper_header">
+	<div class="container header">
+    	<ul class="main_nav">
+        	<li class="explore"><a href="#">EXPLORE SECTION</a></li>
+        	<div class="left">
+            	<li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT US</a></li>
+                <li><a href="#">CURRENT PROJECTS</a></li>
+            </div>
+            <div class="right">
+            	<li><a href="#">SERVICES</a></li>
+                <li><a href="#">CONTACT</a></li>
+                <li><a href="#">SERF SAFE</a></li>
+            </div>
+            <a href="#" class="logo">
+            	<img src="img/logo.png" />
+            </a>
+        </ul>
+    </div>
+</header>
+
+<div class="wrapper wrapper_content">
+	<div class="container content">
+    	<div class="home_banner">
+        	<div class="banner_content">
+            	<div class="social">
+                	<a href="#" class="fb"></a>
+                    <a href="#" class="tw"></a>
+                </div>
+            	<img src="img/banner_img.jpg" />
+            </div>
+        </div>
+        <div class="content_text">
+        	<p>Lorem ipusm dolor sit amet, Lorem ipusm dolor sit amet, Lorem ipusm dolor sit amet, Lorem ipusm dolor sit amet, Lorem ipusm dolor sit amet, Lorem ipusm dolor sit amet, Lorem ipusm dolor sit amet, Lorem ipusm dolor sit amet, Lorem ipusm dolor sit amet, Lorem ipusm dolor sit amet, Lorem ipusm dolor sit amet, Lorem ipusm dolor sit amet,</p>
+        </div>
+        <div class="box_container">
+        	<div class="box_outer left">
+            	<div class="box">
+                	<h1>HEALTHCARE & INSTITUTIONAL</h1>
+                </div>
+            </div>
+            <div class="box_outer">
+            	<div class="box"><h1>RESTAURATS & BARS</h1></div>
+            </div>
+            <div class="box_outer right">
+            	<div class="box"><h1>DESIGN & CONSULTING</h1></div>
+            </div>
+        </div>
+    </div> 
+</div>
+
+<div class="wrapper footer_wrapper">
+    <div class="container">
+        <div class="footer_nav">
+            <ul>
+                <li><a href="#">healcare & institutional</a></li>
+                <li class="separator"><a>|</a></li>
+                <li><a href="#">Restaurants & bars</a></li>
+                <li class="separator"><a>|</a></li>
+                <li><a href="#">Design & Consulting</a></li>
+                <li class="separator"><a>|</a></li>
+                <li><a href="#">Terms & Condition</a></li>
+                <li class="separator"><a>|</a></li>
+                <li><a href="#">Areas we serve</a></li>
+                <li class="separator"><a>|</a></li>
+                <li><a href="#">Mirco Matic</a></li>
+                <li class="separator"><a>|</a></li>
+                <li><a href="#">First data restaurant solution</a></li>
+                <li class="separator"><a>|</a></li>
+                <li><a href="#">Referral</a></li>
+            </ul>
+        </div>
+        <div class="footer_copytext">
+            <p class="left">&copy; Copyright 2013 DL Foodservice Design</p>
+            <p class="right">Powered by Wingman Planning</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

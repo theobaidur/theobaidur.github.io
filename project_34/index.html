@@ -1,0 +1,186 @@
+<html>
+	<head>
+
+		<style type="text/css">
+			.box{
+				width: 560px;
+			}
+
+			.wheel_wrapper{
+				width: 100%;
+				padding-bottom: 100%;
+				background: #09f;
+				position: relative;
+
+			}
+
+			.wheel_wrapper img{
+				top: 0;
+				left: 0;
+				position: absolute;
+				width: 100%;
+				height: auto;
+			}
+
+			.wheel_wrapper img.marker{
+				z-index: 100;
+			}
+
+			.wheel_wrapper img.wheel{
+				z-index: 50;
+			}
+
+			.wheel_wrapper a{
+				width: 135px;
+				height: 135px;
+				top: 50%;
+				left: 50%;
+				position: absolute;
+				margin-left: -67px;
+				margin-top: -67px;
+				border-radius: 135px;
+				z-index: 1001;
+			}
+
+			.wheel_wrapper .faceHappy,
+			.wheel_wrapper .facePoked,
+			.wheel_wrapper .faceSad,
+			.wheel_wrapper .faceSurprised
+			{
+				display: none;
+
+			}
+
+
+
+		</style>
+		<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="jquery.transit.min.js"></script>
+		
+	</head>
+	<body>
+		<div class="box">
+			<div class="wheel_wrapper">
+				<img src="maker.png" class="marker">
+				<img src="wheel.png" class="wheel">
+				<img src="SmashSteve.png" class="faceRegular faces">
+				<img src="SmashSteveHappy.png" class="faceHappy faces">
+				<img src="SmashStevePoked.png" class="facePoked faces">
+				<img src="SmashSteveSad.png" class="faceSad faces">
+				<img src="SmashSteveSurprised.png" class="faceSurprised faces">
+				<a href="#" class="wheelBtn"></a>
+			</div>
+		<audio controls id="bgSound">
+		  <source src="WheelDecide.ogg" type="audio/ogg">
+		  Your browser does not support this audio format.
+		</audio> 
+
+			<script type="text/javascript">
+		window.WHEELOFFORTUNE = {
+ 
+    cache: {},
+ 
+    init: function () {
+        console.log('controller init...');
+ 
+        var _this = this;
+        this.cache.wheel = $('.wheel');
+        this.cache.wheelMarker = $('.marker');
+        this.cache.wheelSpinBtn = $('.wheelBtn'); //im using the wheel as the spin button but simply change this to a button if you want.
+ 
+        //mapping is backwards as wheel spins clockwise //1=win
+        this.cache.wheelMapping = [400, 120, 80, 750, 150, 300, 60, 175, 500, 125, 75, 1000, 120, 200, 90, 600, 100, 250].reverse();
+ 
+        this.cache.wheelSpinBtn.on('click', function (e) {
+            e.preventDefault();
+            if (!$(this).hasClass('disabled')) {
+            	$(".wheel_wrapper .faces").hide();
+            	$(".wheel_wrapper .faces.facePoked").show();
+            	_this.spin();
+            	document.getElementById("bgSound").currentTime = 0;
+            	document.getElementById("bgSound").play();
+            		
+            }
+        });
+ 
+        //reset wheel
+        this.resetSpin();
+ 
+        //setup prize events
+       // this.prizeEvents();
+    },
+ 
+    spin: function () {
+        console.log('spinning wheel');
+ 
+        var _this = this;
+ 
+        // reset wheel
+        this.resetSpin();
+ 
+        //disable spin button while in progress
+        this.cache.wheelSpinBtn.addClass('disabled');
+ 
+        /*
+            Wheel has 10 sections.
+            Each section is 360/10 = 36deg.
+        */
+        var deg = 1500 + Math.round(Math.random() * 1500),
+            duration = 3000; //optimal 6 secs
+ 
+        _this.cache.wheelPos = deg;
+ 
+        //transition queuing
+        //ff bug with easeOutBack
+        this.cache.wheel.transition({
+            rotate: '0deg'
+        }, 0)
+            .transition({
+            rotate: deg + 'deg'
+        }, duration, 'easeOutCubic');
+
+            
+ 
+        //wheel finish
+        setTimeout(function () {
+            // did it win??!?!?!
+            var spin = _this.cache.wheelPos + 270,
+                degrees = spin % 360,
+                percent = (degrees / 360) * 100,
+                segment = Math.ceil((percent / 6)),  //divided by number of segments
+                win = _this.cache.wheelMapping[segment - 1]; //zero based array
+                $(".wheel_wrapper .faces").hide();
+            	
+            	if(degrees>65 && degrees < 114){
+            		$(".wheel_wrapper .faces.faceSad").show();
+            	}else if(degrees>263 && degrees < 280){
+            		$(".wheel_wrapper .faces.faceSurprised").show();
+            	}else{
+            		$(".wheel_wrapper .faces.faceHappy").show();
+            	}
+
+            	document.getElementById("bgSound").pause();
+            	
+            		console.log(degrees);
+
+ 
+            //re-enable wheel spin
+            _this.cache.wheelSpinBtn.removeClass('disabled');
+ 
+        }, duration);
+ 
+    },
+ 
+    resetSpin: function () {
+        this.cache.wheel.transition({
+            rotate: '0deg'
+        }, 0);
+        this.cache.wheelPos = 0;
+    }
+ 
+}
+ 
+window.WHEELOFFORTUNE.init();</script>
+		</div>
+	</body>
+</html>

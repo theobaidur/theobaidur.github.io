@@ -1,0 +1,618 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>:: zhealth ::</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="js/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.js"></script>
+	
+<script>
+$(function() {
+	$( "#accordion" ).accordion();
+});
+$(function() {
+	$( "#accordion2" ).accordion();
+});
+</script>
+<script>
+  function showMe(d_ID){
+    jQuery("#"+d_ID).show('slow');
+    jQuery("#sw_"+d_ID).html('<a onclick="hideMe('+"'"+d_ID+"'"+')">Today’s Appointments<img src="images/minus.png" alt=""/></a>');
+  }
+  function hideMe(d_ID){ 
+    jQuery("#"+d_ID).hide('slow'); 
+    jQuery("#sw_"+d_ID).html('<a onclick="showMe('+"'"+d_ID+"'"+')">Today’s Appointments<img src="images/plus.png" alt=""/></a>');
+  }  
+</script>	
+</head>
+
+<body>
+<div class="main_body">
+  <div class="row navigate">
+  <div class="logo">zHealth</div>
+    <div class="navigate_left">
+      <a href="" title=""><img src="css/images/massage.png" alt=""/>Inbox <span class="pending">2</span></a>
+    </div>
+    <div class="navigate_hldr">
+      <span class="toggleMenu"><a href="#">Menu</a></span>
+	  <ul class="nav">
+        <li><a href="" title="Messaging" class="tt">Messaging
+          <span class="tooltip">
+            <span class="top"></span>
+            <span class="middle">
+              <p>New Message<br />
+              View Messages</p>
+            </span>
+          </span></a> <span class="pending">2</span>
+          </li>
+        <li><a href="" title="Patient Communications" class="tt">Patient Communications
+          <span class="tooltip">
+            <span class="top"></span>
+            <span class="middle">
+              <p>New Communication<br />
+              View Communication</p>
+            </span>
+          </span></a> <span class="pending">2</span>
+        </li>
+        <li id="marginR20"><a href="" title="Paging" class="tt">My list
+          <span class="tooltip">
+            <span class="top"></span>
+            <span class="middle">
+              <p>View List<br />
+              Add Patient</p>
+            </span>
+          </span>
+        </a></li>
+        <li><a href="" title="UpToDate">Reports</a></li>
+        <li><a href="" title="filter" class="tt">Labs/Diagnostics
+          <span class="tooltip">
+            <span class="top"></span>
+            <span class="middle">
+              <p>Add Lab<br />View Labs<br />View Diagnostics</p>
+            </span>
+          </span>
+        </a></li>
+        <li><a href="" title="Medical Resources" class="tt">Medical Resources
+          <span class="tooltip">
+            <span class="top"></span>
+            <span class="middle">
+              <p>Resource 1<br />
+              Resource 2<br />Intranet</p>
+            </span>
+          </span>
+        </a></li>
+	  </ul>
+    </div>
+    <div class="navigate_right">
+      <div class="myaccount" id="divOne">
+        <span>Welcome Dr. Kanwar</span>
+        <span><a href="" title="">Your Account<img src="css/images/down-arrow.png"/></a></span>
+      </div>
+      <div class="myaccountDtls" id="details">
+        <ul>
+          <li><a href="" title="Settings">Settings</a></li>
+          <li><a href="" title="Preferences">Preferences</a></li>
+          <li><a href="" title="Change password">Change password</a></li>
+          <li><a href="" title="Logout">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row main_container">
+    <div class="inner_left" id="tabContainer">
+        <div class="inner_srch">
+        <div class="search_hldr">
+          <form action="#">
+           <input type="text" value="Search by Name" class="search_inpt" onFocus="this.value=''" onBlur="this.value='Search by Name'"/>
+           <input type="submit" value="" class="search_sub" />
+          </form>
+        </div>
+        <div class="search_hldr">
+          <form action="#">
+           <input type="text" value="Search by DOB" class="search_inpt" onFocus="this.value=''" onBlur="this.value='Search by DOB'"/>
+           <input type="submit" value="" class="search_sub" />
+          </form>
+        </div>
+        <div class="search_hldr">
+          <form action="#">
+           <input type="text" value="Search by MRN" class="search_inpt" onFocus="this.value=''" onBlur="this.value='Search by MRN'"/>
+           <input type="submit" value="" class="search_sub" />
+          </form>
+        </div>
+      </div>
+        <div class="Tab_top_right">
+            <div class="tabs">
+              <ul>
+                <li id="tabHeader_1" class="Active">Chart Review</li>
+                <li id="tabHeader_2">Result Review</li>
+                <li id="tabHeader_3">Medications</li>
+              </ul>
+              <div class="tab_close">Close Patient <img src="images/close.png" alt=""/></div>
+            </div>
+            <div class="tab_doctor_dtls">
+               <div class="patient_img"><img src="images/patient.png" alt=""/></div>
+               <div class="T_D_D_hldr">
+                 <p><b>Albert Rob Smith	:</b> &nbsp;37M<br /><b>DOB :</b> &nbsp;12/1/1976</p>
+               </div>
+               <div class="T_D_D_hldr">
+                 <b>MRN :</b> &nbsp;344-984-8888<br />			
+			 	 <b>A/C No :</b>  &nbsp;0089 76655	<br />	
+				 <b>ALLERGIES :</b> &nbsp;YHFR, TRC, POL, JRT, NTR, RRC, NRF
+               </div>
+               <div class="T_D_D_hldr">
+                 <b>Ph. No :</b> &nbsp;(415) 888-0000	<br /><b>Address :</b> &nbsp;123 Wisconsin Ave, Fremont, CA 95444	
+               </div>
+            </div>
+        </div>    
+        <div class="tabscontent">
+          <div class="tabpage" id="tabpage_1">
+            <div class="tab_cont_left">
+              <h2>APSO Note</h2>
+              
+              <div id="accordion">
+                <h3><a href="#">A</a></h3>
+                <div>
+                  <div class="scroll">
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                  </div>  
+                </div>
+                <h3><a href="#">P</a></h3>
+                <div>
+                  <div class="scroll_other">
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                  </div>
+                </div>
+                <h3><a href="#">S</a></h3>
+                <div>
+                  <div class="scroll_other">
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                  </div>
+                </div>
+                <h3><a href="#">O</a></h3>
+                <div>
+                  <div class="scroll_other">
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                     <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                  </div>
+                </div>
+			</div>
+            </div>
+            <div class="tab_cont_med">
+              <h2>Orders</h2>
+              <div class="order_section">
+                 <h3>LABS</h3>
+                 <div class="order_hldr">
+                 <h5>Current</h5>
+                 <table id="order">
+                    <tbody>
+                      <tr>
+                       <td width="25%">Glucose</td>
+                       <td width="15%">81 mg</td>
+                       <td width="25%">80 – 90 mg</td>
+                       <td width="20%">9/12/13</td>
+                       <td width="15%"><a href="" title="">more...</a></td>
+                      </tr>
+                      <tr>
+                       <td>HDL</td>
+                       <td>60 mg</td>
+                       <td>&gt;45 mg</td>
+                       <td>8/15/13</td>
+                       <td><a href="" title="">more...</a></td>
+                      </tr>
+                      <tr>
+                       <td>LDL</td>
+                       <td>90 mg</td>
+                       <td>&lt;110 mg</td>
+                       <td>8/15/13</td>
+                       <td><a href="" title="">more...</a></td>
+                      </tr>
+                      <tr>
+                       <td>LDL</td>
+                       <td>90 mg</td>
+                       <td>&lt;110 mg</td>
+                       <td>8/15/13</td>
+                       <td><a href="" title="">more...</a></td>
+                      </tr>
+                      <tr>
+                       <td>LDL</td>
+                       <td>90 mg</td>
+                       <td>&lt;110 mg</td>
+                       <td>8/15/13</td>
+                       <td><a href="" title="">more...</a></td>
+                      </tr>
+                      <tr>
+                       <td>LDL</td>
+                       <td>90 mg</td>
+                       <td>&lt;110 mg</td>
+                       <td>8/15/13</td>
+                       <td><a href="" title="">more...</a></td>
+                      </tr>
+                    </tbody>
+                 </table>
+                 <p class="textcenter"><a href="" title="">more...</a></p>
+                 <a href="" title="" class="order_new_lab">Order New Lab <img src="images/piramid.png" alt=""/></a>
+                 </div>
+              </div>
+              <div class="order_section">
+                 <h3>PRESCRIPTIONS</h3>
+                 <div class="order_hldr">
+                 <h5>Current</h5>
+                 <table id="order">
+                    <tbody>
+                      <tr>
+                       <td width="25%">Asprin </td>
+                       <td width="10%">81 mg</td>
+                       <td width="20%">1 tablet	PO</td>
+                       <td width="10%">Daily</td>
+                       <td width="10%">9/12/13</td>
+                       <td width="10%"><a href="" title="" class="red_btn">close</a></td>
+                       <td width="15%"><a href="" title="" class="change_btn">change</a></td> 
+                      </tr>
+                      <tr>
+                       <td>Norvasc</td>
+                       <td>60 mg</td>
+                       <td>1 tablet	PO</td>
+                       <td>Daily</td>
+                       <td>8/15/13</td>
+                       <td><a href="" title="" class="red_btn">close</a></td>
+                       <td><a href="" title="" class="change_btn">change</a></td> 
+                      </tr>
+                      <tr>
+                       <td>Ceftriaxone </td>
+                       <td>90 mg</td>
+                       <td>1 tablet	IV</td>
+                       <td>Daily</td>
+                       <td>8/15/13</td>
+                       <td><a href="" title="" class="red_btn">close</a></td>
+                       <td><a href="" title="" class="change_btn">change</a></td> 
+                      </tr>
+                    </tbody>
+                 </table>
+                 <h5>Completed</h5>
+                 <table id="order">
+                    <tbody>
+                      <tr>
+                       <td width="25%">Manganese</td>
+                       <td width="10%">2 mg</td>
+                       <td width="20%">1 dose IV</td>
+                       <td width="10%">&nbsp;</td>
+                       <td width="20%"><a href="" title="" class="complete_Btn">Complete</a></td>
+                       <td width="15%"><a href="" title="" class="change_btn">change</a></td> 
+                      </tr>
+                    </tbody>
+                 </table>
+                 <p class="textcenter"><a href="" title="">more...</a></p>
+                 <a href="" title="" class="order_new_lab">Start New Prescription <img src="images/piramid.png" alt=""/></a>
+                 </div>
+              </div>
+            </div>  
+            <div class="tab_cont_right">
+              <h2>ENCOUNTER HISTORY</h2>
+              <div id="accordion2">
+                <h3><a href="#"><span>9/12/2013</span><span>Congestion, Cough and Cold </span><span>Dr. Andrew Sullivan</span></a></h3>
+                <div>
+                  <div class="scroll">
+                    <h6>A</h6>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <h6>P</h6>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <h6>S</h6>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <h6>O</h6>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                  </div>  
+                </div>
+                <h3><a href="#"><span>1/15/2013</span><span>Flu Vaccine</span><span>Dr. Andrew Sullivan</span></a></h3>
+                <div>
+                  <div class="scroll_other">
+                    <h6>A</h6>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <h6>P</h6>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <h6>S</h6>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <h6>O</h6>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                  </div>
+                </div>
+                <h3><a href="#"><span>12/12/2012</span><span>Chest Pain</span><span>Dr. Andrew Sullivan</span></a></h3>
+                <div>
+                  <div class="scroll_other">
+                    <h6>A</h6>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <h6>P</h6>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <h6>S</h6>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <h6>O</h6>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                  </div>
+                </div>
+                <h3><a href="#"><span>6/8/2012</span><span>Annual Checkup</span><span>Dr. Andrew Sullivan</span></a></h3>
+                <div>
+                  <div class="scroll_other">
+                   <h6>A</h6>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <h6>P</h6>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <h6>S</h6>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                    <h6>O</h6>
+                    <p>
+                    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                    </p>
+                  </div>
+                </div>
+			</div>
+              <a href="" class="more_all">more...</a>
+              <div class="vaccinations">
+                <h4>Vaccinations</h4>
+                <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-e"></span><a href="#" tabindex="-1"><span>1/15/2013</span><span>Flu Vaccine</span><span>Dr. Andrew Sullivan</span></a></h3>
+                <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="-1"><span class="ui-icon ui-icon-triangle-1-e"></span><a href="#" tabindex="-1"><span>1/15/2013</span><span>Flu Vaccine</span><span>Dr. Andrew Sullivan</span></a></h3>
+                <a href="" class="more_all">more...</a>
+              </div>
+            </div>       
+          </div>
+          <div class="tabpage" id="tabpage_2">
+               hhhhhh   
+          </div>         
+          <div class="tabpage" id="tabpage_3">
+             ghhfgh  
+           </div>         
+        </div>
+    </div>
+    
+    <div class="inner_right">
+      <div class="col_right_title inner_appoinment"><span id="sw_contentID2"><a onclick="showMe('contentID2')">Today’s Appointments<img src="images/plus.png" alt=""/></a></span></div>
+      <div class="col_right_hldr" id="contentID2">
+        <ul>
+          <li><a href="" title="" target="_blank"><span>9:00 am</span><span>Brett Tramposh</span><span>Throat Pain</span><br /><span>MRN: 188- 567-1901</span></a></li>
+          <li><a href="" title="" target="_blank"><span>9:00 am</span><span>Cynthia Stoddard</span><span>Flu</span><br /><span>MRN: 188- 567-1901</span></a></li>
+          <li><a href="" title="" target="_blank"><span>10:00 am</span><span>Jeff Smith</span><span>Annual Checkup</span><br /><span>MRN: 188- 567-1901</span></a></li>
+          <li><a href="" title="" target="_blank"><span>10:30 am</span><span>Reid Foster</span><span>Colonoscopy</span><br /><span>MRN: 111- 567-1901</span></a></li>
+          <li><a href="" title="" target="_blank"><span>11:00 am</span><span>Judy Green</span><span>Mammogram</span><br /><span>MRN: 265- 567-1901</span></a></li>
+          <li><a href="" title="" target="_blank"><span>11:30 am</span><span>Rachel Ross</span><span>Blood Work</span><br /><span>MRN: 240- 567-1901</span></a></li>
+          <li><a href="" title="" target="_blank"><span>12:00 pm</span><span>LUNCH</span></a></li>
+          <li><a href="" title="" target="_blank"><span>1:00 pm</span><span>Aaron Bawa</span><span>Flu</span><br /><span>MRN: 176- 567-1901</span></a></li>
+          <li><a href="" title="" target="_blank"><span>1:30 pm</span><span>Fred Mangers</span><span>Checkup</span><br /><span>MRN: 100- 567-1901</span></a></li>
+          <li><a href="" title="" target="_blank"><span>2:00 pm</span><span>Sue McKinnon</span><span>Flu</span><br /><span>MRN: 200- 567-1901</span></a></li>
+          <li><a href="" title="" target="_blank"><span>2:30 pm</span><span>Tracy Bird</span><span>Knee Pain</span><br /><span>MRN: 290- 567-1901</span></a></li> 
+          <li><a href="" title="" target="_blank"><span>3:00 pm</span><span>Randy Collins</span><span>Breathing trouble</span><br /><span>MRN: 200- 567-1901</span></a></li> 
+          <li><a href="" title="" target="_blank"><span>3:30 pm</span><span>Tom O’Neil</span><span>Leg Injury</span><br /><span>MRN: 234- 567-8901</span></a></li> 
+          <li><a href="" title="" target="_blank"><span>4:00 pm</span><span>Bob Lutz</span><span>Annual Checkup</span><br /><span>MRN: 224- 167-8001</span></a></li> 
+          <li><a href="" title="" target="_blank"><span>4:30 pm</span><span>Jake Maroc</span><span>Colonoscopy</span><br /><span>MRN: 734- 567-8901</span></a></li> 
+        </ul>
+      </div>
+      
+    </div>
+    <div class="today_date">7:25 am<br />11/22/2013</div>
+  </div>
+</div>
+<script src="js/script.js" type="text/javascript"></script>
+	<script>
+		(function($){
+			$(window).load(function(){
+				$(".scroll, .scroll_other").mCustomScrollbar();
+			});
+		})(jQuery);
+	</script>
+</body>
+</html>

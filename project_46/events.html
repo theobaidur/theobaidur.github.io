@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html>
+<!--<![endif]-->
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    
+    <title>Events | Cordes Foundation</title>
+    
+    
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+   
+    <!--<link type="text/css" rel="stylesheet" href="webfonts/font.css"> -->
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/animate.css">
+    <!--<link rel="stylesheet" type="text/css" media="(max-width:767px)" href="css/responsive.css"/> -->
+ 	<!--<link type="text/css" rel="stylesheet" href="css/ipad.css">
+    <link type="text/css" rel="stylesheet" href="css/iphone.css">
+    <link type="text/css" rel="stylesheet" href="css/phone-ve.css">
+    <link rel="stylesheet" href="css/flexslider.css" /> -->
+    
+    <!--[if lte IE 8]>
+    <link type="text/css" rel="stylesheet" href="css/ie.css" />
+    <script type="text/javascript" src="js/modernizr.min.js"></script>
+    <![endif]-->
+    
+    <!--[if lte IE 6]>
+    <script type="text/javascript" src="js/belated.js"></script>
+    <![endif]-->
+     <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript">
+		
+		$(function () {
+
+			$("#menu, #menu-btn a").click(function(){
+				$(".nav-bar").stop(true, true).slideToggle(1000);
+				return false
+			});
+			
+			$('#upcoming').click(function(){
+				$('#past-events').fadeOut('slow', function() { $('#upcoming-events').fadeIn(); });
+				$('#past').removeClass('active').addClass('inactive');
+				$(this).removeClass('inactive').addClass('active')
+				return false;
+			});
+			
+			$('#past').click(function(){
+				$('#upcoming-events').fadeOut('slow', function() { $('#past-events').fadeIn(); });
+				
+				
+				$('#upcoming').removeClass('active').addClass('inactive');
+				$(this).removeClass('inactive').addClass('active')
+				return false;
+			});
+			
+			$(".about-section a").click(function () {
+				if($(this).parent().hasClass('active')){
+					$(this).parent().removeClass('active');
+					$(this.hash).stop(true, true).slideUp();
+					$(this.hash).parents('.about-open-content-wrap').stop(true, true).slideUp();
+				}
+				else if ($(this).parent().parent().find('.active').length == 0){
+					$(".about-section li").removeClass('active');
+					$(this).parent().addClass('active');
+					$('.test').stop(true, true).slideUp();
+					$(this.hash).stop(true, true).slideDown();
+					$('.about-open-content-wrap').stop(true, true).slideUp();
+					$(this.hash).parent().parent('.about-open-content-wrap').stop(true, true).slideDown();
+				}
+				else{
+					$(this).parent().parent().children().removeClass('active');
+					$(this).parent().addClass('active');
+					$(this.hash).parent().children().fadeOut(0);
+					$(this.hash).stop(true, true).fadeIn(500);
+				}
+				return false;
+			});
+			
+			$(window).scroll(function () {
+
+				var floatView = $('#floating').height();
+				var floatWrapperView = $('#main-wrap').height();
+				var headerView = $('.event-bg').outerHeight();
+				var headerFixView = $('#nav-wrap').outerHeight();
+				var footerView = $('#footer-wrap').outerHeight();
+				var docView = $(document).height();
+				var windowView = $(window).height();
+				
+				if ($(this).scrollTop()>=headerView-headerFixView){
+					$('#floating').css('position', 'absolute').animate({ top: $(window).scrollTop()-headerView+headerFixView+'px'}, 0);
+					
+					if($(this).scrollTop()-headerView>floatWrapperView-floatView){
+						$('#floating').css({ 'top': floatWrapperView-floatView+'px' });
+					}
+				}
+				else {
+					$('#floating').css('position', 'static');
+				}
+				
+			});
+			
+		});
+		
+		$(document).ready(function() {
+		  var navpos = $('#nav-wrap').offset();
+		  console.log(navpos.top);
+			$(window).bind('scroll', function() {
+			  if ($(window).scrollTop() > navpos.top - 140){
+				$('#nav-wrap').addClass('fixed');
+				$('.nav-wrap-hidden').show();
+			   }
+			   else {
+				 $('#nav-wrap').removeClass('fixed');
+				 $('.nav-wrap-hidden').hide();
+			   }
+			});
+		});
+
+	</script>
+    
+    <!--<script type="text/javascript" src="js/validate.js"></script> -->
+        <!--FAVICON-->
+    <link rel="apple-touch-icon" sizes="57x57" hreffavicons="favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-touch-icon-152x152.png">
+<link rel="icon" type="image/png" href="favicons/favicon-160x160.png" sizes="160x160">
+<link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="msapplication-TileImage" content="favicons/mstile-144x144.png">
+<!--FAVICON END-->
+</head>
+
+<body id="page-about">
+
+<div id="event-page">
+
+<!--<div class="loader"><img alt="Loader" src="img/loader.gif" /></div>-->
+<div id="container-fluid">
+<!--header start -->
+<div id="slider-wrap">
+<!--navigation start -->
+<div  id="nav-wrap">
+	<div class="content-width-nav">
+    	<div class="main-nav clearfix">
+            <div class="nav-logo">
+                <a href="index.html"><img src="images/menu_cordes_logo.png" alt=""></a>
+                <div id="menu-btn">
+		            <a href="#">
+		            	<span></span>
+		            	<span></span>
+		            	<span class="last-item"></span>
+		            </a>
+	            </div>
+	            <div class="cl"></div>
+            </div>
+            <!--<a href="#" id="menu"><img src="images/mobile.png" alt=""></a> -->
+            <div class="nav-bar">
+            	<ul class="clearfix">
+            
+                    <li><a href="about.html">About Us</a></li>
+                 
+                    <li><a href="fellows.html">Fellows</a></li>
+                    <li><a href="portfolio.html">Grantees</a>
+                    
+                        <ul class="grantee-hidden">
+      <li><a href="portfolio.html">Our Portfolio</a></li>
+      <li><a href="grantees.html">Our Approach</a></li>
+    </ul>
+                    
+                    </li>
+                    <li><a href="investments.html">Investments</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li class="last-nav"><a href="http://webburstmedia.com/cordes-mobile/media">Media</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--navigation end -->
+<!-- slider -->
+<div class="event-bg">
+		<
+		<div class="content-width">	
+					<div class="animated fadeInUp">	
+
+				<div  id="slider-desc-fellows">
+					<h2 >Events</h2>
+					</div>	<div class="slide-desc-sub2">
+				<h2>UPCOMING & PAST</h2>
+					
+						</div></div>
+						
+					</div>		
+
+</div>	
+
+</div>	
+
+<!--sliderend-->
+<!--header end -->
+<div class="clearfix"></div>
+
+
+
+
+<!--main start -->
+
+
+<div id="main-wrap">
+
+    <div class="content-width">
+        <div id="contents" class="clearfix">
+        	<div id="sidebar">
+            	<div id="floating">
+                    <ul class="sidebar-nav clearfix">
+                        <li><a href="#" id="upcoming" class="active">Upcoming <span class="desktop-only">Events</span></a></li>
+                        <li>
+                            <a href="#" id="past" class="inactive">Past <span class="desktop-only">Events</span></a>
+                        </li>
+                  
+                    </ul>
+            	</div>
+            </div>
+            <div id="main-contents">
+                <div id="main">
+                 <!-- UPCOMING EVENTS BLOCK-->
+                 	<div  id="upcoming-events">
+                        <div class="main-heading">
+                            <h2>UPCOMING EVENTS</h2>
+                        </div>
+            <div id="upto-calendar-container-aIKO" class="upto-calendar-plugin"><script>!function(c,b,a){function d(h){var e=document.getElementById("upto-calendar-container-"+c),f=document.createElement("SCRIPT"),g="	http://upto.com/js/plugin.js";f.onreadystatechange=function(){if(f.readyState==="loaded"||f.readyState==="complete"){f.onreadystatechange=null;h()}};f.onload=function(){h()};f.setAttribute("src",g);e.parentNode.insertBefore(f,e)}d(function(){upto.init(c)})}("aIKO");</script></div>
+    
+                        </div>
+                    
+                   <!-- PAST EVENTS BLOCK-->
+                   <div id="past-events" style="display:none;">
+                       <div class="main-heading" >
+                       	<h2>PAST EVENTS</h2>
+                       </div>
+                       <div id="upto-calendar-container-tX3OKO" class="upto-calendar-plugin"><iframe width="760px" border="none" frameborder="0"height="3800px" src="past-events2.html"></iframe></div>
+                   </div>
+                   
+                   
+
+            	</div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>     
+
+
+<!--footer start -->
+<div id="footer-wrap">
+	<div class="content-width">
+        <footer id="footer" class="clearfix">
+	<div id="footer-left">
+            	<div class="footer-logo">
+                	<a href="#"><img src="images/footer_logo.png" alt=""></a>
+                </div>
+                <div class="footer-nav">
+                 	<div class="footer-social">
+                		<div class="footer-fb"><a href="https://www.facebook.com/CordesFoundation">Facebook</a></div>
+                		<div class="footer-twitter"><a href="https://twitter.com/CordesFdn">Twitter</a></div>
+                		<div class="footer-ig"><a href="http://instagram.com/CordesFoundation/">Instagram</a></div>
+                	</div>
+                </div>
+            </div>
+            <div id="footer-right">
+            	<div class="form-section">
+                	<h3>Contact Us</h3>
+
+            	
+                   	<strong>Email</strong>
+                    <p>info@cordesfoundation.org</p>
+                </div>
+            
+            </div>
+        </footer>
+    </div>
+</div>
+<!--footer end -->
+</div>
+
+
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
+
+<!-- FlexSlider -->
+<!--<script src="js/jquery.flexslider-min.js"></script>
+<script src="js/owl.carousel.js"></script> -->
+<script src="js/scripts.js"></script>
+<!--<script type="text/javascript">
+
+	$(window).load(function(){
+	  $('.flexslider').flexslider({
+		controlNav: false, 
+		directionNav: false,
+		animationSpeed: 800,
+	  });
+	});
+
+	$(function(){
+		
+		$("#menu").click(function(){
+			$(".nav-bar").slideToggle();
+			return false
+		});
+		
+		$("#more").click(function(){
+			$('html, body').animate({
+				scrollTop: $('.main-nav').offset().top
+			}, 1500);
+		});
+		
+	});
+</script> -->
+
+
+</body>
+</html>

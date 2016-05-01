@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Pet Clich : Payment</title>
+<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<link rel="stylesheet" type="text/css" href="css/style_new.css"/>
+<script type="text/javascript" src="js/jquery.js"></script>
+<!--[if lt IE 9]>
+		<script type="text/javascript" src="js/PIE.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style_ie.css"/>
+      	<script src="js/html5shiv.js"></script>
+        <script type="text/javascript" src="js/ie.js"></script>
+<![endif]-->
+</head>
+
+<!--[if lt IE 9]>
+<body class="ie8">
+<![endif]-->
+<!--[if !lt IE 9]><!-->
+<body>
+<!--<![endif]-->
+<div class="wrapper bg_green pt_10"> </div>
+<div class="wrapper bg_white">
+  <div class="center">
+    <div class="pull-right mt_10 mb_10"> <a href="#" class="inline-block logo"> <img src="img/logo.png" alt="logo"/> </a> </div>
+  </div>
+</div>
+<div class="wrapper bg_white navigation">
+  <div class="center">
+    <h3 id="menu_title">Menu</h3>
+    <ul>
+      <li class="css3pie"><a href="#">Home</a></li>
+      <li class="css3pie"><a href="#">Articles</a></li>
+      <li class="css3pie"><a href="#">Events  & Exhibitions</a></li>
+      <li class="css3pie"><a href="#">Gallaries</a></li>
+      <li class="css3pie"><a href="#">Private pages</a></li>
+      <li class="css3pie"><a href="#">Bloggings</a></li>
+      <li class="css3pie"><a href="#">Forums</a></li>
+      <li class="css3pie"><a href="#">News</a></li>
+      <li class="css3pie current-menu-item"><a href="#">Payment</a></li>
+      <li class="css3pie"><a href="#">FAQ's</a></li>
+      <li class="css3pie"><a href="#">Contact Us</a></li>
+    </ul>
+  </div>
+</div>
+<div class="wrapper mid_graphic mt_5 mb_5">
+  <div class="center"> 
+  	<div class="row">
+        <div class="pull-left left">
+        	<img src="img/img_1.png"/>
+        </div>
+
+    	<div class="pull-right right">
+        	<h1>The Best Pet <br class="hidden-tab"/>Care Advice...</h1>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="center container">
+    <div class="container_inner push-center">
+      <div class="row">
+        <h2 class="f_36 green font_arial inline-block page_slogan">Fee payment rabies vaccination and licensing</h2>
+        <p class="f_18 deep_gray font_arial page_sub_slogan pull-center">You must enter the number of chip your dog and you can be immune
+          code system to identify the dog and will calculate the amount due</p>
+      </div>
+      <div class="row push-center">
+      	<div class="error_msg_outer mt_10 mb_10 css3pie">
+        	<img src="img/close.png" class="close">
+            <p class="white f_18 bold push-center font_arial">
+            	There has been no payment To Be made for rabies vaccination.<br/>
+No need to pay again.
+            </p>
+        </div>
+      </div>
+      <div class="row mb_15">
+        <form class="form_1">
+          <div class="row">
+            <div class="form_block">
+              <p class="push-right black bold f_16 mb_5">Multiple chip</p>
+              <input type="text" class="css3pie">
+            </div>
+            <div class="form_block">
+              <p class="push-right black bold f_16 mb_5">Code vaccine</p>
+              <input type="text" class="css3pie">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form_block">
+              <button class="pull-center css3pie btn_1">Continue testing</button>
+            </div>
+            <div class="form_block">
+              <button class="pull-center css3pie btn_2">Continue</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper footer">
+  <div class="center">
+    <div class="row footer_navigation">
+      <ul>
+        <li class="css3pie"><a href="#">Home</a></li>
+        <li class="css3pie"><a href="#">Articles</a></li>
+        <li class="css3pie"><a href="#">Events  & Exhibitions</a></li>
+        <li class="css3pie"><a href="#">Gallaries</a></li>
+        <li class="css3pie"><a href="#">Private pages</a></li>
+        <li class="css3pie"><a href="#">Bloggings</a></li>
+        <li class="css3pie"><a href="#">Forums</a></li>
+        <li class="css3pie"><a href="#">News</a></li>
+        <li class="css3pie current-menu-item"><a href="#">Payment</a></li>
+        <li class="css3pie"><a href="#">FAQ's</a></li>
+        <li class="css3pie"><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="row">
+    	<div class="pull-left inline-block footer_right"> <img src="img/footer_graphic.png"/> </div>
+      <div class="pull-right inline-block footer_left">
+        <p class="white f_16 footer_text_1"> All trademarks © their respective owners<br/>
+          Copyright © 2013 <a href="#" class="green">PetClick.com</a>. All rights reserved. </p>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){
+	$("#menu_title").click(function(){
+		$(this).next("ul:first").slideToggle();	
+	});
+	
+	$(".error_msg_outer .close").click(function(){
+		$(this).closest(".error_msg_outer").fadeOut();	
+	});
+	
+	$(window).resize(function(){
+		if($(this).width()>1024){
+			$(".navigation ul:first").removeAttr("style");	
+		}	
+	});
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+	margin:0;
+	padding:0;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	}
+	
+body{
+	min-width:1024px;
+	}	
+
+.wrapper{
+	float:left;
+	display:inline;
+	width:100%;
+	}
+	
+.center{
+	width:994px;
+	padding:0px 10px;
+	margin:0 auto;
+	}
+	
+/*Header*/
+
+
+.header_wrapper{
+background: #141615; /* Old browsers */
+background: -moz-linear-gradient(top,  #141615 39%, #000000 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(39%,#141615), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #141615 39%,#000000 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #141615 39%,#000000 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #141615 39%,#000000 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #141615 39%,#000000 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#141615', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+	}	
+	
+.header{
+	float:left;
+	display:inline;
+	width:100%;
+	height:40px;
+	position:relative;
+	}
+
+.header .navbar-inner{
+	background:none;
+	box-shadow:none;
+	}
+	
+.header .navbar {
+	margin-bottom:0px;
+	}		
+	
+.header .logo{
+	width:200px;
+	-webkit-border-radius: 0px 0px 10px 10px;
+    border-radius: 0px 0px 10px 10px;
+	position:absolute;
+	top:39px;
+	left:0px;
+	z-index:100;
+	}		
+.header .navbar .nav a{
+	font-size:12px;
+	}
+	
+
+
+/*-----------------Starter-------------------*/		
+
+.starter_wrapper{
+		position:relative;
+		height:500px;
+	}	
+	
+.starter_wrapper_bg{
+	position:absolute;
+	height:500px;
+	top:0px;
+	left:0px;
+	z-index:10;
+	overflow:hidden;
+	}
+	
+.starter_wrapper_bg img{
+	position:absolute;
+	width:100%;
+	height:auto;
+	top:0px;
+	left:0px;
+	}	
+	
+.starter_wrapper_upper{
+	position:absolute;
+	height:500px;
+	top:0px;
+	left:0px;
+	z-index:20;
+	}
+	
+.starter_wrapper_upper .searchbox{
+	width:900px;
+	height:auto;
+	margin:250px auto 0px auto;
+	}
+	
+.searchbox form{
+	padding:5px;
+	border-radius:10px;
+	height:50px;	
+	}
+
+.searchbox form input, select, option{
+	width:200px;
+	height:30px;
+	margin:6px 5px;
+	font-size:16px;
+	font-weight:bold;
+	}
+
+.searchbox form select{
+	width:auto;
+	height:40px;
+	font-size:16px;
+	font-weight:bold;
+	margin-top:0px;
+	color:#A3A3A3;		
+	}
+	
+.searchbox form option{
+	width:auto;
+	font-size:16px;
+	line-height:40px;
+	color:#A3A3A3;	
+	}	
+
+	
+.searchbox h1, h3{
+	color:#FFF;
+	}
+	
+/*nav_2*/
+.nav_2_wrapper{
+background: #141615; /* Old browsers */
+background: -moz-linear-gradient(top,  #141615 39%, #000000 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(39%,#141615), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #141615 39%,#000000 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #141615 39%,#000000 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #141615 39%,#000000 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #141615 39%,#000000 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#141615', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+	height:40px;
+	}
+	
+.nav_2_wrapper a{
+	float:left;
+	display:block;
+	width:auto;
+	height:40px;
+	padding:0px 10px;
+	border-left:rgba(255,255,255,.1) solid 1px;
+	border-right:rgba(255,255,255,.1) solid 1px;
+	line-height:40px;
+	color:#fff;
+	font-size:14px;
+	font-weight:bold;
+	}
+	
+.nav_2_wrapper a:hover{
+	color:#09f;
+	text-decoration:none;
+	}
+	
+/*Item thumb*/
+
+.thumbcon_wrapper{
+	padding:10px 0px;
+	}
+	
+.thumb_span3{
+	float:left;
+	display:inline;
+	width:200px;
+	height:250px;
+	margin:20px;
+	border:#aaa solid 1px;
+	}
+	
+.thumb_span3 img{
+	width:190px;
+	height:190px;
+	margin:5px;
+	}
+	
+.thumb_span3 .det{
+	float:left;
+	width:100%;
+	}
+	
+.det .cook_thumb{
+	float:left;
+	width:190px;
+	height:45px;
+	margin:0px 5px;
+	}		
+		
+	
+														

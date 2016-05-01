@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Responsive Carousal</title>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.touchSwipe.js"></script>
+<script type="text/javascript" src="js/scrollTO.js"></script>
+<script type="text/javascript">
+$(function(){
+  	var elem = $(".carousal_elem");
+	var i = 0;
+	elem.eq(i).css("left","25%");
+	var handler = setInterval(animate,3000);
+	data = {"status":"ok","page":{"id":122,"type":"page","slug":"carousal_1","url":"http:\/\/valencesystems.com\/carousal_1\/","status":"publish","title":"carousal_1","title_plain":"carousal_1","content":"<p><span id=\"carousal_title_text\">Web Development<\/span><br \/>\n<span id=\"carousal_description_text\">Web Development Web Development Web Development Web Development Web Development<\/span><br \/>\n<span id=\"carousal_image_url\">http:\/\/valencesystems.com\/wp-content\/themes\/Ian_theme\/images\/carousal_img\/blue-fish.jpg<\/span><\/p>\n","excerpt":"Web Development Web Development Web Development Web Development Web Development Web Development http:\/\/valencesystems.com\/wp-content\/themes\/Ian_theme\/images\/carousal_img\/blue-fish.jpg","date":"2012-08-08 16:33:32","modified":"2012-08-08 16:33:32","categories":[],"tags":[],"author":{"id":1,"slug":"admin","name":"admin","first_name":"","last_name":"","nickname":"admin","url":"","description":""},"comments":[],"attachments":[],"comment_count":0,"comment_status":"open"}}
+	console.log(data);
+	img = {
+		0:{
+			"src":"images/carousal_img/carousal_1.jpg",
+			"title":"Title 1",
+			"Description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 15Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 15Lorem Ipsum is simply dummy",
+			"cap_cor_1" : "top",//caption position
+			"cap_cor_2" : "right",
+			"img_cor_1" : "top",//image position
+			"img_cor_2" : "left"
+			},
+		1:{
+			"src":"images/carousal_img/carousal_2.jpg",
+			"title":"Title 2",
+			"Description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 15Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 15Lorem Ipsum is simply dummy",
+			"cap_cor_1" : "top",
+			"cap_cor_2" : "left",
+			"img_cor_1" : "top",//image position
+			"img_cor_2" : "right"
+
+			},
+		2:{
+			"src":"images/carousal_img/carousal_3.jpg",
+			"title":"Title 3",
+			"Description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 15Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 15Lorem Ipsum is simply dummy",
+			"cap_cor_1" : "bottom",
+			"cap_cor_2" : "right",
+			"img_cor_1" : "top",//image position
+			"img_cor_2" : "left"
+			
+
+			},
+		3:{
+			"src":"images/carousal_img/carousal_4.jpg",
+			"title":"Title 4",
+			"Description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 15Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 15Lorem Ipsum is simply dummy",
+			"cap_cor_1" : "bottom",
+			"cap_cor_2" : "left",
+			"img_cor_1" : "top",//image position
+			"img_cor_2" : "right"
+
+			}
+		}
+		var count=0;
+		var elem = $('.carousal_elem');
+		for(var index in img){
+			elem.eq(count).find("h1").text(img[count]["title"]);
+			elem.eq(count).find("p").text(img[count]["Description"]);
+			elem.eq(count).find("img").attr("src",img[count]["src"]);
+			count++;
+			}
+		var elem_height;
+		$(window).resize(function(){
+			var width = $('.carousal_wrapper').width();
+			var height = width*.6;
+			elem_height = height;
+			$(".carousal_container, .carousal_elem").css("max-height",400).css("height",height);
+			});
+		$(window).load(function(){
+			var width = $('.carousal_wrapper').width();
+			var height = width*.6;
+			$(".carousal_container, .carousal_elem").css("max-height",400).css("height",height);
+			elem_height = height;
+			});
+			
+$(".carousal_elem").swipe({
+  swipe:function(event, direction, distance, duration, fingerCount) {
+	  if(direction == "left"){
+		  	if(x==0){
+				clearInterval(handler);
+				prev();
+				handler = setInterval(animate,4000);
+				}
+
+
+		  }else if(direction == "right"){
+			  if(x==0){
+				clearInterval(handler);
+				next();
+				handler = setInterval(animate,4000);
+				}
+			  }
+  }
+  
+  });
+	function animate(){
+		elem.find(".caption").animate({top:-elem_height});
+			elem.eq(i).animate({left:"50%"},function(){$(this).css("left","0%")});
+			var next = i+1;
+			if(next == elem.length){
+				next = 0;
+				}
+			elem.eq(next).css("left","0%");
+			elem.eq(next).animate({left:"25%"},function(){
+				$(this).find(".caption").animate({top:0});
+				});
+			
+		i++;
+		if(i==elem.length){
+			i=0;
+			}
+		
+	  }
+	 var x = 0; 
+	function next(){
+		x=1;
+			elem.find(".caption").animate({top:-elem_height});
+			elem.eq(i).animate({left:"50%"},function(){$(this).css("left","0%")});
+			var next = i+1;
+			if(next == elem.length){
+				next = 0;
+				}
+			elem.eq(next).css("left","0%");
+			elem.eq(next).animate({left:"25%"},function(){
+				$(this).find(".caption").animate({top:0});
+				x=0;
+				});
+	
+		i++;
+		if(i==elem.length){
+			i=0;
+			}
+		}
+		
+	function prev(){
+		x=1;
+			elem.find(".caption").animate({top:-elem_height});
+			elem.eq(i).animate({left:"0%"},function(){$(this).css("left","50%")});
+			var prev = i-1;
+			if(prev < 0){
+				prev = elem.length-1;
+				}
+			elem.eq(prev).css("left","50%");
+			elem.eq(prev).animate({left:"25%"},function(){
+				$(this).find(".caption").animate({top:0});
+				x=0;
+				});
+		i--;
+		if(i<0){
+			i=elem.length-1;
+			}
+		}
+			$(".carousal_wrapper").mouseenter(function(){
+			$(".carousal_nav").show();
+			}).mouseleave(function(){
+				$(".carousal_nav").hide();
+				});
+		
+		$(".carousal_nav.next").click(function(){
+			if(x==0){
+				clearInterval(handler);
+				next();
+				handler = setInterval(animate,4000);
+				}
+			
+			});
+			
+		$(".carousal_nav.prev").click(function(){
+			if(x==0){
+				clearInterval(handler);
+				prev();
+				handler = setInterval(animate,4000);
+				}
+			
+			});	
+	
+	});
+</script>
+<style type="text/css">
+*{
+	margin:0px;
+	padding:0px;
+	}
+	
+.carousal_wrapper{
+	float:left;
+	display:inline;
+	width:100%;
+	height:auto;
+	overflow:hidden;
+	}
+	
+.carousal_container{
+	float:left;
+	display:inline;
+	width:400%;
+	height:400px;
+	margin-left:-100%;
+	position:relative;
+	}
+	
+.carousal_elem{
+	float:left;
+	display:inline;
+	width:25%;
+	height:400px;
+	background:#F00;
+	position:absolute;
+	left:0px;
+	top:0px;
+	}
+
+.carousal_elem .caption{
+	background:rgba(00,00,00,.7);
+	width:50%;
+	height:100%;
+	position:absolute;
+	z-index:2;
+	left:0px;
+	top:0px;
+	}	
+
+.carousal_elem img{
+	position:absolute;
+	z-index:1;
+	height:auto;
+	width:100%;
+	max-height:400px;
+	right:0px;
+	top:0px;
+	}
+
+.carousal_elem .caption h1{
+	padding:10px;
+	font-size:16px;
+	color:#FFF;
+	font-weight:400;
+	font-family:Arial, Helvetica, sans-serif;
+	}
+	
+.carousal_elem .caption p{
+	padding:10px;
+	font-size:14px;
+	color:#FFF;
+	font-weight:400;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	}
+	
+.carousal_nav{
+	position:absolute;
+	width:30px;
+	height:30px;
+	border:#000 solid 3px;
+	background:rgba(255,255,255,.7);
+	border-radius:20px;
+	-webkit-border-radius:20px;
+	-moz-border-radius:20px;
+	text-align:center;
+	line-height:25px;
+	font-size:24px;
+	font-weight:bold;
+	top:50%;
+	margin-top:-10px;
+	z-index:10;
+	cursor:pointer;
+	display:none;
+	}	
+	
+.carousal_nav.prev{
+	left:25%;
+	margin-left:10px;
+	}	
+
+.carousal_nav.next{
+	left:50%;
+	margin-left:-40px;
+	}	
+	
+@media (max-width:500px){
+	.carousal_elem .caption{
+		width:100%;
+		height:auto;
+		}
+	}	
+</style>
+</head>
+
+<body>
+<div class="carousal_wrapper">
+	<div class="carousal_container">
+    	<span class="carousal_nav prev">&laquo;</span>
+        <span class="carousal_nav next">&raquo;</span>
+    	<div class="carousal_elem">
+        	<div class="caption">
+            	<h1></h1>
+                <p></p>
+            </div>
+            <img src="" />
+        </div>
+        <div class="carousal_elem">
+        	<div class="caption">
+            	<h1></h1>
+                <p></p>
+            </div>
+            <img src="" />
+        </div>
+        <div class="carousal_elem">
+        	<div class="caption">
+            	<h1></h1>
+                <p></p>
+            </div>
+            <img src="" />
+        </div>
+        <div class="carousal_elem">
+        	<div class="caption">
+            	<h1></h1>
+                <p></p>
+            </div>
+            <img src="" />
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

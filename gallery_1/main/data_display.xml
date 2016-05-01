@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+		
+<Product_Display>
+
+	<settings_Product_Display>
+
+		<totalWidth>2600</totalWidth>
+		<totalHeight>450</totalHeight>
+		
+		<maskWidth>1000</maskWidth>
+		<maskHeight>450</maskHeight>
+		
+		<thumbWidth>170</thumbWidth>
+		<thumbHeight>120</thumbHeight>
+		
+		
+		<horizontalSpace>40</horizontalSpace>
+		<verticalSpace>32</verticalSpace>
+	
+		<xScrollingCorrection>25</xScrollingCorrection>
+		<yScrollingCorrection>25</yScrollingCorrection>
+		<scrollingSpeed>25</scrollingSpeed>
+		
+		
+		<correctXOnFullScreen>210</correctXOnFullScreen>
+		<correctYOnFullScreen>21</correctYOnFullScreen>
+		
+		<animationWhenShrinkingTime>0.9</animationWhenShrinkingTime>
+		<animationWhenShrinkingType>easeOutQuad</animationWhenShrinkingType>
+		
+		<animationWhenGoingLargeTime>0.9</animationWhenGoingLargeTime>
+		<animationWhenGoingLargeType>easeOutQuad</animationWhenGoingLargeType>
+		
+		<animationTimeUponShowNextPic>0.9</animationTimeUponShowNextPic>
+		<animationTypeUponShowNextPic>easeOutQuad</animationTypeUponShowNextPic>
+		
+		<randomLoad></randomLoad>
+		
+	</settings_Product_Display>
+	
+	<content>
+		<item src="images/G01.jpg"></item>
+		<item src="images/G02.jpg"></item>
+		<item src="images/G03.jpg"></item>
+		<item src="images/G04.jpg"></item>
+		<item src="images/G05.jpg"></item>
+		<item src="images/G06.jpg"></item>
+		<item src="images/G07.jpg"></item>
+		<item src="images/G08.jpg"></item>
+		<item src="images/G09.jpg"></item>
+		<item src="images/G10.jpg"></item>
+		<item src="images/G11.jpg"></item>
+		<item src="images/G12.jpg"></item>
+		<item src="images/G13.jpg"></item>
+		<item src="images/G14.jpg"></item>
+		<item src="images/G15.jpg"></item>
+		<item src="images/G16.jpg"></item>
+		<item src="images/G17.jpg"></item>
+		<item src="images/G18.jpg"></item>
+		<item src="images/G19.jpg"></item>
+		<item src="images/G20.jpg"></item>
+		<item src="images/G21.jpg"></item>
+		<item src="images/G22.jpg"></item>
+		<item src="images/G23.jpg"></item>
+		<item src="images/G24.jpg"></item>
+		<item src="images/G25.jpg"></item>
+		<item src="images/G26.jpg"></item>
+		<item src="images/G27.jpg"></item>
+		<item src="images/G28.jpg"></item>
+		<item src="images/G29.jpg"></item>
+		<item src="images/G30.jpg"></item>
+		<item src="images/G31.jpg"></item>
+		<item src="images/G32.jpg"></item>
+		<item src="images/G33.jpg"></item>
+		<item src="images/G35.jpg"></item>
+		<item src="images/G36.jpg"></item>
+		<item src="images/G37.jpg"></item>
+	</content>
+	
+</Product_Display>
+

@@ -1,0 +1,3 @@
+Uri: https://www.greenlightloans.com/Content/fonts/fontawesome-webfont.svg?v=4.0.3
+File Name: c:\Downloaded Web Sites\www.greenlightloans.com\Content\fonts\fontawesome-webfont.svg
+Content Type: image/svg+xml

@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>Title</title>
+		<link rel="stylesheet" type="text/css" href="css/style_create_event.css"/>
+		<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.customSelect.min.js"></script>
+		<script type="text/javascript" src="js/jquery.datetimepicker.js"></script>
+		<!--[if lt IE 9]>
+		<script type="text/javascript" src="js/PIE.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style_ie.css"/>
+		<script src="js/html5shiv.js"></script>
+		<script type="text/javascript" src="js/ie.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="wrapper topbar">
+			<div class="center">
+				<div class="topbar_container">
+					<div class="topbar_logo">
+						<a href="#">IKEA Portland Gift Registry</a>
+					</div>
+					<ul>
+						<li>
+							<a href="#">New Search</a>
+						</li>
+						<li>
+							<a href="#">Help</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="ev_create_page wrapper">
+			<div class="wrapper">
+				<div class="center">
+					<div class="ev_create_container">
+                    	<a href="#" class="ikea_logo"><img src="img/ikea_logo.png"/></a>
+						<div class="inner">
+							<h3 class="title">Welcome!</h3>
+							<div class="block">
+
+								<div class="form">
+									<div class="box active">
+										<h3>Tell us about your event</h3>
+										<div class="row">
+											<span class="lable lable_2">What's happening?<sup>*</sup></span>
+											<select class="select required_select" autocomplete="off">
+												<option value="-1" data-bg="img/bg_general.jpg">--Select--</option>
+												<option value="1" data-bg="img/bg_general.jpg">General</option>
+												<option value="2" data-bg="img/bg_baby.jpg">Baby Shower</option>
+												<option value="3" data-bg="img/bg_graduation.jpg">Graduation</option>
+												<option value="4" data-bg="img/bg_wedding.jpg">Wedding</option>
+                                                <option value="5" data-bg="img/bg_housewarming.jpg">Housewarming</option>
+											</select>
+										</div>
+										<div class="row">
+											<span class="lable lable_2">When?<sup>*</sup></span>
+											<span class="datepicker_outer "> <b id="calender_icon"></b>
+												<input type="text" id="datepicker" class="required"/>
+											</span>
+										</div>
+										<div class="row">
+											<span class="lable info_lable lable_2"><img src="img/info_button.png"/> How many guests?<sup>*</sup></span>
+											<select class="select_2 required_select">
+												<option value="-1">--Select--</option>
+												<option value="1">100</option>
+												<option value="2">200</option>
+												<option value="3">500</option>
+												<option value="4">1000</option>
+											</select>
+
+										</div>
+
+									</div>
+									<div class="box active">
+										<h3>Tell us about yourself</h3>
+										<div class="row">
+											<span class="lable">First Name<sup>*</sup></span>
+											<input type="text" class="required" maxlength="30"/>
+										</div>
+										<div class="row">
+											<span class="lable">Last Name<sup>&nbsp;</sup></span>
+											<input type="text" maxlength="30"/>
+										</div>
+
+									</div>
+									<div class="box box_2">
+										<h3 class="underline">Add a co-registrant</h3>
+										<div class="row">
+											<span class="lable">First Name</span>
+											<input type="text" maxlength="30"/>
+										</div>
+										<div class="row">
+											<span class="lable">Last Name</span>
+											<input type="text" maxlength="30"/>
+										</div>
+										<div class="row">
+											<span class="lable">Email</span>
+											<input type="text"/>
+										</div>
+
+									</div>
+									<div class="row">
+										<button type="submit" id="done">
+											DONE
+										</button>
+										<small><span>*</span> required field</small>
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="wrapper footer"></div>
+		<div id="backgrounds" style="display: none">
+			<img src="img/bg_general.jpg"/>
+			<img src="img/bg_baby.jpg"/>
+			<img src="img/bg_graduation.jpg"/>
+			<img src="img/bg_wedding.jpg"/>
+            <img src="img/bg_housewarming.jpg"/>
+            
+            
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		function isInvalid() {
+			var error = 0;
+
+			$("select.required_select").each(function() {
+				if ($(this).find('option:selected').val() < 0) {
+					error++;
+				}
+			});
+			
+			
+			
+			$("input.required").each(function() {
+					if ($.trim($(this).val()) == "") {
+						error++;
+					}
+				});
+			return error;
+		}
+
+		$(function() {
+			$('.select').selectBox();
+			$('.select_2').selectBox();
+			$('#datepicker').datetimepicker({
+				timepicker : false,
+				format : 'm.d.Y',
+				minDate : 0,
+				onSelectDate:function() {
+					
+					}
+			});
+			$(".select").change(function() {
+				var bg = $(this).children("option:selected").attr("data-bg");
+				$(".ev_create_page, .ev_create_page .center").css("background", "url(" + bg + ") center top no-repeat");
+			});
+
+			$("#calender_icon").click(function() {
+				if (!$(".xdsoft_datetimepicker:visible").length) {
+					$("#datepicker").focusin();
+				} else {
+					$(".xdsoft_datetimepicker").hide()
+				}
+
+			});
+
+			$(".box_2 h3").click(function() {
+
+				$(this).closest(".box_2").find(".row").stop().slideToggle();
+				$(this).closest(".box_2").toggleClass("active");
+
+			});
+
+			/*Validation*/
+			if (isInvalid()) {
+				$("#done").addClass("invalid");
+			} else {
+				$("#done").removeClass("invalid");
+			}
+
+			
+			$(".required_select, input.required").change(function() {
+				if (isInvalid()) {
+					$("#done").addClass("invalid");
+				} else {
+					$("#done").removeClass("invalid");
+				}
+
+			});
+
+		});
+	</script>
+</html>

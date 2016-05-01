@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Login</title>
+<link rel="stylesheet" type="text/css" href="css/style_login.css"/>
+<script type="text/javascript" src="js/jquery.js"></script>
+<!--[if lt IE 9]>
+		<script type="text/javascript" src="js/PIE.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style_ie.css"/>
+      	<script src="js/html5shiv.js"></script>
+        <script type="text/javascript" src="js/ie.js"></script>
+<![endif]-->
+</head>
+
+<body>
+	<div class="wrapper topbar">
+    	<div class="center">
+        	<div class="topbar_container">
+            	<div class="topbar_logo">
+        			<a href="#">IKEA Portland Gift Registry</a>    
+            	</div>
+                <ul>
+                	<li><a href="#">New Search</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="login_page wrapper">
+    		<div class="center center_2">
+            	<div class="login_container">
+                	<a href="#" class="ikea_logo"><img src="img/ikea_logo_2.png"/></a>
+                	<div class="inner">
+                    	<div class="block" id="create_registry">
+                        	<div class="overlay"></div>
+                        	<h3 class="title">New to IKEA Portland Gift Registry? <a href="#">Create a Registry</a></h3>
+                            <div class="form">
+                            	<div class="fb_connect clickable">
+                                	<a href="#">Connect</a>
+                                </div>
+                                <p class="or">- or -</p>
+                                <div class="row">
+                                	<span class="lable">Your email address:</span>
+                                    <input type="text"/>
+                                </div>
+                                <div class="row">
+                                	<span class="lable">Choose a password:</span>
+                                    <input type="password"/>
+                                </div>
+                                <div class="row">
+                                	<span class="lable">Retype password:</span>
+                                    <input type="password"/>
+                                </div>
+                                <div class="row">
+                                	<button type="submit" class="clickable">SIGN-UP</button>
+                                </div>
+                            </div>
+                            <h3 class="title bottom_title" data-target="#login">Already have a registry? <a href="#">Log In</a></h3>
+                        </div>
+                        <div class="block" id="login">
+                        	<div class="overlay"></div>
+                        	<h3 class="title">Already have a registry? <a href="#">Log In</a></h3>
+                            <div class="form">
+                            	<div class="fb_connect clickable">
+                                	<a href="#">Connect</a>
+                                </div>
+                                <p class="or">- or -</p>
+                                <div class="row">
+                                	<span class="lable">Your email address:</span>
+                                    <input type="text"/>
+                                </div>
+                                <div class="row">
+                                	<span class="lable">Your password:</span>
+                                    <input type="password"/>
+                                </div>
+                                <div class="row">
+                                	<a href="#" class="forgot_pass">Forgot your password?</a>
+                                </div>
+                                <div class="row">
+                                	<button type="submit" class="btn_2 clickable">LOG IN</button>
+                                </div>
+                                
+                            </div>
+                            <h3 class="title bottom_title" data-target="#create_registry">New to IKEA Portland Gift Registry? <a href="#">Create a Registry</a></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper footer">
+    </div>
+    
+</body>
+<script type="text/javascript">
+$(function(){
+	$(window).resize(function(){
+		if($(window).width()<800){
+		$(".block").removeClass("inactive");
+		$(".block").find("input, button").prop('disabled', false);
+		}else{
+		$(".block").show();		
+		}
+	});
+	$(".block").mouseenter(function(){
+		if($(window).width()<800){
+		return;
+		}
+		$(".block").addClass("inactive");
+		$(".block").find("input, button").prop('disabled', true);
+		$(this).removeClass("inactive");
+		$(this).find("input, button").prop('disabled', false);	
+	});	
+	
+	$(".bottom_title").click(function(){
+		var a = $(this).attr("data-target");
+		$(".block").stop().hide();
+		$(a).show();
+		
+	});
+	
+	$(".clickable").mousedown(function(){
+		$(this).addClass("clicked");	
+		}).mouseup(function(){
+		$(this).removeClass("clicked");	
+		
+	});
+	
+});
+</script>
+</html>

@@ -1,0 +1,761 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<title>:: zhealth ::</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script>
+/*function showMe(d_ID){
+    jQuery("#"+d_ID).slideToggle('slow');
+    jQuery("#sw_"+d_ID).html('<a onclick="hideMe('+"'"+d_ID+"'"+')">Appointments<img src="images/minus.png" alt=""/></a>');
+  }
+  function hideMe(d_ID){ 
+    jQuery("#"+d_ID).slideToggle('slow'); 
+    jQuery("#sw_"+d_ID).html('<a onclick="showMe('+"'"+d_ID+"'"+')">Appointments<img src="images/plus.png" alt=""/></a>');
+  }  */
+</script>
+<script>
+$(function() {
+    $( document ).tooltip({
+      position: {
+        my: "center bottom-20",
+        at: "center top",
+        using: function( position, feedback ) {
+          $( this ).css( position );
+          $( "<div>" )
+            .addClass( "arrow" )
+            .addClass( feedback.vertical )
+            .addClass( feedback.horizontal )
+            .appendTo( this );
+        }
+      }
+    });
+  });
+
+ function showMe(d_ID){
+	   
+	 jQuery(".doctor_box_des").hide('slow');  
+	 
+    
+	if (jQuery("#tab-"+d_ID).is(':visible')) {
+		 jQuery(".doctor_box_title").show('slow');
+		 jQuery(".doctor_box_reply").hide('slow');
+      jQuery("#tab-"+d_ID).hide('slow'); 
+    } else { jQuery("#tab-"+d_ID).show('slow'); }
+	
+	if (jQuery("#desc-"+d_ID).is(':visible')) {
+      jQuery("#desc-"+d_ID).hide('slow'); 
+    } else { jQuery("#desc-"+d_ID).show('slow');   }
+	
+  }
+  
+  
+  
+   function replyMe(d_ID){
+	   
+	$(".doctor_box_reply").hide('slow');  
+    
+	if ($("#desc-"+d_ID).is(':visible')) {
+      $("#desc-"+d_ID).hide('slow');  
+    } else { $("#desc-"+d_ID).show('slow');   }
+	
+	if ($("#reply-"+d_ID).is(':visible')) {
+      $("#reply-"+d_ID).hide('slow'); 
+    } else { $("#reply-"+d_ID).show('slow');    }
+  }
+</script>
+<script type="text/javascript">
+ $(document).ready(function() {
+	 
+   $("#advance").click(function(){
+	$("#left-menu").slideToggle(function(){
+		$('.search_hldr').toggleClass('selecionado', $(this).is(':visible'));
+		$("#advance").toggleClass('advance', $(this).is(':visible'));
+		$(".appimage").toggleClass('appplus', $(this).is(':visible'));	
+		});		
+ });   
+  $(function() {
+  
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+	$( "#jig-datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  });
+  
+  
+  $("#sw_contentID2").click(function(e) {
+    $("#contentID2").slideToggle(function(){
+		
+		$(".appimage").toggleClass('appplus', $(this).is(':visible'));
+		});
+});
+/*  
+  $(".doctor_box_title").click(function(){
+	 $(this).find(".doctor_box_des").slideToggle(function(){
+		 $(".minimize").toggleClass('plush', $(this).is(':visible'));
+		
+		 });
+		  if($(".minimize").hasClass("plush")){
+			 $(this).find(".minimize").html("+");
+			 }
+		 else{$(this).find(".minimize").html("-");}
+	  });*/
+	 
+  
+});
+</script>
+
+<!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+<div class="main_body">
+  <header class="row navigate">
+    <div class="logo" >zHealth</div>
+    <div class="navigate_left"> <a href="#">My Basket <span class="pending">2</span></a> <a href="new-massage.html" class="baket-icon"><img src="images/copose.jpg" width="24" height="auto" alt=" "></a> </div>
+    <div class="navigate_hldr"> <span class="toggleMenu"><a href="#">Menu</a></span>
+      <ul class="nav">
+        <li><span class="tt"><a href="indexd.html">Messaging</a> <span class="tooltip"> <span class="top"></span> <span class="middle">
+          <p><a href="index.html" title="">New Message</a><br />
+            <a href="index.html">View Messages</a></p>
+          </span> </span></span> <span class="pending">2</span> </li>
+        <li><span class="tt">Patient Communications <span class="tooltip"> <span class="top"></span> <span class="middle">
+          <p>New Communication<br />
+            View Communication</p>
+          </span> </span></span> <span class="pending">2</span> </li>
+        <li><span class="tt">My list <span class="tooltip"> <span class="top"></span> <span class="middle">
+          <p>View List<br />
+            Add Patient</p>
+          </span> </span> </span></li>
+      </ul>
+      <ul class="nav right" style="width:42%;">
+        <li><a href="" >Reports</a></li>
+        <li><span class="tt">Medical Resources <span class="tooltip"> <span class="top"></span> <span class="middle">
+          <p>Resource 1<br />
+            Resource 2<br />
+            Intranet</p>
+          </span> </span> </span></li>
+      </ul>
+    </div>
+    <div class="navigate_right" id="divOne">
+      <div class="myaccount" > <span>Welcome Dr. Kanwar</span> <span  ><a href="#" >Your Account<img src="css/images/down-arrow.png"/></a></span> </div>
+      <div class="myaccountDtls" id="details">
+        <ul>
+          <li><a href="" >Settings</a></li>
+          <li><a href="" >Preferences</a></li>
+          <li><a href="" >Change password</a></li>
+          <li><a href="" >Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <div class="row main_container">
+    <article class="col_left">
+      <div class="col_left_hldr col_left_search">
+        <div class="add-patients"><span class="">Patients</span> <a href="addpatient.html"><span class="plussign tt">&nbsp;+<span class="tooltip"> <span class="top"></span> <span class="middle"><p>Add Patient</p>          </span> </span> </span></a> </div>
+        <div class="search_hldr">
+          <form action="#">
+            <input type="text" value="Name or MRN" class="search_inpt" onFocus="this.value=''" onBlur="this.value='Name or MRN'"/>
+            <input type="submit" value="" class="search_sub" />
+          </form>
+        </div>
+        <a href="#" title="" id="advance" class="advabce_srch"><span class="appimage"></span>Advanced</a> </div>
+      <div id="left-menu" style="display:none;">
+        <form>
+          <fieldset>
+            <input type="text" value="Name" >
+          </fieldset>
+          <fieldset>
+            <input type="text" value="zID" >
+          </fieldset>
+          <fieldset>
+            <input type="text" value="DOB" id="datepicker"  class="B_frm_inpt date_pic">
+          </fieldset>
+          <fieldset>
+            <input type="text" value="MRN" >
+          </fieldset>
+          <fieldset>
+            <input type="text" value="SSN" >
+          </fieldset>
+          <fieldset>
+            <input type="submit" value="Search" >
+          </fieldset>
+        </form>
+      </div>
+      <ul class="left-menu">
+        <li><a href="index.html" class="submenu">Inbox</a></li>
+        <li><a href="#">Archive</a></li>
+        <li><a href="#">Drafts</a></li>
+      </ul>
+    </article>
+    <article class="col_med">
+      <div class="col_med_title" style="padding-bottom: 1%;">Messaging (23)</div>
+      <div class="med_table">
+        <table id="doctor">
+           <thead>    
+             <tr>
+               <th scope="col" width="7%"><a href="" title=""><img src="images/new-message.png" alt=""/></a></th>
+               <th scope="col" width="20%"><a href="" title=""><img src="images/arrow.png" alt=""/></a></th>
+               <th scope="col" width="53%"><a href="" title=""><img src="images/arrow.png" alt=""/></a></th>
+               <th scope="col" width="20%"><a href="" title=""><img src="images/arrow.png" alt=""/></a></th>
+               <th scope="col" width="7%"><a href="" title=""><img src="images/arrow.png" alt=""/></a></th>
+               <th scope="col" width="7%"><a href="" title=""><img src="images/folder.png" alt=""/></a></th>
+             </tr>        
+            </thead>
+         </table>
+         <div class="doctor_box">
+           <div class="doctor_box_title" id="tab-ID1" onclick="showMe('ID1')">
+             <table id="doctor">
+            <tbody>
+                <tr class="style2">
+                    <td width="3%"><img src="images/read.png" alt=""/></td>
+                    <td width="20%"><b>Dr. TammyReese</b></td>
+                    <td width="37%">Radiology Report for Patient # 123-567-8901</td>
+                    <td width="8%"><img src="images/green.png" alt=""/></td>
+                    <td width="23%">Thu, 11/21/2013 7:30 pm</td>
+                    <td width="3%"><img src="images/notify.png" alt=""/></td>
+                    <td width="3%"><img src="images/folder.png" alt=""/></td>
+                    <td width="3%"><img src="images/trash.png" alt=""/></td>
+                </tr>
+             </tbody>
+            </table>
+           </div>
+           <div class="doctor_box_des" id="desc-ID1" style="display:none;">
+            <table id="doctor">
+            <tbody>
+                <tr class="style2">
+                    <td width="3%"><a href="#" onclick="showMe('ID1')" class="minimize"><img src="images/miinimize.png" alt=""/></a></td>
+                    <td width="25%"><a href="" title="">Canncel</a></td>
+                    <td width="25%">&nbsp;</td>
+                    <td width="5%"><img src="images/print.png" alt=""/></td>
+                       <td width="14%"><a href="" title="">Email Patient</a></td>
+                    <td width="15%"><a href="" title="">Open Patient</a></td>
+                    <td width="7%"><img src="images/reply.png" alt=""></td>
+                    <td width="3%"><img src="images/folder.png" alt=""></td>
+                    <td width="3%"><img src="images/trash.png" alt=""></td>
+                    
+                </tr>
+             </tbody>
+            </table>
+            <div class="doc_sms_des">
+               <div class="doctor_box_title2">
+                 <table id="doctor">
+                    <tbody>
+                        <tr class="style2">
+                            <td width="3%">To:</td>
+                            <td width="28%"><b style="color:#20baf2;">Dr. TammyReese</b></td>
+                            <td width="40%">Radiology Report for Patient # 123-567-8901</td>
+                            <td width="29%">Thu, 11/21/2013 7:30 pm</td>
+                        </tr>
+                     </tbody>
+                    </table>
+               </div>
+               <div class="doc_sms_content content  mCustomScrollbar _mCS_1">
+                 <p>Hello Dr. Kanwar,<br />
+I looked at the chart and the test results for Patient # 678-876-1234. I agree with your assessment that the patient has a high risk for Chematherasis. My recommendation would be to get a MRI Scan done, and put the patient on a course of AcetoZinfandel for a week. If the symptoms don’t reduce, then the surgery would be the best option.
+I have run across similar situations in three of my patients in the past:</p>
+				 <ul>
+                   <li>Patient A: Had a rinncoudpathalamos.</li>
+                   <li>Patient B: Found a sentaphone on doing an MRI.</li>
+                   <li>Patient C: Surgery not needed as symptoms subsided within one week.</li>
+                 </ul>
+               </div>
+            </div>
+           </div>
+           <div class="doctor_box_title" id="tab-ID2" onclick="showMe('ID2')">
+             <table id="doctor">
+            <tbody>
+                <tr class="style2">
+                    <td width="3%"><img src="images/read.png" alt=""/></td>
+                    <td width="20%"><b>Dr. TammyReese</b></td>
+                    <td width="37%">Radiology Report for Patient # 123-567-8901</td>
+                    <td width="8%"><img src="images/green.png" alt=""/></td>
+                    <td width="23%">Thu, 11/21/2013 7:30 pm</td>
+                    <td width="3%"><img src="images/notify2.png" alt=""/></td>
+                    <td width="3%"><img src="images/folder.png" alt=""/></td>
+                    <td width="3%"><img src="images/trash.png" alt=""/></td>
+                </tr>
+             </tbody>
+            </table>
+           </div>
+           <div class="doctor_box_des" id="desc-ID2" style="display:none;">
+            <table id="doctor">
+            <tbody>
+                <tr class="style2">
+                    <td width="3%"><a href="#" onclick="showMe('ID2')" class="minimize"><img src="images/miinimize.png" alt=""/></a></td>
+                    <td width="25%">&nbsp;</td>
+                    <td width="25%">&nbsp;</td>
+                    <td width="5%"><img src="images/print.png" alt=""/></td>
+                    <td width="14%"><a href="" title="">Email Patient</a></td>
+                    <td width="15%"><a href="" title="">Open Patient</a></td>
+                    <td width="7%"><img src="images/reply.png" alt=""/></td>
+                    <td width="3%"><img src="images/folder.png" alt=""/></td>
+                    <td width="3%"><img src="images/trash.png" alt=""/></td>
+                </tr>
+             </tbody>
+            </table>
+            <div class="doc_sms_des">
+               <div class="doctor_box_title2">
+                 <table id="doctor">
+                    <tbody>
+                        <tr class="style2">
+                            <td width="23%"><b>Dr. TammyReese</b></td>
+                            <td width="40%">Radiology Report for Patient # 123-567-8901</td>
+                            <td width="8%"><img src="images/green.png" alt=""/></td>
+                            <td width="29%">Thu, 11/21/2013 7:30 pm</td>
+                        </tr>
+                     </tbody>
+                    </table>
+               </div>
+               <div class="doc_sms_content content  mCustomScrollbar _mCS_1">
+                 <p>Hello Dr. Kanwar,<br />
+I looked at the chart and the test results for Patient # 678-876-1234. I agree with your assessment that the patient has a high risk for Chematherasis. My recommendation would be to get a MRI Scan done, and put the patient on a course of AcetoZinfandel for a week. If the symptoms don’t reduce, then the surgery would be the best option.
+I have run across similar situations in three of my patients in the past:</p>
+				 <ul>
+                   <li>Patient A: Had a rinncoudpathalamos.</li>
+                   <li>Patient B: Found a sentaphone on doing an MRI.</li>
+                   <li>Patient C: Surgery not needed as symptoms subsided within one week.</li>
+                 </ul>
+               </div>
+            </div>
+           </div>
+           <div class="doctor_box_title" id="tab-ID3" onclick="showMe('ID3')">
+             <table id="doctor">
+            <tbody>
+                <tr class="style1">
+                    <td width="3%"><img src="images/read.png" alt=""/></td>
+                    <td width="20%"><b>Dr. TammyReese</b></td>
+                    <td width="37%">Radiology Report for Patient # 123-567-8901</td>
+                    <td width="8%"><img src="images/green.png" alt=""/></td>
+                    <td width="23%">Thu, 11/21/2013 7:30 pm</td>
+                    <td width="3%"><img src="images/notify.png" alt=""/></td>
+                    <td width="3%"><img src="images/folder.png" alt=""/></td>
+                    <td width="3%"><img src="images/trash.png" alt=""/></td>
+                </tr>
+             </tbody>
+            </table>
+           </div>
+           <div class="doctor_box_des" id="desc-ID3" style="display:none;">
+            <table id="doctor">
+            <tbody>
+                <tr class="style2">
+                    <td width="3%"><a href="#" onclick="showMe('ID3')" class="minimize"><img src="images/miinimize.png" alt=""/></a></td>
+                    <td width="25%">&nbsp;</td>
+                    <td width="25%">&nbsp;</td>
+                    <td width="5%"><img src="images/print.png" alt=""/></td>
+                    <td width="14%"><a href="" title="">Email Patient</a></td>
+                    <td width="15%"><a href="" title="">Open Patient</a></td>
+                    <td width="7%"><img src="images/reply.png" alt=""/></td>
+                    <td width="3%"><img src="images/folder.png" alt=""/></td>
+                    <td width="3%"><img src="images/trash.png" alt=""/></td>
+                </tr>
+             </tbody>
+            </table>
+            <div class="doc_sms_des">
+               <div class="doctor_box_title2">
+                 <table id="doctor">
+                    <tbody>
+                        <tr class="style2">
+                            <td width="23%"><b>Dr. TammyReese</b></td>
+                            <td width="40%">Radiology Report for Patient # 123-567-8901</td>
+                            <td width="8%"><img src="images/green.png" alt=""/></td>
+                            <td width="29%">Thu, 11/21/2013 7:30 pm</td>
+                        </tr>
+                     </tbody>
+                    </table>
+               </div>
+               <div class="doc_sms_content content  mCustomScrollbar _mCS_1">
+                 <p>Hello Dr. Kanwar,<br />
+I looked at the chart and the test results for Patient # 678-876-1234. I agree with your assessment that the patient has a high risk for Chematherasis. My recommendation would be to get a MRI Scan done, and put the patient on a course of AcetoZinfandel for a week. If the symptoms don’t reduce, then the surgery would be the best option.
+I have run across similar situations in three of my patients in the past:</p>
+				 <ul>
+                   <li>Patient A: Had a rinncoudpathalamos.</li>
+                   <li>Patient B: Found a sentaphone on doing an MRI.</li>
+                   <li>Patient C: Surgery not needed as symptoms subsided within one week.</li>
+                 </ul>
+               </div>
+            </div>
+           </div>
+           <div class="doctor_box_title" id="tab-ID4" onclick="showMe('ID4')">
+             <table id="doctor">
+            <tbody>
+                <tr class="style2">
+                    <td width="3%"><img src="images/read.png" alt=""/></td>
+                    <td width="20%"><b>Dr. TammyReese</b></td>
+                    <td width="37%">Radiology Report for Patient # 123-567-8901</td>
+                    <td width="8%"><img src="images/green.png" alt=""/></td>
+                    <td width="23%">Thu, 11/21/2013 7:30 pm</td>
+                    <td width="3%"><img src="images/notify.png" alt=""/></td>
+                    <td width="3%"><img src="images/folder.png" alt=""/></td>
+                    <td width="3%"><img src="images/trash.png" alt=""/></td>
+                </tr>
+             </tbody>
+            </table>
+           </div>
+           <div class="doctor_box_des" id="desc-ID4" style="display:none;">
+            <table id="doctor">
+            <tbody>
+                <tr class="style2">
+                    <td width="3%"><a href="#" onclick="showMe('ID4')" class="minimize"><img src="images/miinimize.png" alt=""/></a></td>
+                    <td width="25%">&nbsp;</td>
+                    <td width="25%">&nbsp;</td>
+                    <td width="5%"><img src="images/print.png" alt=""/></td>
+                    <td width="14%"><a href="" title="">Email Patient</a></td>
+                    <td width="15%"><a href="" title="">Open Patient</a></td>
+                    <td width="7%"><img src="images/reply.png" alt=""/></td>
+                    <td width="3%"><img src="images/folder.png" alt=""/></td>
+                    <td width="3%"><img src="images/trash.png" alt=""/></td>
+                </tr>
+             </tbody>
+            </table>
+            <div class="doc_sms_des">
+               <div class="doctor_box_title2">
+                 <table id="doctor">
+                    <tbody>
+                        <tr class="style2">
+                            <td width="23%"><b>Dr. TammyReese</b></td>
+                            <td width="40%">Radiology Report for Patient # 123-567-8901</td>
+                            <td width="8%"><img src="images/green.png" alt=""/></td>
+                            <td width="29%">Thu, 11/21/2013 7:30 pm</td>
+                        </tr>
+                     </tbody>
+                    </table>
+               </div>
+               <div class="doc_sms_content content  mCustomScrollbar _mCS_1">
+                 <p>Hello Dr. Kanwar,<br />
+I looked at the chart and the test results for Patient # 678-876-1234. I agree with your assessment that the patient has a high risk for Chematherasis. My recommendation would be to get a MRI Scan done, and put the patient on a course of AcetoZinfandel for a week. If the symptoms don’t reduce, then the surgery would be the best option.
+I have run across similar situations in three of my patients in the past:</p>
+				 <ul>
+                   <li>Patient A: Had a rinncoudpathalamos.</li>
+                   <li>Patient B: Found a sentaphone on doing an MRI.</li>
+                   <li>Patient C: Surgery not needed as symptoms subsided within one week.</li>
+                 </ul>
+               </div>
+            </div>
+           </div>
+           <div class="doctor_box_title" id="tab-ID5" onclick="showMe('ID5')">
+             <table id="doctor">
+            <tbody>
+                <tr class="style1">
+                    <td width="3%"><img src="images/read.png" alt=""/></td>
+                    <td width="20%"><b>Dr. TammyReese</b></td>
+                    <td width="37%">Radiology Report for Patient # 123-567-8901</td>
+                    <td width="8%"><img src="images/green.png" alt=""/></td>
+                    <td width="23%">Thu, 11/21/2013 7:30 pm</td>
+                    <td width="3%"><img src="images/notify2.png" alt=""/></td>
+                    <td width="3%"><img src="images/folder.png" alt=""/></td>
+                    <td width="3%"><img src="images/trash.png" alt=""/></td>
+                </tr>
+             </tbody>
+            </table>
+           </div>
+           <div class="doctor_box_des" id="desc-ID5" style="display:none;">
+            <table id="doctor">
+            <tbody>
+                <tr class="style2">
+                    <td width="3%"><a href="#" onclick="showMe('ID5')" class="minimize"><img src="images/miinimize.png" alt=""/></a></td>
+                    <td width="25%">&nbsp;</td>
+                    <td width="25%">&nbsp;</td>
+                    <td width="5%"><img src="images/print.png" alt=""/></td>
+                    <td width="14%"><a href="" title="">Email Patient</a></td>
+                    <td width="15%"><a href="" title="">Open Patient</a></td>
+                    <td width="7%"><img src="images/reply.png" alt=""/></td>
+                    <td width="3%"><img src="images/folder.png" alt=""/></td>
+                    <td width="3%"><img src="images/trash.png" alt=""/></td>
+                </tr>
+             </tbody>
+            </table>
+            <div class="doc_sms_des">
+               <div class="doctor_box_title2">
+                 <table id="doctor">
+                    <tbody>
+                        <tr class="style2">
+                            <td width="23%"><b>Dr. TammyReese</b></td>
+                            <td width="40%">Radiology Report for Patient # 123-567-8901</td>
+                            <td width="8%"><img src="images/green.png" alt=""/></td>
+                            <td width="29%">Thu, 11/21/2013 7:30 pm</td>
+                        </tr>
+                     </tbody>
+                    </table>
+               </div>
+               <div class="doc_sms_content content  mCustomScrollbar _mCS_1">
+                 <p>Hello Dr. Kanwar,<br />
+I looked at the chart and the test results for Patient # 678-876-1234. I agree with your assessment that the patient has a high risk for Chematherasis. My recommendation would be to get a MRI Scan done, and put the patient on a course of AcetoZinfandel for a week. If the symptoms don’t reduce, then the surgery would be the best option.
+I have run across similar situations in three of my patients in the past:</p>
+				 <ul>
+                   <li>Patient A: Had a rinncoudpathalamos.</li>
+                   <li>Patient B: Found a sentaphone on doing an MRI.</li>
+                   <li>Patient C: Surgery not needed as symptoms subsided within one week.</li>
+                 </ul>
+               </div>
+            </div>
+           </div>
+           <div class="doctor_box_title" id="tab-ID6" onclick="showMe('ID6')">
+             <table id="doctor">
+            <tbody>
+                <tr class="style2">
+                    <td width="3%"><img src="images/read.png" alt=""/></td>
+                    <td width="20%"><b>Dr. TammyReese</b></td>
+                    <td width="37%">Radiology Report for Patient # 123-567-8901</td>
+                    <td width="8%"><img src="images/green.png" alt=""/></td>
+                    <td width="23%">Thu, 11/21/2013 7:30 pm</td>
+                    <td width="3%"><img src="images/notify.png" alt=""/></td>
+                    <td width="3%"><img src="images/folder.png" alt=""/></td>
+                    <td width="3%"><img src="images/trash.png" alt=""/></td>
+                </tr>
+             </tbody>
+            </table>
+           </div>
+           <div class="doctor_box_des" id="desc-ID6" style="display:none;">
+            <table id="doctor">
+            <tbody>
+                <tr class="style2">
+                    <td width="3%"><a href="#" onclick="showMe('ID6')" class="minimize"><img src="images/miinimize.png" alt=""/></a></td>
+                    <td width="25%">&nbsp;</td>
+                    <td width="25%">&nbsp;</td>
+                    <td width="5%"><img src="images/print.png" alt=""/></td>
+                    <td width="14%"><a href="" title="">Email Patient</a></td>
+                    <td width="15%"><a href="" title="">Open Patient</a></td>
+                    <td width="7%"><img src="images/reply.png" alt=""/></td>
+                    <td width="3%"><img src="images/folder.png" alt=""/></td>
+                    <td width="3%"><img src="images/trash.png" alt=""/></td>
+                </tr>
+             </tbody>
+            </table>
+            <div class="doc_sms_des">
+               <div class="doctor_box_title2">
+                 <table id="doctor">
+                    <tbody>
+                        <tr class="style2">
+                            <td width="23%"><b>Dr. TammyReese</b></td>
+                            <td width="40%">Radiology Report for Patient # 123-567-8901</td>
+                            <td width="8%"><img src="images/green.png" alt=""/></td>
+                            <td width="29%">Thu, 11/21/2013 7:30 pm</td>
+                        </tr>
+                     </tbody>
+                    </table>
+               </div>
+               <div class="doc_sms_content content  mCustomScrollbar _mCS_1">
+                 <p>Hello Dr. Kanwar,<br />
+I looked at the chart and the test results for Patient # 678-876-1234. I agree with your assessment that the patient has a high risk for Chematherasis. My recommendation would be to get a MRI Scan done, and put the patient on a course of AcetoZinfandel for a week. If the symptoms don’t reduce, then the surgery would be the best option.
+I have run across similar situations in three of my patients in the past:</p>
+				 <ul>
+                   <li>Patient A: Had a rinncoudpathalamos.</li>
+                   <li>Patient B: Found a sentaphone on doing an MRI.</li>
+                   <li>Patient C: Surgery not needed as symptoms subsided within one week.</li>
+                 </ul>
+               </div>
+            </div>
+           </div>
+           <div class="doctor_box_title" id="tab-ID7" onclick="showMe('ID7')">
+             <table id="doctor">
+            <tbody>
+                <tr class="style1">
+                    <td width="3%"><img src="images/read.png" alt=""/></td>
+                    <td width="20%"><b>Dr. TammyReese</b></td>
+                    <td width="37%">Radiology Report for Patient # 123-567-8901</td>
+                    <td width="8%"><img src="images/green.png" alt=""/></td>
+                    <td width="23%">Thu, 11/21/2013 7:30 pm</td>
+                    <td width="3%"><img src="images/notify2.png" alt=""/></td>
+                    <td width="3%"><img src="images/folder.png" alt=""/></td>
+                    <td width="3%"><img src="images/trash.png" alt=""/></td>
+                </tr>
+             </tbody>
+            </table>
+           </div>
+           <div class="doctor_box_des" id="desc-ID7" style="display:none;">
+            <table id="doctor">
+            <tbody>
+                <tr class="style2">
+                    <td width="3%"><a href="#" onclick="showMe('ID7')" class="minimize"><img src="images/miinimize.png" alt=""/></a></td>
+                    <td width="25%">&nbsp;</td>
+                    <td width="25%">&nbsp;</td>
+                    <td width="5%"><img src="images/print.png" alt=""/></td>
+                    <td width="14%"><a href="" title="">Email Patient</a></td>
+                    <td width="15%"><a href="" title="">Open Patient</a></td>
+                    <td width="7%"><img src="images/reply.png" alt=""/></td>
+                    <td width="3%"><img src="images/folder.png" alt=""/></td>
+                    <td width="3%"><img src="images/trash.png" alt=""/></td>
+                </tr>
+             </tbody>
+            </table>
+            <div class="doc_sms_des">
+               <div class="doctor_box_title2">
+                 <table id="doctor">
+                    <tbody>
+                        <tr class="style2">
+                            <td width="23%"><b>Dr. TammyReese</b></td>
+                            <td width="40%">Radiology Report for Patient # 123-567-8901</td>
+                            <td width="8%"><img src="images/green.png" alt=""/></td>
+                            <td width="29%">Thu, 11/21/2013 7:30 pm</td>
+                        </tr>
+                     </tbody>
+                    </table>
+               </div>
+               <div class="doc_sms_content content  mCustomScrollbar _mCS_1">
+                 <p>Hello Dr. Kanwar,<br />
+I looked at the chart and the test results for Patient # 678-876-1234. I agree with your assessment that the patient has a high risk for Chematherasis. My recommendation would be to get a MRI Scan done, and put the patient on a course of AcetoZinfandel for a week. If the symptoms don’t reduce, then the surgery would be the best option.
+I have run across similar situations in three of my patients in the past:</p>
+				 <ul>
+                   <li>Patient A: Had a rinncoudpathalamos.</li>
+                   <li>Patient B: Found a sentaphone on doing an MRI.</li>
+                   <li>Patient C: Surgery not needed as symptoms subsided within one week.</li>
+                 </ul>
+               </div>
+            </div>
+           </div>
+           
+        
+           
+          
+           
+            
+           
+           
+			<a href="" title="" class="more_sms">8 More message</a>
+         </div>
+      </div>
+    </article>
+    
+    <article class="inner_right" style=" border-left: 1px solid #4579b8;">
+      <div class="add-patients"> <span>Appointments</span><span class="plussign tt">&nbsp;+<span class="tooltip"> <span class="top"></span> <span class="middle">
+        <p>Add Appointmemts</p>
+        </span> </span></span> </div>
+      <div class="col_right_title inner_appoinment"><span id="sw_contentID2"><a onclick="showMe('contentID2')"><span class="appimage" style="position:relative; float:left; top:11px;"></span></a></span>
+        <input type="text" value="05/26/2014" id="jig-datepicker" class="B_frm_inpt date_pic">
+        <a href="#" class="morebtn">More</a> </div>
+      <div class="col_right_hldr inner_right_content  mCustomScrollbar _mCS_1" id="contentID2" >
+        <ul>
+          <li><a href="" title="" target="_blank"><span>9:00 am  Brett Tramposh Throat  Pain</span>
+            <span style="text-align:left">MRN: 188- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>9:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>9:00 am  Cynthia Stoddard  Flu</span>
+            <span>MRN: 188- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>9:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>10:00 am  Jeff Smith  Annual Checkup</span>
+            <span>MRN: 188- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>10:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>10:30 am  Reid Foster  Colonoscopy</span>
+            <span>MRN: 111- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>10:30 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>11:00 am  Judy Green  Mammogram</span>
+            <span>MRN: 265- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>11:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>11:30 am  Rachel Ross  Blood Work</span>
+            <span>MRN: 240- 567-1901</span></a><span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>11:30 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>1:00 pm  Aaron Bawa  Flu</span>
+            <span>MRN: 176- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>1:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>1:30 pm  Fred Mangers  Checkup</span>
+            <span>MRN: 100- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>1:30 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>2:00 pm  Sue McKinnon  Flu</span>
+            <span>MRN: 200- 567-1901</span></a><span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>2:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>2:30 pm  Tracy Bird  Knee Pain</span>
+            <span>MRN: 290- 567-1901</span></a><span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>2:30 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>3:00 pm  Randy Collins  Breathing trouble</span>
+            <span>MRN: 200- 567-1901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>3:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>3:30 pm  Tom O’Neil  Leg Injury</span>
+            <span>MRN: 234- 567-8901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>3:30 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>4:00 pm  Bob Lutz  Annual Checkup</span>
+            <span>MRN: 224- 167-8001</span></a><span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>4:00 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+          <li><a href="" title="" target="_blank"><span>4:30 pm  Jake Maroc  Colonoscopy</span>
+                      <span>MRN: 734- 567-8901</span></a> <span class="apparrow tt"><img src="images/arrow-back.png" ><span class="tooltip"> <span class="top"></span> <span class="middle">
+            <p>4:30 am <br>
+              Brett Tramposh <br>
+              Throat  Pain<br>
+              MRN: 188- 567-1901</p>
+            </span> </span></span></li>
+        </ul>
+      </div>
+    </article>
+    <div class="today_date">7:25 am<br />11/22/2013</div>
+  </div>
+</div>
+<script src="js/script.js" type="text/javascript"></script>
+
+<script>
+
+		(function($){
+			$(window).load(function(){
+				
+				$(".content").each(function(index, element) {
+                  $(this).mCustomScrollbar({
+					scrollInertia:150
+				});
+                });
+				
+			});
+		})(jQuery);
+
+	</script>
+</body>
+</html>

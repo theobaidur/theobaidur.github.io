@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html>
+<!--<![endif]-->
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    
+    <title>Grantees | Cordes Foundation</title>
+    
+    
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+   
+    <link type="text/css" rel="stylesheet" href="webfonts/font.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/animate.css">
+ 	<!--<link type="text/css" rel="stylesheet" href="css/ipad.css">
+    <link type="text/css" rel="stylesheet" href="css/iphone.css">
+    <link type="text/css" rel="stylesheet" href="css/phone-ve.css">
+    <link rel="stylesheet" href="css/flexslider.css" /> -->
+    
+    <!--[if lte IE 8]>
+    <link type="text/css" rel="stylesheet" href="css/ie.css" />
+    <script type="text/javascript" src="js/modernizr.min.js"></script>
+    <![endif]-->
+    
+    <!--[if lte IE 6]>
+    <script type="text/javascript" src="js/belated.js"></script>
+    <![endif]-->
+     <script type="text/javascript" src="js/jquery.js"></script>
+     <script type="text/javascript" src="js/isotopes.js"></script>
+     <script type="text/javascript">
+	 $(function(){
+		
+		$("#menu, #menu-btn a").click(function(){
+			$(".nav-bar").stop(true, true).slideToggle(1000);
+			return false
+        });
+		
+		 var $container = $('#companies-list'); 
+		 $container.isotope({
+		  layoutMode: 'masonry',
+		  columnWidth: 50,
+  		  gutter: 50
+//		  itemSelector: '.item',
+//		  columnWidth: 238,
+//		  gutter: 3
+		})
+		
+
+/*
+	function checkIsoTope(){
+    	var ids = [];
+    	if($(this).val() != ''){
+    		$('.focus').first().removeAttr('checked');
+	        $('.focus').filter(":checked").each(function(){
+		      ids.push("." + this.value);
+    		  $container.isotope({ filter: ids.join('')}); 
+		    });
+		    if(ids != '' ){
+		    	$(this).parents('.checbox-list').prev('.values').html(ids.join(''));}
+		    else{
+		    	$(this).parents('.checbox-list').prev('.values').html('ALL');
+		    	$('.focus').first().attr('checked','checked');
+		    	$container.isotope({ filter: ''});
+		    }
+    	}
+    	else{
+    		$(this).parents('.checbox-list').prev('.values').html('ALL');
+    		$('.focus').not($(this)).removeAttr('checked');
+    		$container.isotope({ filter: ''});
+    	}
+	}
+	
+	function checkIsoTope2(){
+    	var ids = [];
+    	if($(this).val() != ''){
+    		$('.geo').first().removeAttr('checked');
+	        $('.geo').filter(":checked").each(function(){
+		      ids.push("." + this.value);
+		    });
+		    $container.isotope({ filter: ids.join('')}); 
+		    if(ids != '' ){
+		    	$(this).parents('.checbox-list').prev('.values').html(ids.join(''));
+		    }
+		    else{
+		    	$(this).parents('.checbox-list').prev('.values').html('ALL');
+		    	$('.geo').first().attr('checked','checked');
+		    }
+    	}
+    	else{
+    		$(this).parents('.checbox-list').prev('.values').html('ALL');
+    		$('.geo').not($(this)).removeAttr('checked');
+    		$container.isotope({ filter: ''});
+    	}
+	}
+	$('.geo').on( 'change', checkIsoTope2);
+	$('.geo:checked').each(checkIsoTope2);
+
+	// for Focus category
+	$('.focus').on( 'change', checkIsoTope);
+	$('.focus:checked').each(checkIsoTope);
+
+	// for Geo category
+*/
+	$('.focus').on( 'change', function() {
+	  if($(this).attr('checked') == 'checked' && $(this).val() != ''){
+		  var filterValue = '.' + $(this).val();
+		  $(this).parents('.checbox-list').prev('.values').html($(this).val());
+		  $container.isotope({ filter: filterValue });
+	  }else{
+		  $(this).parents('.checbox-list').prev('.values').html('All');
+		  $container.isotope({ filter: ''})
+	  }
+	});
+	
+	$('.geo').on( 'change', function() {
+	  if($(this).attr('checked') == 'checked' && $(this).val() != ''){
+		  var filterValue = '.' + $(this).val();
+		  $(this).parents('.checbox-list').prev('.values').html($(this).val());
+		  $container.isotope({ filter: filterValue });
+	  }else{
+		  $(this).parents('.checbox-list').prev('.values').html('All');
+		  $container.isotope({ filter: ''})
+	  }
+	});
+
+	$('.values').click(function () {
+		$(this).next().slideDown();
+	})
+	$('body').click(function () {
+		$('.checbox-list').slideUp();
+	})
+	$('.values').click(function (e) {
+		e.stopPropagation();
+	})
+		$container.on( 'click', '.item', function() {
+			var detials = $('.'+ $(this).attr('title'));
+				if(detials.hasClass('active')){
+					detials.removeClass('active');
+					detials.fadeOut()
+					$('.overlay').fadeOut();
+					$(this).removeClass('selected');
+				}
+				else{
+					$('.related-section').removeClass('active').fadeOut(300);
+					detials.addClass('active');	
+					$('.overlay').fadeIn();
+					detials.fadeIn()
+					$('.item').removeClass('selected');
+					$(this).addClass('selected');
+				}
+		    $container.isotope({
+		    });
+		    return false;
+		});
+		
+		$('.cross').click(function(){
+			$('.related-section').fadeOut();
+			$('.overlay').fadeOut();
+		});
+
+	});
+	 </script>
+        <script type="text/javascript">
+		
+		$(function () {
+			$(".about-section a").click(function () {
+				if($(this).parent().hasClass('active')){
+					$(this).parent().removeClass('active');
+					$(this.hash).stop(true, true).slideUp();
+					$(this.hash).parents('.about-open-content-wrap').stop(true, true).slideUp();
+				}
+				else if ($(this).parent().parent().find('.active').length == 0){
+					$(".about-section li").removeClass('active');
+					$(this).parent().addClass('active');
+					$('.test').stop(true, true).slideUp();
+					$(this.hash).stop(true, true).slideDown();
+					$('.about-open-content-wrap').stop(true, true).slideUp();
+					$(this.hash).parent().parent('.about-open-content-wrap').stop(true, true).slideDown();
+				}
+				else{
+					$(this).parent().parent().children().removeClass('active');
+					$(this).parent().addClass('active');
+					$(this.hash).parent().children().fadeOut(0);
+					$(this.hash).stop(true, true).fadeIn(500);
+				}
+				return false;
+			});
+			$(".pop-up-contact, .mail a").click(function(){ 
+				$(".overlay, .contact-us-wrap").fadeIn(500);
+				return false;
+			});
+			$(".close a").click(function(){ 
+				$(".overlay, .contact-us-wrap").fadeOut(500);
+				return false;
+			});
+			
+			
+			$(window).scroll(function () {
+
+				var floatView = $('#floating').height();
+				var floatWrapperView = $('#main-wrap').height();
+				var headerView = $('.about-bg').outerHeight();
+				var headerFixView = $('#nav-wrap').outerHeight();
+				var footerView = $('#footer-wrap').outerHeight();
+				var docView = $(document).height();
+				var windowView = $(window).height();
+				
+				if ($(this).scrollTop()>=headerView){
+					$('#floating').css('position', 'absolute').animate({ top: $(window).scrollTop()-headerView+'px'}, 0);
+					
+					if($(this).scrollTop()-headerView>floatWrapperView-floatView){
+						$('#floating').css({ 'top': floatWrapperView-floatView+'px' });
+					}
+				}
+				else {
+					$('#floating').css('position', 'static');
+				}
+				
+			});
+			
+		});
+		
+		$(document).ready(function() {
+		  var navpos = $('#nav-wrap').offset();
+		  console.log(navpos.top);
+			$(window).bind('scroll', function() {
+			  if ($(window).scrollTop() > navpos.top - 140){
+				$('#nav-wrap').addClass('fixed');
+				$('.nav-wrap-hidden').show();
+			   }
+			   else {
+				 $('#nav-wrap').removeClass('fixed');
+				 $('.nav-wrap-hidden').hide();
+			   }
+			});
+		});
+	
+	
+	
+	$(function() {
+	  $('#sidebar a[href*=#]:not([href=#])').click(function() {
+		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+		  
+		  var target = $(this.hash);
+		  target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+		  if (target.length) {
+			$('html,body').animate({
+			  scrollTop: target.offset().top - 90
+			}, 1000);
+			return false;
+		  }
+		}
+	  });
+	});
+		
+	</script>
+    
+    <!--<script type="text/javascript" src="js/validate.js"></script> -->
+        <!--FAVICON-->
+    <link rel="apple-touch-icon" sizes="57x57" hreffavicons="favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-touch-icon-152x152.png">
+<link rel="icon" type="image/png" href="favicons/favicon-160x160.png" sizes="160x160">
+<link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="msapplication-TileImage" content="favicons/mstile-144x144.png">
+<!--FAVICON END-->
+
+</head>
+
+<body id="page-about">
+<!--<div class="loader"><img alt="Loader" src="img/loader.gif" /></div>-->
+<div id="container-fluid">
+
+<!--header start -->
+<div id="slider-wrap">
+<!--navigation start -->
+<div  id="nav-wrap">
+	<div class="content-width-nav">
+    	<div class="main-nav clearfix">
+            <div class="nav-logo">
+                <a href="index.html"><img src="images/menu_cordes_logo.png" alt=""></a>
+                <div id="menu-btn">
+                    <a href="#">
+                        <span></span>
+                        <span></span>
+                        <span class="last-item"></span>
+                    </a>
+                </div>
+                <div class="cl"></div>
+            </div>
+            <!--<a href="#" id="menu"><img src="images/mobile.png" alt=""></a> -->
+            <div class="nav-bar">
+            	<ul class="clearfix">
+
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="fellows.html">Fellows</a></li>
+                    <li><a href="portfolio.html">Grantees</a>
+                    
+                        <ul class="grantee-hidden">
+      <li><a href="portfolio.html">Our Portfolio</a></li>
+      <li><a href="grantees.html">Our Approach</a></li>
+    </ul>
+                    
+                    </li>
+                    <li><a href="investments.html">Investments</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li class="last-nav"><a href="http://webburstmedia.com/cordes-mobile/media">Media</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--navigation end -->
+<!--slider-->
+<div style="color:#fff;">
+><br/>></div>
+
+<!--sliderend-->
+<!--header end -->
+<div class="clearfix"></div>
+
+
+
+
+<!--main start -->
+
+
+    <div id="main-wrap">
+   
+        <div class="content-width">
+            <div id="contents" class="clearfix">
+            	<div id="sidebar">
+                	<div id="floating">
+                        <ul class="sidebar-nav">
+                        <li><a href="#overview">Grantees</a>
+                                                         <ul >
+                                   
+                                    <li><a href="#overview">Overview</a></li>
+                                    <li><a href="portfolio.html">Portfolio</a></li>
+                                    <li><a href="#approach">Our Approach</a></li>
+                                    <li><a href="#pathway">Pathway to Partnerships</a></li>
+                                    
+                                    <li><a href="#partnerships">Partnerships</a></li>
+                                    <br/>
+
+                        </ul>
+                	</div>
+                </div>
+                <div id="main-contents">
+                    <div id="main">
+                        <div class="main-heading" id="overview">
+                            <h2>OVERVIEW</h2>
+                        </div>
+                 <p>  The Cordes Foundation provides strategic grants to early to mid-stage social entrepreneurs (typically ranging from $10,000 - $25,000 in unrestricted capital) who are building sustainable solutions that lead to the elevation of the human condition,  the eradication of poverty, and the empowerment of women and girls.</p>  
+                 <p> 
+We invite grant applications on a quarterly cycle and do not accept unsolicited grant requests.  </p>
+
+
+
+      
+      
+      
+                        <div class="main-heading" id="approach">
+                            <h2>OUR APPROACH</h2>
+                        </div>
+<p>Each of our three Grant Portfolios share common aspects around leadership, innovation, and impact.    </p>
+<br/>
+<p>
+<b>Leadership </b><br/>
+Our primary consideration in assessing any investment is in the people.  Addressing the world’s most challenging social issues at scale require a tireless commitment to the problem at hand, a bold vision, and a strong team that includes the team and board.  We build relationships and partnerships based on trust in our entrepreneur’s vision, experience, and ability to lead a team and an idea.  </p><br/>
+<p><b>Innovation</b><br/>
+Our partners challenge the status quo, but also understand the importance of sustainability and scalability.  Thus, we support organizations that have the potential to solve problems at a root cause level by bringing products, ideas, or services to a community or marketplace at scale.  More importantly, we want to know how the innovation is unique, relevant, and overall significant in solving the problems they’re aiming to address. </p><br/>
+<p><b>Impact </b><br/>
+We look at key indicators that our partners track and how they are used in management decisions.  At the same time, we understand that impact can be tracked in various ways that include both quantitative and qualitative measures.  Thus, we work with organizations across the development spectrum from start-up to established, but all have the ability to set benchmarks and track their impact.  As our Foundation was founded by entrepreneurs we too are not afraid to take risks and support brilliant entrepreneurship and ideas that can’t be easily measured but have the potential for tremendous impact.
+</p>   
+<div class="main-heading" id="pathway">
+                            <h2>PATHWAY TO PARTNERSHIP</h2>
+                        </div>
+                    <p>Due to the depth of support we believe each grantee deserves, we currently only review invited proposals, and thus unsolicited proposals are not accepted. We follow a multi-step process in exploring partnerships for a fit with our criteria and our mission which include:</p><br/>
+                    <p >
+<b>Initial Screening: </b><li style="margin-left:20px;">Research to assess whether or not baseline requirements are met </li>
+<li style="margin-left:20px;">On-site evaluation (whenever possible) to understand organizational goals</li>
+
+</p><br/>
+             <p>
+<b>Invitation to Submit a Proposal: </b><li style="margin-left:20px;">We value our prospective grantees time and thus have developed a concise online grant application that directly addresses our approach – leadership, innovation, and impact</li>
+<li style="margin-left:20px;">Our Grants Team will follow up with a phone or in person interview (when possible) to gain a deeper understanding of the organization and it’s strategy. </li>
+<li style="margin-left:20px;">The Grants Team may also elect to interview key staff members as well as board members </li>
+<li style="margin-left:20px;">The Grant’s Team will provide a recommendation to our full Board for Review & Approval </li>
+</p><br/>
+<div class="main-heading" id="partnerships">
+                            <h2>PARTNERSHIP</h2>
+                        </div>
+<p>We believe that funding alone is not enough, which is why our Grants Team works one-on-one with social entrepreneurs to understand their needs and to provide connections and resources whenever possible. This is key to our model.
+</p>               
+<br/><br/>
+                
+              		
+                </div>
+        </div>
+    </div>
+</div>
+            
+
+
+<!--footer start -->
+<div id="footer-wrap">
+	<div class="content-width">
+        <footer id="footer" class="clearfix">
+	<div id="footer-left">
+            	<div class="footer-logo">
+                	<a href="#"><img src="images/footer_logo.png" alt=""></a>
+                </div>
+                <div class="footer-nav">
+                 	<div class="footer-social">
+                		<div class="footer-fb"><a href="https://www.facebook.com/CordesFoundation">Facebook</a></div>
+                		<div class="footer-twitter"><a href="https://twitter.com/CordesFdn">Twitter</a></div>
+                		<div class="footer-ig"><a href="http://instagram.com/CordesFoundation/">Instagram</a></div>
+                	</div>
+                </div>
+            </div>
+            <div id="footer-right">
+            	<div class="form-section">
+                	<h3>Contact Us</h3>
+
+            	
+                   	<strong>Email</strong>
+                    <p>info@cordesfoundation.org</p>
+                </div>
+            
+            </div>
+        </footer>
+    </div>
+</div>
+<!--footer end -->
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
+
+<!-- FlexSlider -->
+<!--<script src="js/jquery.flexslider-min.js"></script>
+<script src="js/owl.carousel.js"></script> -->
+<!--<script src="js/scripts.js"></script> -->
+<!--<script type="text/javascript">
+
+	$(window).load(function(){
+	  $('.flexslider').flexslider({
+		controlNav: false, 
+		directionNav: false,
+		animationSpeed: 800,
+	  });
+	});
+
+	$(function(){
+		
+		$("#menu").click(function(){
+			$(".nav-bar").slideToggle();
+			return false
+		});
+		
+		$("#more").click(function(){
+			$('html, body').animate({
+				scrollTop: $('.main-nav').offset().top
+			}, 1500);
+		});
+		
+	});
+</script> -->
+
+<div class="overlay"></div>
+</body>
+</html>
