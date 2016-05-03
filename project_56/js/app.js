@@ -153,75 +153,10 @@ if (window.location.protocol == 'file:') {
             $input.removeClass('has-focus');
         });
 
-    var resizeableImage = function(image, frameInfo) {
-        // Some variable and settings
-        var container,
-            overlay,
-            orig_src = new Image(),
-            image_target = $("<img>"),
-            event_state = {},
-            constrain = false,
-            min_width = 60, // Change as required
-            min_height = 60,
-            max_width = 800, // Change as required
-            max_height = 900,
-            resize_canvas = document.createElement('canvas');
-
-        var frameKey = Object.keys(frameInfo)[0];
-        // When resizing, we will always use this copy of the original as the base
-        orig_src.src = image.imageData;
-        image_target.attr("src", image.imageData);
-        //naming
-        var name = image.name.substr(0, image.name.lastIndexOf("."));
-        var ext = image.name.substr(image.name.lastIndexOf(".") + 1);
-        var dim = frameInfo[frameKey]["width"] + "X" + frameInfo[frameKey]["height"];
-
-        image_target.data("name", name + "_" + dim + "." + ext);
-
-
-        var crop_tool = $("<div>").addClass("component").width(parseFloat(frameInfo[frameKey]["width"]) + 200)
-            .height(parseFloat(frameInfo[frameKey]["height"]) + 200);
-        overlay = $("<div>").addClass("overlay")
-            .width(parseFloat(frameInfo[frameKey]["width"]))
-            .height(parseFloat(frameInfo[frameKey]["height"]))
-            .css({
-                left: 100,
-                top: 100
-            });
-
-
-
-        var wrapper_draggable = $("<div>")
-            .addClass("draggable")
-            .addClass("resizable")
-            .width(orig_src.width)
-            .height(orig_src.height);
-
-
-        crop_tool.append(overlay);
-        crop_tool.append(wrapper_draggable);
-
-        wrapper_draggable.append(image_target);
-
-
-        // Add events
-        wrapper_draggable.draggable({
-            containment: "parent"
-        }).resizable({
-            handles: 'ne, se, sw, nw',
-            aspectRatio: parseFloat(orig_src.width / orig_src.height)
-        });
-
-
-        var title = $("<h2>").text(frameKey + " (" + dim + ")").addClass("frameTitle");
-        $(".crop-tool-area").append(title);
-        $(".crop-tool-area").append(crop_tool);
-
-    };
-
-    $(".js-crop").click(function(e) {
+    function crop_download(){
         var zipContent = [];
-        $(".component").each(function() {
+        $(".component.crop_this").each(function() {
+            $(this).removeClass("crop_this");
             var imageOriginal = new Image();
             var currentImage = $(this).find("img");
             imageOriginal.src = currentImage.get(0).src;
@@ -269,6 +204,86 @@ if (window.location.protocol == 'file:') {
             .then(function(content) {
                 location.href = "data:application/zip;base64," + content;
             });
+    }    
+
+    var resizeableImage = function(image, frameInfo) {
+        // Some variable and settings
+        var container,
+            overlay,
+            orig_src = new Image(),
+            image_target = $("<img>"),
+            event_state = {},
+            constrain = false,
+            min_width = 60, // Change as required
+            min_height = 60,
+            max_width = 800, // Change as required
+            max_height = 900,
+            resize_canvas = document.createElement('canvas');
+
+        var frameKey = Object.keys(frameInfo)[0];
+        // When resizing, we will always use this copy of the original as the base
+        orig_src.src = image.imageData;
+        image_target.attr("src", image.imageData);
+        //naming
+        var name = image.name.substr(0, image.name.lastIndexOf("."));
+        var ext = image.name.substr(image.name.lastIndexOf(".") + 1);
+        var dim = frameInfo[frameKey]["width"] + "X" + frameInfo[frameKey]["height"];
+
+        image_target.attr("data-name", name +"-"+frameKey+ "_" + dim + "." + ext);
+        
+        var crop_tool = $("<div>").addClass("component").width(parseFloat(frameInfo[frameKey]["width"]) + 200)
+            .height(parseFloat(frameInfo[frameKey]["height"]) + 200);
+        overlay = $("<div>").addClass("overlay")
+            .width(parseFloat(frameInfo[frameKey]["width"]))
+            .height(parseFloat(frameInfo[frameKey]["height"]))
+            .css({
+                left: 100,
+                top: 100
+            });
+
+        var btn = $("<a>")
+                    .addClass("btn-crop")
+                    .addClass("js-crop-single")
+                    .html("Crop & Download")
+                    .click(function(e){
+                        e.preventDefault();
+                        $(this).closest(".component").addClass("crop_this");
+                        crop_download();
+                    })    
+
+
+        var wrapper_draggable = $("<div>")
+            .addClass("draggable")
+            .addClass("resizable")
+            .width(orig_src.width)
+            .height(orig_src.height);
+
+
+        crop_tool.append(overlay);
+        crop_tool.append(wrapper_draggable);
+        crop_tool.append(btn);
+
+        wrapper_draggable.append(image_target);
+
+
+        // Add events
+        wrapper_draggable.draggable().resizable({
+            handles: 'ne, se, sw, nw',
+            aspectRatio: parseFloat(orig_src.width / orig_src.height)
+        });
+
+
+        var title = $("<h2>").text(frameKey + " (" + dim + ")").addClass("frameTitle");
+        $(".crop-tool-area").append(title);
+        $(".crop-tool-area").append(crop_tool);
+
+    };
+
+
+
+    $(".js-crop").click(function(e) {
+        $(".component").addClass("crop_this");
+        crop_download();
     });
 
 
