@@ -278,6 +278,7 @@ html {} body {
     border: none;
     border-radius: 5px;
     color: #FFF;
+    cursor: pointer;
 
 }
 
