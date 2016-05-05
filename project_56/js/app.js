@@ -1,3 +1,31 @@
+$.fn.getPreText = function () {
+       // Opera 8.0+
+    var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+        // Firefox 1.0+
+    var isFirefox = typeof InstallTrigger !== 'undefined';
+        // At least Safari 3+: "[object HTMLElementConstructor]"
+    var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+        // Internet Explorer 6-11
+    var isIE = /*@cc_on!@*/false || !!document.documentMode;
+        // Edge 20+
+    var isEdge = !isIE && !!window.StyleMedia;
+        // Chrome 1+
+    var isChrome = !!window.chrome && !!window.chrome.webstore;
+        // Blink engine detection
+    var isBlink = (isChrome || isOpera) && !!window.CSS;
+
+    var isMs = isIE || isEdge;
+
+    var ce = $("<pre />").html(this.html());
+    if (isSafari || isChrome)
+      ce.find("div").replaceWith(function() { return "\n" + this.innerHTML; });
+    if (isMs)
+      ce.find("p").replaceWith(function() { return this.innerHTML + "<br>"; });
+    if (isFirefox || isOpera || isMs)
+      ce.find("br").replaceWith("\n");
+
+    return ce.text();
+};
 if (window.location.protocol == 'file:') {
     alert('To test this demo properly please use a local server such as XAMPP or WAMP. See README.md for more details.');
 }
@@ -7,17 +35,60 @@ if (window.location.protocol == 'file:') {
         "sizes": [{
             "small": {
                 "width": 800,
-                "height": 600
+                "height": 600,
+                "text":{
+                    "heading":{
+                        "text":"Sample heading",
+                        "size":"30px",
+                        "font":"Arial",
+                        "color":"#000"
+                    },
+                    "subheading":{
+                        "text":"Sample sub heading",
+                        "size":"18px",
+                        "font":"Arial",
+                        "color":"#999"
+                    }
+                }
             }
         }, {
             "medium": {
                 "width": 1024,
-                "height": 768
+                "height": 768,
+                "text":{
+                    "heading":{
+                        "text":"Sample heading",
+                        "size":"32px",
+                        "font":"Arial",
+                        "color":"#000",
+
+                    },
+                    "subheading":{
+                        "text":"Sample sub heading",
+                        "size":"18px",
+                        "font":"Arial",
+                        "color":"#999"
+                    }
+                }
             }
         }, {
             "large": {
                 "width": 1280,
-                "height": 1024
+                "height": 1024,
+                "text":{
+                    "heading":{
+                        "text":"Sample heading",
+                        "size":"36px",
+                        "font":"Arial",
+                        "color":"#000"
+                    },
+                    "subheading":{
+                        "text":"Sample sub heading",
+                        "size":"24px",
+                        "font":"Arial",
+                        "color":"#999"
+                    }
+                }
             }
         }]
     }
@@ -83,7 +154,21 @@ if (window.location.protocol == 'file:') {
                             config["sizes"] = [{
                                 "custom": {
                                     width: QueryString.w || QueryString.h,
-                                    height: QueryString.h || QueryString.w
+                                    height: QueryString.h || QueryString.w,
+                                    "text":{
+                                        "heading":{
+                                            "text":"Sample heading",
+                                            "size":"32px",
+                                            "font":"Arial",
+                                            "color":"#000"
+                                        },
+                                        "subheading":{
+                                            "text":"Sample sub heading",
+                                            "size":"18px",
+                                            "font":"Arial",
+                                            "color":"#999"
+                                        }
+                                    }
                                 }
                             }]
                         }
@@ -175,10 +260,35 @@ if (window.location.protocol == 'file:') {
 
 
             crop_canvas = document.createElement('canvas');
+            context = crop_canvas.getContext('2d');
             crop_canvas.width = width;
             crop_canvas.height = height;
             //window.open($(this).find("img").get(0).src);
-            crop_canvas.getContext('2d').drawImage(currentImage.get(0), left, top, width, height, 0, 0, width, height);
+            context.drawImage(currentImage.get(0), left, top, width, height, 0, 0, width, height);
+
+            var tmpH2 = $(this).find('.overlay').find("h2");
+            var tmpH3 = $(this).find('.overlay').find("h3");
+                
+            var tmpO = $(this).find('.overlay');
+
+            context.font = tmpH2.data("fontsize")+" "+tmpH2.data("fontfamily");
+            context.fillStyle = tmpH2.data("color");
+            var heading = tmpH2.getPreText().split(/\r\n|\n|\r/);
+            var fsize = parseInt(tmpH2.data("fontsize"));
+            for($i=0; $i<heading.length; $i++){
+                context.fillText(heading[$i],tmpH2.offset().left-tmpO.offset().left, tmpH2.offset().top-tmpO.offset().top+24+(fsize*$i));    
+            }
+            
+            context.font = tmpH3.data("fontsize")+" "+tmpH3.data("fontfamily");
+            context.fillStyle = tmpH3.data("color");
+            
+            var heading2 = tmpH3.getPreText().split(/\r\n|\n|\r/);
+            var fsize2 = parseInt(tmpH3.data("fontsize"));
+            for($i=0; $i<heading2.length; $i++){
+                context.fillText(heading2[$i],tmpH3.offset().left-tmpO.offset().left, tmpH3.offset().top-tmpO.offset().top+14+(fsize2*$i));    
+            }
+            
+
             var cropped_image = crop_canvas.toDataURL("image/png");
             var cropped_file_info = {
                 data: cropped_image.substr(cropped_image.indexOf(",") + 1),
@@ -231,7 +341,7 @@ if (window.location.protocol == 'file:') {
 
         image_target.attr("data-name", name +"-"+frameKey+ "_" + dim + "." + ext);
         
-        var crop_tool = $("<div>").addClass("component").width(parseFloat(frameInfo[frameKey]["width"]) + 200)
+        var crop_tool = $("<div>").addClass("component").addClass("imgMode").width(parseFloat(frameInfo[frameKey]["width"]) + 200)
             .height(parseFloat(frameInfo[frameKey]["height"]) + 200);
         overlay = $("<div>").addClass("overlay")
             .width(parseFloat(frameInfo[frameKey]["width"]))
@@ -251,7 +361,62 @@ if (window.location.protocol == 'file:') {
                         crop_download();
                     })    
 
+        var heading = $("<h2>").text(frameInfo[frameKey]["text"]["heading"]["text"])
+                                .css({
+                                    color: frameInfo[frameKey]["text"]["heading"]["color"],
+                                    fontSize: frameInfo[frameKey]["text"]["heading"]["size"],
+                                    fontFamily: frameInfo[frameKey]["text"]["heading"]["font"]
 
+                                }).attr({
+                                    "data-color":frameInfo[frameKey]["text"]["heading"]["color"],
+                                    "data-fontsize":frameInfo[frameKey]["text"]["heading"]["size"],
+                                    "data-fontfamily":frameInfo[frameKey]["text"]["heading"]["font"]
+                                })
+                                .prop('contenteditable',true);
+        var subheading = $("<h3>").text(frameInfo[frameKey]["text"]["subheading"]["text"])
+                                .css({
+                                    color: frameInfo[frameKey]["text"]["subheading"]["color"],
+                                    fontSize: frameInfo[frameKey]["text"]["subheading"]["size"],
+                                    fontFamily: frameInfo[frameKey]["text"]["subheading"]["font"]
+
+                                }).attr({
+                                    "data-color":frameInfo[frameKey]["text"]["subheading"]["color"],
+                                    "data-fontsize":frameInfo[frameKey]["text"]["subheading"]["size"],
+                                    "data-fontfamily":frameInfo[frameKey]["text"]["subheading"]["font"]
+                                })
+                                .prop('contenteditable',true);
+
+        var textModeSelector = $("<a>")
+                                .attr("href","#")
+                                .addClass("textModeButton")
+                                .text("Edit Text")
+                                .click(function(e){
+                                    e.preventDefault();
+                                    $(this).closest(".component").removeClass("imgMode");
+                                    $(this).toggleClass("active");
+                                    $(this).siblings().toggleClass("active");
+                                });
+
+        var imageModeSelector = $("<a>")
+                                .attr("href","#")
+                                .addClass("textModeButton")
+                                .addClass("active")
+                                .text("Edit Image")
+                                .click(function(e){
+                                    e.preventDefault();
+                                    $(this).closest(".component").addClass("imgMode");
+                                    $(this).toggleClass("active");
+                                    $(this).siblings().toggleClass("active");
+                                });
+
+        var selectorWrapper = $("<div>").addClass("selectorWrapper");
+
+                            selectorWrapper.append(imageModeSelector)
+                                            .append(textModeSelector);                                                                      
+
+        overlay.append(heading);
+        overlay.append(subheading);                        
+                                            
         var wrapper_draggable = $("<div>")
             .addClass("draggable")
             .addClass("resizable")
@@ -262,6 +427,7 @@ if (window.location.protocol == 'file:') {
         crop_tool.append(overlay);
         crop_tool.append(wrapper_draggable);
         crop_tool.append(btn);
+        crop_tool.append(selectorWrapper);
 
         wrapper_draggable.append(image_target);
 
