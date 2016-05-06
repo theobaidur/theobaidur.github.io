@@ -24,6 +24,11 @@ $( document ).ready(function() {
     $(".label_container span").eq(currentIndex).removeClass("hideSpan");
     $(".indicator_bg .indicator").animate({marginLeft:(currentIndex*8.3)+"%"},500);
 
+    $(".markFav").click(function(e){
+        e.preventDefault();
+        $(this).toggleClass("fav");
+    });
+
     $(".paginator .next").click(function(e){
         e.preventDefault();
         if(currentIndex+1 < 12){
