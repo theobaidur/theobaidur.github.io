@@ -55,7 +55,14 @@ $( document ).ready(function() {
             $(".indicator_bg .indicator").animate({marginLeft:(currentIndex*8.3)+"%"},500);    
         }
         
-    });    
+    }); 
+
+    $(".search-box").submit(function(e){
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: $("#app_start").offset().top - 50
+        }, 1000);
+    });   
 
 
 });
