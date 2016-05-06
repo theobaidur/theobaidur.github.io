@@ -245,6 +245,7 @@ body{
 
 .result_details .btn_con a.fav{
 	background: red;
+	color: #fff;
 }
 
 .calender p{
