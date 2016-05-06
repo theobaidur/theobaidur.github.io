@@ -296,6 +296,7 @@ html {} body {
     margin: 0;
     padding: 0;
     white-space:pre;
+    position: absolute;
 }
 
 .imgMode .overlay{

@@ -1,28 +1,32 @@
-$.fn.getPreText = function () {
-       // Opera 8.0+
+$.fn.getPreText = function() {
+    // Opera 8.0+
     var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
-        // Firefox 1.0+
+    // Firefox 1.0+
     var isFirefox = typeof InstallTrigger !== 'undefined';
-        // At least Safari 3+: "[object HTMLElementConstructor]"
+    // At least Safari 3+: "[object HTMLElementConstructor]"
     var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
-        // Internet Explorer 6-11
-    var isIE = /*@cc_on!@*/false || !!document.documentMode;
-        // Edge 20+
+    // Internet Explorer 6-11
+    var isIE = /*@cc_on!@*/ false || !!document.documentMode;
+    // Edge 20+
     var isEdge = !isIE && !!window.StyleMedia;
-        // Chrome 1+
+    // Chrome 1+
     var isChrome = !!window.chrome && !!window.chrome.webstore;
-        // Blink engine detection
+    // Blink engine detection
     var isBlink = (isChrome || isOpera) && !!window.CSS;
 
     var isMs = isIE || isEdge;
 
     var ce = $("<pre />").html(this.html());
     if (isSafari || isChrome)
-      ce.find("div").replaceWith(function() { return "\n" + this.innerHTML; });
+        ce.find("div").replaceWith(function() {
+            return "\n" + this.innerHTML;
+        });
     if (isMs)
-      ce.find("p").replaceWith(function() { return this.innerHTML + "<br>"; });
+        ce.find("p").replaceWith(function() {
+            return this.innerHTML + "<br>";
+        });
     if (isFirefox || isOpera || isMs)
-      ce.find("br").replaceWith("\n");
+        ce.find("br").replaceWith("\n");
 
     return ce.text();
 };
@@ -36,18 +40,24 @@ if (window.location.protocol == 'file:') {
             "small": {
                 "width": 800,
                 "height": 600,
-                "text":{
-                    "heading":{
-                        "text":"Sample heading",
-                        "size":"30px",
-                        "font":"Arial",
-                        "color":"#000"
+                "text": {
+                    "heading": {
+                        "text": "Sample heading",
+                        "size": "30px",
+                        "font": "Arial",
+                        "color": "#000",
+                        "top": 150,
+                        "left": 0,
+                        "maxLength": 20
                     },
-                    "subheading":{
-                        "text":"Sample sub heading",
-                        "size":"18px",
-                        "font":"Arial",
-                        "color":"#999"
+                    "subheading": {
+                        "text": "Sample sub heading",
+                        "size": "18px",
+                        "font": "Arial",
+                        "color": "#999",
+                        "top": 180,
+                        "left": 80,
+                        "maxLength": 30
                     }
                 }
             }
@@ -55,19 +65,25 @@ if (window.location.protocol == 'file:') {
             "medium": {
                 "width": 1024,
                 "height": 768,
-                "text":{
-                    "heading":{
-                        "text":"Sample heading",
-                        "size":"32px",
-                        "font":"Arial",
-                        "color":"#000",
+                "text": {
+                    "heading": {
+                        "text": "Sample heading",
+                        "size": "32px",
+                        "font": "Arial",
+                        "color": "#000",
+                        "top": 0,
+                        "left": 0,
+                        "maxLength": 20
 
                     },
-                    "subheading":{
-                        "text":"Sample sub heading",
-                        "size":"18px",
-                        "font":"Arial",
-                        "color":"#999"
+                    "subheading": {
+                        "text": "Sample sub heading",
+                        "size": "18px",
+                        "font": "Arial",
+                        "color": "#999",
+                        "top": 32,
+                        "left": 0,
+                        "maxLength": 30
                     }
                 }
             }
@@ -75,22 +91,49 @@ if (window.location.protocol == 'file:') {
             "large": {
                 "width": 1280,
                 "height": 1024,
-                "text":{
-                    "heading":{
-                        "text":"Sample heading",
-                        "size":"36px",
-                        "font":"Arial",
-                        "color":"#000"
+                "text": {
+                    "heading": {
+                        "text": "Sample heading",
+                        "size": "36px",
+                        "font": "Arial",
+                        "color": "#000",
+                        "top": 0,
+                        "left": 0,
+                        "maxLength": 20
                     },
-                    "subheading":{
-                        "text":"Sample sub heading",
-                        "size":"24px",
-                        "font":"Arial",
-                        "color":"#999"
+                    "subheading": {
+                        "text": "Sample sub heading",
+                        "size": "24px",
+                        "font": "Arial",
+                        "color": "#999",
+                        "top": 36,
+                        "left": 0,
+                        "maxLength": 30
                     }
                 }
             }
         }]
+    }
+
+    var customTextConfig = {
+        "heading": {
+            "text": "Sample heading",
+            "size": "32px",
+            "font": "Arial",
+            "color": "#000",
+            "top": 0,
+            "left": 0,
+            "maxLength": 20
+        },
+        "subheading": {
+            "text": "Sample sub heading",
+            "size": "18px",
+            "font": "Arial",
+            "color": "#999",
+            "top": 32,
+            "left": 0,
+            "maxLength": 30
+        }
     }
 
     var QueryString = function() {
@@ -149,26 +192,13 @@ if (window.location.protocol == 'file:') {
                     return function(e) {
                         theFile["imageData"] = e.target.result;
                         $form.addClass('is-success');
-                        $(".button_row").show();    
+                        $(".button_row").show();
                         if (QueryString.w !== undefined || QueryString.h !== undefined) {
                             config["sizes"] = [{
                                 "custom": {
                                     width: QueryString.w || QueryString.h,
                                     height: QueryString.h || QueryString.w,
-                                    "text":{
-                                        "heading":{
-                                            "text":"Sample heading",
-                                            "size":"32px",
-                                            "font":"Arial",
-                                            "color":"#000"
-                                        },
-                                        "subheading":{
-                                            "text":"Sample sub heading",
-                                            "size":"18px",
-                                            "font":"Arial",
-                                            "color":"#999"
-                                        }
-                                    }
+                                    "text": customTextConfig
                                 }
                             }]
                         }
@@ -238,7 +268,7 @@ if (window.location.protocol == 'file:') {
             $input.removeClass('has-focus');
         });
 
-    function crop_download(){
+    function crop_download() {
         var zipContent = [];
         $(".component.crop_this").each(function() {
             $(this).removeClass("crop_this");
@@ -268,26 +298,26 @@ if (window.location.protocol == 'file:') {
 
             var tmpH2 = $(this).find('.overlay').find("h2");
             var tmpH3 = $(this).find('.overlay').find("h3");
-                
+
             var tmpO = $(this).find('.overlay');
 
-            context.font = tmpH2.data("fontsize")+" "+tmpH2.data("fontfamily");
+            context.font = tmpH2.data("fontsize") + " " + tmpH2.data("fontfamily");
             context.fillStyle = tmpH2.data("color");
             var heading = tmpH2.getPreText().split(/\r\n|\n|\r/);
             var fsize = parseInt(tmpH2.data("fontsize"));
-            for($i=0; $i<heading.length; $i++){
-                context.fillText(heading[$i],tmpH2.offset().left-tmpO.offset().left, tmpH2.offset().top-tmpO.offset().top+24+(fsize*$i));    
+            for ($i = 0; $i < heading.length; $i++) {
+                context.fillText(heading[$i], tmpH2.offset().left - tmpO.offset().left, tmpH2.offset().top - tmpO.offset().top + 24 + (fsize * $i));
             }
-            
-            context.font = tmpH3.data("fontsize")+" "+tmpH3.data("fontfamily");
+
+            context.font = tmpH3.data("fontsize") + " " + tmpH3.data("fontfamily");
             context.fillStyle = tmpH3.data("color");
-            
+
             var heading2 = tmpH3.getPreText().split(/\r\n|\n|\r/);
             var fsize2 = parseInt(tmpH3.data("fontsize"));
-            for($i=0; $i<heading2.length; $i++){
-                context.fillText(heading2[$i],tmpH3.offset().left-tmpO.offset().left, tmpH3.offset().top-tmpO.offset().top+14+(fsize2*$i));    
+            for ($i = 0; $i < heading2.length; $i++) {
+                context.fillText(heading2[$i], tmpH3.offset().left - tmpO.offset().left, tmpH3.offset().top - tmpO.offset().top + 14 + (fsize2 * $i));
             }
-            
+
 
             var cropped_image = crop_canvas.toDataURL("image/png");
             var cropped_file_info = {
@@ -314,7 +344,7 @@ if (window.location.protocol == 'file:') {
             .then(function(content) {
                 location.href = "data:application/zip;base64," + content;
             });
-    }    
+    }
 
     var resizeableImage = function(image, frameInfo) {
         // Some variable and settings
@@ -339,8 +369,8 @@ if (window.location.protocol == 'file:') {
         var ext = image.name.substr(image.name.lastIndexOf(".") + 1);
         var dim = frameInfo[frameKey]["width"] + "X" + frameInfo[frameKey]["height"];
 
-        image_target.attr("data-name", name +"-"+frameKey+ "_" + dim + "." + ext);
-        
+        image_target.attr("data-name", name + "-" + frameKey + "_" + dim + "." + ext);
+
         var crop_tool = $("<div>").addClass("component").addClass("imgMode").width(parseFloat(frameInfo[frameKey]["width"]) + 200)
             .height(parseFloat(frameInfo[frameKey]["height"]) + 200);
         overlay = $("<div>").addClass("overlay")
@@ -352,71 +382,92 @@ if (window.location.protocol == 'file:') {
             });
 
         var btn = $("<a>")
-                    .addClass("btn-crop")
-                    .addClass("js-crop-single")
-                    .html("Crop & Download")
-                    .click(function(e){
-                        e.preventDefault();
-                        $(this).closest(".component").addClass("crop_this");
-                        crop_download();
-                    })    
+            .addClass("btn-crop")
+            .addClass("js-crop-single")
+            .html("Crop & Download")
+            .click(function(e) {
+                e.preventDefault();
+                $(this).closest(".component").addClass("crop_this");
+                crop_download();
+            })
 
         var heading = $("<h2>").text(frameInfo[frameKey]["text"]["heading"]["text"])
-                                .css({
-                                    color: frameInfo[frameKey]["text"]["heading"]["color"],
-                                    fontSize: frameInfo[frameKey]["text"]["heading"]["size"],
-                                    fontFamily: frameInfo[frameKey]["text"]["heading"]["font"]
+            .css({
+                color: frameInfo[frameKey]["text"]["heading"]["color"],
+                fontSize: frameInfo[frameKey]["text"]["heading"]["size"],
+                fontFamily: frameInfo[frameKey]["text"]["heading"]["font"],
+                left: frameInfo[frameKey]["text"]["heading"]["left"],
+                top: frameInfo[frameKey]["text"]["heading"]["top"]
 
-                                }).attr({
-                                    "data-color":frameInfo[frameKey]["text"]["heading"]["color"],
-                                    "data-fontsize":frameInfo[frameKey]["text"]["heading"]["size"],
-                                    "data-fontfamily":frameInfo[frameKey]["text"]["heading"]["font"]
-                                })
-                                .prop('contenteditable',true);
+            }).attr({
+                "data-color": frameInfo[frameKey]["text"]["heading"]["color"],
+                "data-fontsize": frameInfo[frameKey]["text"]["heading"]["size"],
+                "data-fontfamily": frameInfo[frameKey]["text"]["heading"]["font"],
+                "data-maxlength": frameInfo[frameKey]["text"]["heading"]["maxLength"]
+            })
+            .prop('contenteditable', true)
+            .keydown(function(e) {
+                var length = $(this).getPreText().length;
+                var maxLength = $(this).data('maxlength');
+                if (length > maxLength && [8, 37, 38, 39, 40].indexOf(e.keyCode) < 0) {
+                    return false;
+                }
+            });
+
         var subheading = $("<h3>").text(frameInfo[frameKey]["text"]["subheading"]["text"])
-                                .css({
-                                    color: frameInfo[frameKey]["text"]["subheading"]["color"],
-                                    fontSize: frameInfo[frameKey]["text"]["subheading"]["size"],
-                                    fontFamily: frameInfo[frameKey]["text"]["subheading"]["font"]
+            .css({
+                color: frameInfo[frameKey]["text"]["subheading"]["color"],
+                fontSize: frameInfo[frameKey]["text"]["subheading"]["size"],
+                fontFamily: frameInfo[frameKey]["text"]["subheading"]["font"],
+                left: frameInfo[frameKey]["text"]["subheading"]["left"],
+                top: frameInfo[frameKey]["text"]["subheading"]["top"]
 
-                                }).attr({
-                                    "data-color":frameInfo[frameKey]["text"]["subheading"]["color"],
-                                    "data-fontsize":frameInfo[frameKey]["text"]["subheading"]["size"],
-                                    "data-fontfamily":frameInfo[frameKey]["text"]["subheading"]["font"]
-                                })
-                                .prop('contenteditable',true);
+            }).attr({
+                "data-color": frameInfo[frameKey]["text"]["subheading"]["color"],
+                "data-fontsize": frameInfo[frameKey]["text"]["subheading"]["size"],
+                "data-fontfamily": frameInfo[frameKey]["text"]["subheading"]["font"],
+                "data-maxlength": frameInfo[frameKey]["text"]["subheading"]["maxLength"]
+            })
+            .prop('contenteditable', true)
+            .keydown(function(e) {
+                var length = $(this).getPreText().length;
+                var maxLength = $(this).data('maxlength');
+                if (length > maxLength && [8, 37, 38, 39, 40].indexOf(e.keyCode) < 0) {
+                    return false;
+                }
+            });
 
         var textModeSelector = $("<a>")
-                                .attr("href","#")
-                                .addClass("textModeButton")
-                                .text("Edit Text")
-                                .click(function(e){
-                                    e.preventDefault();
-                                    $(this).closest(".component").removeClass("imgMode");
-                                    $(this).toggleClass("active");
-                                    $(this).siblings().toggleClass("active");
-                                });
+            .attr("href", "#")
+            .addClass("textModeButton")
+            .text("Edit Text")
+            .click(function(e) {
+                e.preventDefault();
+                $(this).closest(".component").removeClass("imgMode");
+                $(this).toggleClass("active");
+                $(this).siblings().toggleClass("active");
+            });
 
         var imageModeSelector = $("<a>")
-                                .attr("href","#")
-                                .addClass("textModeButton")
-                                .addClass("active")
-                                .text("Edit Image")
-                                .click(function(e){
-                                    e.preventDefault();
-                                    $(this).closest(".component").addClass("imgMode");
-                                    $(this).toggleClass("active");
-                                    $(this).siblings().toggleClass("active");
-                                });
+            .attr("href", "#")
+            .addClass("textModeButton")
+            .addClass("active")
+            .text("Edit Image")
+            .click(function(e) {
+                e.preventDefault();
+                $(this).closest(".component").addClass("imgMode");
+                $(this).toggleClass("active");
+                $(this).siblings().toggleClass("active");
+            });
 
         var selectorWrapper = $("<div>").addClass("selectorWrapper");
 
-                            selectorWrapper.append(imageModeSelector)
-                                            .append(textModeSelector);                                                                      
+        selectorWrapper.append(imageModeSelector)
+            .append(textModeSelector);
 
         overlay.append(heading);
-        overlay.append(subheading);                        
-                                            
+        overlay.append(subheading);
+
         var wrapper_draggable = $("<div>")
             .addClass("draggable")
             .addClass("resizable")
