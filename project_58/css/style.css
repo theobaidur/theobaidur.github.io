@@ -131,3 +131,8 @@ img{
   color: #cfc;
   padding: 0.4em 0.4em;
 }
+
+.text_center{
+	width: 10%;
+	text-align: center;
+}
