@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Monitor</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrapper">
+	<div class="container">
+		<div class="header">
+			<a href="#" class="logo"><img src="img/logo.png" alt=""></a>
+			<p>PWM Controls DriverLink</p>
+			<div class="arrows">
+				<span class="arrow">
+					<img src="img/arrow_up.png" alt="">
+				</span>
+				<span class="arrow">
+					<img src="img/arrow_down.png" alt="">
+				</span>
+			</div>
+		</div>
+		<div class="tab">
+			<div class="tab_header">
+				<a href="#" class="active">Monitor</a>
+				<a href="#">Setup</a>
+			</div>
+			<div class="tab_content">
+				<table cellspacing="0">
+					<tr>
+						<td>&nbsp;</td>
+						<td>A</td>
+						<td>B</td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>IN1 Input</td>
+						<td class="in1_a">0</td>
+						<td class="in1_b">0</td>
+						<td>mA</td>
+					</tr>
+					<tr>
+						<td>IN2 Input</td>
+						<td class="in2_a">0</td>
+						<td class="in2_b">0</td>
+						<td>V</td>
+					</tr>
+					<tr>
+						<td>Target</td>
+						<td class="tar_a">0</td>
+						<td class="tar_b">0</td>
+						<td>A</td>
+					</tr>
+					<tr>
+						<td>Output</td>
+						<td class="op_a">0</td>
+						<td class="op_b">0</td>
+						<td>A</td>
+					</tr>
+					<tr>
+						<td>Duty Cycle</td>
+						<td class="dc_a">0</td>
+						<td class="dc_b">0</td>
+						<td>%</td>
+					</tr>
+					<tr>
+						<td>Impedance</td>
+						<td class="ip_a">0</td>
+						<td class="ip_b">0</td>
+						<td>&#937;</td>
+					</tr>
+					<tr>
+						<td>Supply Voltage</td>
+						<td class="sv_a">0</td>
+						<td class="sv_b">0</td>
+						<td>V</td>
+					</tr>
+					<tr>
+						<td>Temparature</td>
+						<td class="tmp_a">0</td>
+						<td class="tmp_b">0</td>
+						<td>C</td>
+					</tr>
+					
+				</table>
+			</div>
+		</div>
+		<div id="messages">
+			<p id="warning" hidden></p>
+			<p id="notification" hidden></p>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
