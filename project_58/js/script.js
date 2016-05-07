@@ -41,9 +41,19 @@ function fetchData(){
 }
 
 $(function(){
+    var fontSize = 14;
     showNotification("Hello warning");
    fetchData();
    setInterval(fetchData,10000);
    
+   $(".arrow.up").click(function(e){
+    $('body').css("font-size",++fontSize);
+   });
+
+   $(".arrow.down").click(function(e){
+    $('body').css("font-size",--fontSize);
+   });
+
+
 });
 
