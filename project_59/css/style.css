@@ -1,0 +1,214 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-size: 16px;
+	font-family: 'Arial';
+	color: #333;
+	background: #000;
+	
+}
+
+html,
+body {
+  height: 100%; /* needed for container min-height */
+}
+
+a{
+	text-decoration: none;
+}
+
+img{
+	max-width: 100%;
+
+}
+
+/*container*/
+
+.container{
+	max-width: 450px;
+	padding: 10px;
+	margin: 10px auto;
+	overflow: hidden;
+	background: #fff;
+	min-height: 100%;
+	position: relative;
+}
+
+.container .top_row{
+	float: left;
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 40px;
+}
+
+.container .top_row .customer_log{
+	float: left;
+	display: inline-block;
+	max-width: 40%;
+}
+
+.container .top_row .logo{
+	float: right;
+	display: inline-block;
+	max-width: 40%
+}
+
+.container form{
+	float: left;
+	display: block;
+	width: 100%;
+	margin-top: 40px;
+	padding-bottom: 100px;
+}
+
+.container form p.title{
+	margin-bottom: 20px;
+
+}
+
+.container form label{
+	width: 100%;
+	display: block;
+	padding: 10px 0;
+}
+
+.container form input{
+	display: block;
+	width: 100%;
+	border: 0;
+	height: 20px;
+	border-bottom: #7492ae solid 1px;
+	padding: 5px 0%;
+	text-indent: 5px;
+}
+
+.container form .input_row{
+	padding-right: 70px;
+	position: relative;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+.container form .input_row .card_info{
+	position: absolute;
+	display: inline-block;
+	width: 60px;
+	height: 40px;
+	right: 0;
+	bottom: 0;
+	background-position: center center;
+	background-size: contain;
+	background-image: url(../img/credit_card.png);
+	background-repeat: no-repeat;
+}
+
+.container form .error .card_info{
+	bottom: 23px;
+}
+.container form.master_card .input_row .card_info{
+	background-image: url(../img/master-card.png);
+}
+
+.container form.visa .input_row .card_info{
+	background-image: url(../img/visa.png);
+}
+
+.container form.discover .input_row .card_info{
+	background-image: url(../img/discover.png);
+}
+
+.container form.jcb .input_row .card_info{
+	background-image: url(../img/jcb.png);
+}
+
+.container form.amex .input_row .card_info{
+	background-image: url(../img/amex.png);
+}
+
+.container form.cu .input_row .card_info{
+	background-image: url(../img/cu.png);
+}
+
+.container form.dc .input_row .card_info{
+	background-image: url(../img/dc.png);
+}
+
+.container form .expiration_date{
+	float: left;
+	display: inline-block;
+	width: 65%;	
+	max-width: 150px;
+}
+
+
+.container form .expiration_date input{
+	width: 40%;
+	padding-left: 0;
+	padding-right: 0;
+	text-indent: 5px;
+	float: left;
+	display: inline-block;
+
+}
+
+.container form .expiration_date span{
+	text-align: center;
+    height: 26px;
+    padding: 0px 5px;
+    line-height: 40px;
+   	float: left;
+	display: inline-block;
+
+}
+
+.container form .cvv{
+	float: right;
+	display: inline-block;
+	width: 30%;	
+}
+
+.container button{
+	position: absolute;
+	bottom: 10px;
+	background: #5a9bd5;
+	color: #fff;
+	padding: 15px 60px;
+	border:none;
+	cursor: pointer;
+}
+
+.container button#save_btn{
+	left: 10px;
+}
+
+.container button#cancel_btn{
+	right: 10px;
+}
+
+.container .input_row .card_error{
+	color: red;
+	font-size: 12px;
+	padding: 5px;
+	display: none;
+}
+
+.container .error input{
+	border-bottom-color: red;
+}
+
+.container .error .card_error{
+	display: inline-block;
+}
+
+@media(max-width: 400px) {
+	body{
+		font-size: 15px;
+	}
+
+	.container button{
+		padding: 15px 30px;
+	}
+}

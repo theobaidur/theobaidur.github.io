@@ -62,7 +62,10 @@ $( document ).ready(function() {
         $('html, body').animate({
             scrollTop: $("#app_start").offset().top - 50
         }, 1000);
-    });   
+    });
+
+    $.fn.datepicker.defaults.datesDisabled = ['05/25/2016','05/20/2016','05/03/2016'];
+       
 
 
 });

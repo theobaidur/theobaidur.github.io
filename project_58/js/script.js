@@ -95,7 +95,7 @@ function fetchData() {
 };
 
 
-showNotification("Hello warning");
+showWarning("Hello warning");
 fetchData();
 setInterval(fetchData, 10000);
 
