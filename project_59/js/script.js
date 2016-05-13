@@ -51,11 +51,16 @@ function validteDate() {
 $(function() {
     $("#card_number").blur(function(a) {
         var b = $.trim($(this).val());
+        if(b){
+            $(this).val(b.replace(/(\d{4}(?!\s))/g, "$1 "));
+            b= b.replace(/[ ]/g, "");    
+        }
         if (b && valid_credit_card(b)) $(this).closest(".input_row").removeClass("error"); else $(this).closest(".input_row").addClass("error");
         $("form").attr("class", GetCardType(b));
     });
-    $("#card_number").keyup(function(a) {
+    $("#card_number").keypress(function(a) {
         var b = $(this).val();
+        $(this).val(b.replace(/(\d{4}(?!\s))/g, "$1 "));
         $("form").attr("class", GetCardType(b));
     });
     $("#expiration_month, #expiration_year").blur(validteDate);
