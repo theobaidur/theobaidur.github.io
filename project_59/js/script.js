@@ -51,9 +51,9 @@ function validteDate() {
 $(function() {
     $("#card_number").blur(function(a) {
         var b = $.trim($(this).val());
-        if(b){
+        if (b) {
             $(this).val(b.replace(/(\d{4}(?!\s))/g, "$1 "));
-            b= b.replace(/[ ]/g, "");    
+            b = b.replace(/[ ]/g, "");
         }
         if (b && valid_credit_card(b)) $(this).closest(".input_row").removeClass("error"); else $(this).closest(".input_row").addClass("error");
         $("form").attr("class", GetCardType(b));
@@ -67,6 +67,16 @@ $(function() {
     $("#cvv").blur(function() {
         var a = $(this).val();
         if (a == parseInt(a, 10) && 3 == a.length) $(this).closest(".cvv").removeClass("error"); else $(this).closest(".cvv").addClass("error");
+    });
+    $("input").keyup(function(a) {
+        if (!(8 != a.which && isNaN(String.fromCharCode(a.which)))) {
+            var b = $.trim($(this).val());
+            b = b.replace(/[ ]/g, "");
+            if (b.length >= $(this).data("length")) {
+                var c = $(this).closest("form").find(":input");
+                c.eq(c.index(this) + 1).focus();
+            }
+        }
     });
     $("form").submit(function() {
         $(this).find("input").blur();
