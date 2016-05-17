@@ -172,29 +172,13 @@
 
 
     $("#yTrigger").click(function (ev) {
-        var angle = _getTransform($("#secondaryRingContainer"));
-        console.log(angle);
-        angle = angle*(Math.PI/180);
-        var centerX = ($("#secondaryRingContainer").width()/2)-5;
-        var centerY = ($("#secondaryRingContainer").height()/2)-5;
-        console.log(angle);
-        console.log(centerX, centerY);
         var offset_t = $(this).offset().top - $(window).scrollTop();
         var offset_l = $(this).offset().left - $(window).scrollLeft();
 
         var left = Math.round( (ev.clientX - offset_l) ) + 95;
         var top = Math.round( (ev.clientY - offset_t) ) + 95;
-        var bottom = $("#secondaryRingContainer").height() - top -10;
-
-        //left = left - centerX;
-        //bottom = bottom - centerY;
-
-        //eft = centerX + ((left) * Math.cos(angle)) - ((bottom)*Math.sin(angle));
-        
-
-       //bottom = centerY + ((left) * Math.sin(angle)) + ((bottom)*Math.cos(angle));
-        
-
+       
+       
         var color = '#ff0000';
         var size = '10px';
 
@@ -203,7 +187,7 @@
         var wrapper = $("<div>").addClass("point_wrapper").append(
             $('<div></div>')
                 .css('position', 'absolute')
-                .css('bottom', bottom + 'px')
+                .css('top', top + 'px')
                 .css('left', left + 'px')
                 .css('width', size)
                 .css('height', size)
