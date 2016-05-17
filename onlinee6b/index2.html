@@ -82,6 +82,21 @@
         top: 0; left: 0; bottom: 0; right: 0;
     }
 
+    /* new style */
+
+    /* point wrapper */
+
+    .point_wrapper{
+        position: absolute;
+        width: 880px;
+        margin: auto;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        transform-origin: center center;
+     }
+
 
     </style>
 
@@ -162,6 +177,7 @@
         angle = angle*(Math.PI/180);
         var centerX = ($("#secondaryRingContainer").width()/2)-5;
         var centerY = ($("#secondaryRingContainer").height()/2)-5;
+        console.log(angle);
         console.log(centerX, centerY);
         var offset_t = $(this).offset().top - $(window).scrollTop();
         var offset_l = $(this).offset().left - $(window).scrollLeft();
@@ -170,18 +186,21 @@
         var top = Math.round( (ev.clientY - offset_t) ) + 95;
         var bottom = $("#secondaryRingContainer").height() - top -10;
 
-        left = centerX + ((left-centerX) * Math.cos(angle)) - ((bottom-centerY)*Math.sin(angle));
+        //left = left - centerX;
+        //bottom = bottom - centerY;
+
+        //eft = centerX + ((left) * Math.cos(angle)) - ((bottom)*Math.sin(angle));
         
 
-        bottom = centerY + ((left-centerX) * Math.sin(angle)) + ((bottom-centerY)*Math.cos(angle));
+       //bottom = centerY + ((left) * Math.sin(angle)) + ((bottom)*Math.cos(angle));
         
 
         var color = '#ff0000';
         var size = '10px';
 
-        $("#secondaryRingContainer div").remove();
+        $("#secondaryRingContainer div.point_wrapper").remove();
 
-        $("#secondaryRingContainer").append(
+        var wrapper = $("<div>").addClass("point_wrapper").append(
             $('<div></div>')
                 .css('position', 'absolute')
                 .css('bottom', bottom + 'px')
@@ -189,8 +208,9 @@
                 .css('width', size)
                 .css('height', size)
                 .css('background-color', color)
+        ).css('transform','rotate('+(-_getTransform($("#secondaryRingContainer")))+'deg)');
 
-        );
+        $("#secondaryRingContainer").append(wrapper);
     })
 
     </script>
