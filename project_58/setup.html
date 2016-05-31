@@ -28,8 +28,227 @@
 				<a href="index.html">Monitor</a>
 				<a href="setup.html" class="active">Setup</a>
 			</div>
-			<div class="tab_content">
-				<h1>Under Construction</h1>
+			<div class="tab_content setup_table">
+				<table cellspacing="0">
+					
+					<tr>
+						<td width="40%">
+							<select name="ro1c00" id="" onchange="toggleRow1(this)">
+								<option value="IN1A Range">IN1A Range</option>
+								<option value="IN2A Range">IN2A Range</option>
+							</select>
+						</td>
+						<td class="setup_text_center" width="17%">
+							<input type="number">
+						</td>
+						<td class="setup_text_center" width="9%">To</td>
+						<td class="setup_text_center" width="17%">
+							<input type="number">
+						</td>
+						<td class="setup_text_center"  width="17%">
+							<select name="ro1c00u1" id="">
+								<option value="">mA</option>
+								<option value="">V</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="5">
+							<b>Solenoid A</b>
+						</td>
+						
+					</tr>
+					<tr>
+						<td>Input Selection</td>
+						<td class="setup_text_center" colspan="4">
+							<select name="r03c01" id="">
+								<option value="">IN A</option>
+								<option value="">IN B</option>
+								<option value="">IN A - IN B</option>
+								<option value="">IN B - IN A</option>
+							</select>
+						</td>
+						
+					</tr>
+					<tr>
+						<td>Output Range</td>
+						<td class="setup_text_center"><input type="number"></td>
+						<td class="setup_text_center">To</td>
+						<td class="setup_text_center"><input type="number"></td>
+						<td class="setup_text_center">
+							<select name="" id="" onchange="changeUnit1(this)">
+								<option value="A">A</option>
+								<option value="%">%</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Alternate Output Range</td>
+						<td class="setup_text_center"><input type="number"></td>
+						<td class="setup_text_center">To</td>
+						<td class="setup_text_center"><input type="number"></td>
+						
+						<td class="setup_text_center alt_op_range_unit">A</td>
+					</tr>
+					<tr>
+						<td>Ramp Up</td>
+						<td class="setup_text_center">&nbsp;</td>
+						<td class="setup_text_center">&nbsp;</td>
+						<td class="setup_text_center"><input type="number"></td>
+						
+						<td class="setup_text_center">s</td>
+					</tr>
+					<tr>
+						<td>Ramp Down</td>
+						<td class="setup_text_center">&nbsp;</td>
+						<td class="setup_text_center">&nbsp;</td>
+						<td class="setup_text_center"><input type="number"></td>
+						
+						<td class="setup_text_center">s</td>
+					</tr>
+					<tr>
+						<td>PWM Frequency</td>
+						<td class="setup_text_center">&nbsp;</td>
+						<td class="setup_text_center">&nbsp;</td>
+						<td class="setup_text_center"><input type="number"></td>
+						
+						<td class="setup_text_center">Hz</td>
+					</tr>
+					<tr class="in1a_func">
+						<td>IN1A Function</td>
+						<td class="setup_text_center" colspan="4">
+							<select name="" id="">
+								<option value="">Unsed</option>
+								<option value="">Alternate Output Range</option>
+								<option value="">Enable Output</option>
+								<option value="">Disable Ramps</option>
+							</select>
+						</td>
+						
+					</tr>
+					<tr class="in2a_func">
+						<td>IN2A Function</td>
+						<td class="setup_text_center" colspan="4">
+							<select name="" id="">
+								<option value="">Unsed</option>
+								<option value="">Alternate Output Range</option>
+								<option value="">Enable Output</option>
+								<option value="">Disable Ramps</option>
+							</select>
+						</td>
+						
+					</tr>
+					<tr>
+						<td colspan="5"></td>
+					</tr>
+					<tr>
+						<td>
+							<select name="ro1c00" id=""  onchange="toggleRow2(this)">
+								<option value="IN1B Range">IN1B Range</option>
+								<option value="IN2B Range">IN2B Range</option>
+							</select>
+						</td>
+						<td class="setup_text_center">
+							<input type="number">
+						</td>
+						<td class="setup_text_center">To</td>
+						<td class="setup_text_center">
+							<input type="number">
+						</td>
+						<td class="setup_text_center">
+							<select name="ro1c00u1" id="">
+								<option value="">mA</option>
+								<option value="">V</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="5">
+							<b>Solenoid B</b>
+						</td>
+						
+					</tr>
+					<tr>
+						<td>Input Selection</td>
+						<td class="setup_text_center" colspan="4">
+							<select name="r03c01" id="">
+								<option value="">IN A</option>
+								<option value="">IN B</option>
+								<option value="">IN A - IN B</option>
+								<option value="">IN B - IN A</option>
+							</select>
+						</td>
+						
+					</tr>
+					<tr>
+						<td>Output Range</td>
+						<td class="setup_text_center"><input type="number"></td>
+						<td class="setup_text_center">To</td>
+						<td class="setup_text_center"><input type="number"></td>
+						<td class="setup_text_center">
+							<select name="" id="" onchange="changeUnit2(this)">
+								<option value="A">A</option>
+								<option value="%">%</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Alternate Output Range</td>
+						<td class="setup_text_center"><input type="number"></td>
+						<td class="setup_text_center">To</td>
+						<td class="setup_text_center"><input type="number"></td>
+						
+						<td class="setup_text_center alt_op_range_unit_2">A</td>
+					</tr>
+					<tr>
+						<td>Ramp Up</td>
+						<td class="setup_text_center">&nbsp;</td>
+						<td class="setup_text_center">&nbsp;</td>
+						<td class="setup_text_center"><input type="number"></td>
+						
+						<td class="setup_text_center">s</td>
+					</tr>
+					<tr>
+						<td>Ramp Down</td>
+						<td class="setup_text_center">&nbsp;</td>
+						<td class="setup_text_center">&nbsp;</td>
+						<td class="setup_text_center"><input type="number"></td>
+						
+						<td class="setup_text_center">s</td>
+					</tr>
+					<tr>
+						<td>PWM Frequency</td>
+						<td class="setup_text_center">&nbsp;</td>
+						<td class="setup_text_center">&nbsp;</td>
+						<td class="setup_text_center"><input type="number"></td>
+						
+						<td class="setup_text_center">Hz</td>
+					</tr>
+					<tr class="in1b_func">
+						<td>IN1B Function</td>
+						<td class="setup_text_center" colspan="4">
+							<select name="" id="">
+								<option value="">Unsed</option>
+								<option value="">Alternate Output Range</option>
+								<option value="">Enable Output</option>
+								<option value="">Disable Ramps</option>
+							</select>
+						</td>
+						
+					</tr>
+					<tr  class="in2b_func">
+						<td>IN2B Function</td>
+						<td class="setup_text_center" colspan="4">
+							<select name="" id="">
+								<option value="">Unsed</option>
+								<option value="">Alternate Output Range</option>
+								<option value="">Enable Output</option>
+								<option value="">Disable Ramps</option>
+							</select>
+						</td>
+						
+					</tr>
+				</table>
 			</div>
 		</div>
 		<div id="messages">

@@ -115,6 +115,7 @@ img{
 
 .container .tab .tab_content table{
 	width: 100%;
+	table-layout: fixed;
 }
 
 .container .tab .tab_content table td{
@@ -122,6 +123,37 @@ img{
 	padding: 5px;
 }
 
+.container .tab .setup_table table td{
+	padding: 5px 0;
+	text-indent: 5px;
+}
+
+.container .tab .tab_content.setup_table table input,
+.container .tab .tab_content.setup_table table select{
+	display: block;
+	width: 94%;
+	margin-left: 2%;
+	
+}
+
+.container .tab .tab_content.setup_table table select{
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+.container .tab .tab_content.setup_table table select::-ms-expand {
+    display: none;
+}
+
+
+@media(max-width: 767px){
+	.container .tab .tab_content.setup_table table input{
+		width: 88%;
+	}
+
+}
 
 
 #messages {
@@ -152,4 +184,10 @@ img{
 .text_center{
 	width: 10%;
 	text-align: center;
+}
+
+.setup_table .setup_text_center,
+.setup_table .setup_text_center *{
+	text-align: center;
+	text-align-last: center;
 }
