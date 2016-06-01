@@ -136,11 +136,25 @@ img{
 	
 }
 
+.container .tab .tab_content.setup_table table input{
+	background: #C0E7F5;
+	border: none;
+	border-radius: 5px;
+	min-height: 25px;
+}
+
 .container .tab .tab_content.setup_table table select{
 	-webkit-appearance: none;
     -moz-appearance: none;
     text-indent: 1px;
     text-overflow: '';
+    border: none;
+    background: #fff;
+}
+
+.container .tab .tab_content.setup_table table td{
+	border-left: none;
+	border-right: none;
 }
 
 .container .tab .tab_content.setup_table table select::-ms-expand {
