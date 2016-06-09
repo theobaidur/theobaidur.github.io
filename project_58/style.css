@@ -140,9 +140,12 @@ img{
 .container .tab .tab_content.setup_table table select{
 	display: block;
 	width: 94%;
-	margin-left: 2%;
 	font-size: inherit;
-	
+
+}
+
+.container .tab .tab_content.setup_table table select.large{
+	width: 98%;
 }
 
 .container .tab .tab_content.setup_table table input{
@@ -150,6 +153,7 @@ img{
 	border: none;
 	border-radius: 5px;
 	min-height: 25px;
+	box-shadow: none;
 }
 
 .container .tab .tab_content.setup_table table select{
@@ -157,10 +161,13 @@ img{
     -moz-appearance: none;
     text-indent: 1px;
     text-overflow: '';
-    text-indent: 5px;
     border: none;
     min-height: 25px;
     color: #333 !important;
+    background: none;
+    text-align: left;
+    line-height: 25px;
+	
 }
 
 .container .tab .tab_content.setup_table table select.colored{

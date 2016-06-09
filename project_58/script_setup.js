@@ -187,7 +187,16 @@ $(function(){
     $('input, select').on('focus',function(){
         $(this).attr('data-pVal',$(this).val());
     });
-    $('input, select').on('blur', function() { // listen to any inputs
+    $('input').on('blur', function() { // listen to any inputs
+        var data = $(this).attr('name')+"="+$(this).val();
+       
+        if($(this).attr('data-pVal')!=$(this).val()){
+            postData(data);    
+        }
+        
+    });
+
+    $('select').on('click', function() { // listen to any inputs
         var data = $(this).attr('name')+"="+$(this).val();
        
         if($(this).attr('data-pVal')!=$(this).val()){
