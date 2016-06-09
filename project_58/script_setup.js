@@ -73,8 +73,16 @@ function showNotification(text) {
 
 function updateTable(data){
     for(var key in data){
-        $("#"+key).val(data[key]).change(); // update each input elements and trigger change event
+        $("#"+key).val(data[key]); // update each input elements
     }
+
+    toggleFunc(document.getElementById('aru'));
+    toggleFunc2(document.getElementById('bru'));
+    changeUnit(document.getElementById('aoru'));
+    changeUnit2(document.getElementById('boru'));
+
+
+
 }
 
 function postData(data){
@@ -184,7 +192,7 @@ function changeUnit2(sel){
 
 $(function(){
     getData();//get defult data
-    $('input, select').on('focus',function(){
+    $('input').on('focus',function(){
         $(this).attr('data-pVal',$(this).val());
     });
     $('input').on('blur', function() { // listen to any inputs
@@ -196,12 +204,10 @@ $(function(){
         
     });
 
-    $('select').on('click', function() { // listen to any inputs
+    $('select').on('change', function() { // listen to any inputs
         var data = $(this).attr('name')+"="+$(this).val();
        
-        if($(this).attr('data-pVal')!=$(this).val()){
-            postData(data);    
-        }
+        postData(data);
         
     });
 
