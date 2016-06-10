@@ -166,8 +166,12 @@ img{
     color: #333 !important;
     background: none;
     text-align: left;
-    line-height: 25px;
-	
+}
+
+@-moz-document url-prefix() {
+    .container .tab .tab_content.setup_table table select {
+    	line-height: 25px;
+	}
 }
 
 .container .tab .tab_content.setup_table table select.colored{
