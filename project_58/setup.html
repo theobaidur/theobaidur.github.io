@@ -38,11 +38,11 @@
 					<tr>
 						<td width="40%"  id="ro1c00">IN1A Range</td>
 						<td class="setup_text_center" width="17%">
-							<input type="number" name="arl" id="arl" class="ter">
+							<input type="number" step=".01" name="arl" id="arl" class="ter">
 						</td>
 						<td class="setup_text_center" width="9%">to</td>
 						<td class="setup_text_center" width="17%">
-							<input type="number" name="arh" id="arh" class="ter">
+							<input type="number" step=".01" name="arh" id="arh" class="ter">
 						</td>
 						<td class="setup_text_center"  width="17%">
 							<select name="aru" id="aru" onchange="toggleFunc(this)" class="colored tel">
@@ -71,9 +71,9 @@
 					</tr>
 					<tr>
 						<td>Output Range</td>
-						<td class="setup_text_center"><input type="number" name="aorl" id="aorl" class="ter"></td>
+						<td class="setup_text_center"><input type="number" step=".01" name="aorl" id="aorl" class="ter"></td>
 						<td class="setup_text_center">to</td>
-						<td class="setup_text_center"><input type="number" name="aorh" id="aorh" class="ter"></td>
+						<td class="setup_text_center"><input type="number" step=".01" name="aorh" id="aorh" class="ter"></td>
 						<td class="setup_text_center">
 							<select name="aoru" id="aoru" onchange="changeUnit1(this)" class="colored">
 								<option value="0">A</option>
@@ -83,9 +83,9 @@
 					</tr>
 					<tr>
 						<td>Alternate Output Range</td>
-						<td class="setup_text_center"><input type="number" name="aaorl" id="aaorl" class="ter"></td>
+						<td class="setup_text_center"><input type="number" step=".01" name="aaorl" id="aaorl" class="ter"></td>
 						<td class="setup_text_center">to</td>
-						<td class="setup_text_center"><input type="number" name="aaorh" id="aaorh" class="ter"></td>
+						<td class="setup_text_center"><input type="number" step=".01" name="aaorh" id="aaorh" class="ter"></td>
 						
 						<td class="setup_text_center alt_op_range_unit">
 							<select name="aaoru" id="aaoru" disabled>
@@ -98,7 +98,7 @@
 						<td>Ramp Up</td>
 						<td class="setup_text_center">&nbsp;</td>
 						<td class="setup_text_center">&nbsp;</td>
-						<td class="setup_text_center"><input type="number" name="arampu" id="arampu" class="ter"></td>
+						<td class="setup_text_center"><input type="number" step=".1" name="arampu" id="arampu" class="ter"></td>
 						
 						<td class="setup_text_center tel">s</td>
 					</tr>
@@ -106,7 +106,7 @@
 						<td>Ramp Down</td>
 						<td class="setup_text_center">&nbsp;</td>
 						<td class="setup_text_center">&nbsp;</td>
-						<td class="setup_text_center"><input type="number" name="arampd" id="arampd" class="ter"></td>
+						<td class="setup_text_center"><input type="number" step=".1" name="arampd" id="arampd" class="ter"></td>
 						
 						<td class="setup_text_center tel">s</td>
 					</tr>
@@ -114,7 +114,7 @@
 						<td>PWM Frequency</td>
 						<td class="setup_text_center">&nbsp;</td>
 						<td class="setup_text_center">&nbsp;</td>
-						<td class="setup_text_center"><input type="number" name="apf" id="apf" class="ter"></td>
+						<td class="setup_text_center"><input type="number" step=".1" name="apf" id="apf" class="ter"></td>
 						
 						<td class="setup_text_center tel">Hz</td>
 					</tr>
@@ -137,11 +137,11 @@
 					<tr>
 						<td id="r10c00">IN1B Range</td>
 						<td class="setup_text_center">
-							<input type="number" name="brl" id="brl" class="ter">
+							<input type="number" step=".01" name="brl" id="brl" class="ter">
 						</td>
 						<td class="setup_text_center">to</td>
 						<td class="setup_text_center">
-							<input type="number" name="brh" id="brh" class="ter">
+							<input type="number" step=".01" name="brh" id="brh" class="ter">
 						</td>
 						<td class="setup_text_center">
 							<select name="bru" id="bru" onchange="toggleFunc2(this)" class="colored">
@@ -170,9 +170,9 @@
 					</tr>
 					<tr>
 						<td>Output Range</td>
-						<td class="setup_text_center"><input type="number" name="borl" id="borl" class="ter"></td>
+						<td class="setup_text_center"><input type="number" step=".01" name="borl" id="borl" class="ter"></td>
 						<td class="setup_text_center">to</td>
-						<td class="setup_text_center"><input type="number" name="borh" id="borh" class="ter"></td>
+						<td class="setup_text_center"><input type="number" step=".01" name="borh" id="borh" class="ter"></td>
 						<td class="setup_text_center">
 							<select name="boru" id="boru" onchange="changeUnit2(this)" class="colored">
 								<option value="0">A</option>
@@ -182,9 +182,9 @@
 					</tr>
 					<tr>
 						<td>Alternate Output Range</td>
-						<td class="setup_text_center"><input type="number" name="baorl" id="baorl" class="ter"></td>
+						<td class="setup_text_center"><input type="number" step=".01" name="baorl" id="baorl" class="ter"></td>
 						<td class="setup_text_center">to</td>
-						<td class="setup_text_center"><input type="number" name="baorh" id="baorh" class="ter"></td>
+						<td class="setup_text_center"><input type="number" step=".01" name="baorh" id="baorh" class="ter"></td>
 						
 						<td class="setup_text_center">
 							<select name="baoru" id="baoru" disabled>
@@ -197,7 +197,7 @@
 						<td>Ramp Up</td>
 						<td class="setup_text_center">&nbsp;</td>
 						<td class="setup_text_center">&nbsp;</td>
-						<td class="setup_text_center"><input type="number" name="brampu" id="brampu" class="ter"></td>
+						<td class="setup_text_center"><input type="number" step=".1" name="brampu" id="brampu" class="ter"></td>
 						
 						<td class="setup_text_center tel">s</td>
 					</tr>
@@ -205,7 +205,7 @@
 						<td>Ramp Down</td>
 						<td class="setup_text_center">&nbsp;</td>
 						<td class="setup_text_center">&nbsp;</td>
-						<td class="setup_text_center"><input type="number" name="brampd" id="brampd" class="ter"></td>
+						<td class="setup_text_center"><input type="number" step=".1" name="brampd" id="brampd" class="ter"></td>
 						
 						<td class="setup_text_center tel">s</td>
 					</tr>
@@ -213,7 +213,7 @@
 						<td>PWM Frequency</td>
 						<td class="setup_text_center">&nbsp;</td>
 						<td class="setup_text_center">&nbsp;</td>
-						<td class="setup_text_center"><input type="number" name="bpf" id="bpf" class="ter"></td>
+						<td class="setup_text_center"><input type="number" step=".1" name="bpf" id="bpf" class="ter"></td>
 						
 						<td class="setup_text_center tel">Hz</td>
 					</tr>

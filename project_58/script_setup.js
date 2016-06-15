@@ -71,18 +71,19 @@ function showNotification(text) {
     }, 4000);
 }
 
+// Please improve following function. and try to check all corner-cases.
 function updateTable(data){
     for(var key in data){
-        $("#"+key).val(data[key]); // update each input elements
+    var a = document.getElementById(key);
+    var b = 0;
+    if(a.type == "number") b = a.step.toString().split(".")[1].length; 
+        $("#"+key).val(parseFloat(data[key]).toFixed(b)); // update each input elements
     }
 
     toggleFunc(document.getElementById('aru'));
     toggleFunc2(document.getElementById('bru'));
-    changeUnit(document.getElementById('aoru'));
+    changeUnit1(document.getElementById('aoru'));
     changeUnit2(document.getElementById('boru'));
-
-
-
 }
 
 function postData(data){
@@ -158,10 +159,15 @@ function toggleFunc(sel){
    var val = 'IN1A Range';
    if(sel.value=='1'){
         val = 'IN2A Range';
+        document.getElementById('arl').step = "0.01";
+        document.getElementById('arh').step = "0.01";
+    }
+    else {
+        document.getElementById('arl').step = "0.1";
+        document.getElementById('arh').step = "0.1";
     }
 
     document.getElementById('ro1c00').innerHTML = val;
-
     toggleRow1(val);
     
     
@@ -171,6 +177,11 @@ function toggleFunc2(sel){
    var val = 'IN1B Range';
    if(sel.value=='1'){
         val = 'IN2B Range';
+        document.getElementById('brl').step = "0.01";
+        document.getElementById('brh').step = "0.01";
+    } else {
+        document.getElementById('brl').step = "0.1";
+        document.getElementById('brh').step = "0.1";
     }
 
     document.getElementById('r10c00').innerHTML = val;
@@ -182,12 +193,33 @@ function toggleFunc2(sel){
 
 function changeUnit1(sel){
     document.getElementById("aaoru").value = sel.value;
-        
+    if(sel.value == "1") {
+        document.getElementById('aorl').step = "0.1";
+        document.getElementById('aorh').step = "0.1";
+        document.getElementById('aaorl').step = "0.1";
+        document.getElementById('aaorh').step = "0.1";
+    } else {
+        document.getElementById('aorl').step = "0.01";
+        document.getElementById('aorh').step = "0.01";
+        document.getElementById('aaorl').step = "0.01";
+        document.getElementById('aaorh').step = "0.01";
+    }
 }
 
 
 function changeUnit2(sel){
     document.getElementById("baoru").value = sel.value;
+    if(sel.value == "1") {
+        document.getElementById('borl').step = "0.1";
+        document.getElementById('borh').step = "0.1";
+        document.getElementById('baorl').step = "0.1";
+        document.getElementById('baorh').step = "0.1";
+    } else {
+        document.getElementById('borl').step = "0.01";
+        document.getElementById('borh').step = "0.01";
+        document.getElementById('baorl').step = "0.01";
+        document.getElementById('baorh').step = "0.01";
+    }
 }
 
 $(function(){
@@ -213,4 +245,13 @@ $(function(){
 
     $(".savebtn").click(saveData);
 
+    var focusedElem;
+
+    $(document).on('focus','input',function(){
+        if(focusedElem == $(this)) return;
+        focusedElem = $(this);
+        setTimeout(function(){
+            focusedElem.select();
+        },50);
+    });
 });
