@@ -1,0 +1,299 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-size: 16px;
+	font-family: 'Arial';
+	color: #fff;
+	
+	
+}
+
+html,
+body {
+  height: 100%; /* needed for container min-height */
+}
+
+a{
+	text-decoration: none;
+}
+
+img{
+	max-width: 100%;
+
+}
+
+/*container*/
+
+.container{
+	padding: 40px;
+	position: relative;
+	overflow: hidden;
+}
+
+/*computer*/
+
+.pc_box{
+	position: relative;
+	border-radius: 5px;
+	box-shadow: 0 0 5px #999;
+	min-width: 250px;
+	max-width: 450px;
+	
+}
+
+.grid_4 .pc_box{
+	width: 23%;
+	margin: 10px 1%;
+}
+
+@media(min-width: 1025px){
+	.grid_4 .pc_box{
+		float: left;
+	}
+}
+
+.grid_3,
+.grid_1{
+	text-align: center;
+}
+
+.grid_3 .pc_box{
+	width: 31%;
+	margin: 10px 1%;
+	display: inline-block;
+}
+
+.grid_1 .pc_box{
+	width: 48%;
+	margin: 10px 1%;
+	display: inline-block;
+}
+
+@media(max-width: 1024px){
+	.grid_4{
+		text-align: center;
+	}
+
+	.grid_4 .pc_box{
+		width: 31%;
+		margin: 10px 1%;
+		display: inline-block;
+	}	
+
+	.container{
+		padding: 10px;
+	}
+}
+
+
+
+.pc_monitor_outer{
+	border:#333 solid 5px;
+	padding: 25px 15px 30px 15px;
+	position: relative;
+	overflow: hidden;
+	border-radius: 7px;
+	margin: 10px 10px 0 10px;
+}
+
+.pc_monitor_inner{
+	border:#333 solid 5px;
+	padding-bottom: 56.25%;
+	background: #009900;
+	border-radius: 5px;
+	position: relative;
+	cursor: pointer;
+}
+
+.pc_monitor_inner p{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	text-align: center;
+	font-size: 48px;
+	z-index: 3;
+	line-height: 2;
+}
+
+.pc_box.matched .pc_monitor_inner p{
+	background: url(../img/check-mark.png) center center/50px auto no-repeat;
+}
+
+.pc_monitor_inner.disabled{
+	background: #cc0000;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+.pc_box.matched .pc_monitor_inner{
+	cursor: not-allowed;
+	pointer-events: none; 	
+}
+
+.pc_stand_outer{
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.pc_stand{
+	width: 20px;
+	height: 15px;
+	border-left: #333 solid 5px;
+	border-right: #333 solid 5px;
+	margin: 0 auto;
+
+	
+}
+
+.pc_stand_base{
+	width: 100px;
+	height: 10px;
+	border: #333 solid 5px;
+	margin: 0 auto;
+}
+
+.circle_container{
+	position: absolute;
+	right: 15px;
+	bottom: 5px;
+}
+
+.circle_container span{
+	float: left;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: #009900;
+	border-radius: 15px;
+	margin-left:5px;
+}
+
+.circle_container span.selected{
+	background: #cc0000;
+}
+
+.pc_index{
+	position: absolute;
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	left: 50%;
+	top: 0;
+	margin-left: -12px;
+	text-align: center;
+	line-height: 25px;
+	color: #333;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+
+/*popup*/
+
+.popup_overlay{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+	background: rgba(0,0,0,.7);
+}
+
+
+
+.popup_inner{
+	max-width: 400px;
+	margin: 50px auto;
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: 0 0 5px #fff;
+	position: relative;
+}
+
+
+.popup_close{
+  	color: #777;
+  	font: 14px/100% arial, sans-serif;
+  	position: absolute;
+  	right: 10px;
+  	text-decoration: none;
+  	text-shadow: 0 1px 0 #fff;
+  	top: 10px;
+  	cursor: pointer;
+}
+
+.popup_close:after{
+	content: '✖';
+}
+
+.popup_content{
+	display: none;
+}
+
+.popup_content.show{
+	display: block;
+}
+
+.popup_inner .popup_header{
+	border-bottom: #aaa solid 1px;
+	padding: 10px;
+}
+
+.popup_inner .popup_header h2{
+	color: #333;
+}
+
+.popup_inner .popup_body{
+	padding: 30px 10px;
+	border-bottom: #aaa solid 1px;
+}
+
+.popup_inner .popup_body label{
+	display: block;
+	color: #333;
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+.popup_inner .popup_body input{
+	padding: 5px;
+	border: #999 solid 1px;
+	min-width: 200px;
+	border-radius: 3px;
+}
+
+.popup_footer{
+	padding: 10px;
+	text-align: right;
+}
+
+.btn{
+	color: #000;
+	display: inline-block;
+	border: #999 solid 1px;
+	padding: 5px 10px;
+	font-size: 14px;
+	margin: 5px;
+	border-radius: 5px;
+	min-width: 80px;
+	text-align: center;
+	cursor: pointer;
+}
+.btn.btn-block{
+	display: block;
+}
+.btn.btn-success{
+	color: #fff;
+	background: #009900;
+}
+
+.hide{
+	display: none !important;
+}
+
