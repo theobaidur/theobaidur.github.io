@@ -1,0 +1,109 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a{
+	text-decoration: none;
+}
+
+img{
+	max-width: 100%;
+}
+
+ul,li{
+	list-style: none;
+}
+
+.wrapper{
+	float: left;
+	width: 100%;
+	overflow: hidden;
+}
+
+.container{
+	max-width: 1024px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.parallax_container{
+	background: #de2b64;
+}
+
+/*layer 1*/
+
+.layer_1{
+	width: 300vw;
+	margin-left: -100vw;
+	min-height: 100vh;
+}
+
+.layer_1 .bg_1{ 
+	background: -webkit-moz-gradient(left, #ff2e4b 10%, #06bfda 40%, #06bfda 60%, #ff2e4b 90%);
+	background: -webkit-linear-gradient(left, #ff2e4b 10%, #06bfda 40%, #06bfda 60%, #ff2e4b 90%);
+	background: -o-linear-gradient(left, #ff2e4b 10%, #06bfda 40%, #06bfda 60%, #ff2e4b 90%);
+	background: linear-gradient(to right, #ff2e4b 10%, #06bfda 40%, #06bfda 60%, #ff2e4b 90%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff2e4b', endColorstr='#ff2e4b',GradientType=1 ); /* IE6-9 */
+	min-height: 100%;
+	width: 100%;
+}
+
+.layer_1 .bg_2{  
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(left, #de2b64 10%, #07a8e2 40%, #07a8e2 60%, #de2b64 90%);
+	background: -o-linear-gradient(left, #de2b64 10%, #07a8e2 40%, #07a8e2 60%, #de2b64 90%);
+	background: linear-gradient(to right, #de2b64 10%, #07a8e2 40%, #07a8e2 60%, #de2b64 90%); /* Chrome10-25,Safari5.1-6 */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#de2b64', endColorstr='#de2b64',GradientType=1 ); /* IE6-9 */
+	min-height: 100%;
+	width: 100%;
+}
+
+.layer_1 .mask{
+	 -webkit-mask-image: -webkit-gradient(linear, left top, right top, from(rgba(0,0,0,1)), color-stop(0.75, rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+    mask: url(#fade_right_svg_mask);
+}

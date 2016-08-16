@@ -1,0 +1,45 @@
+<html>
+<head>
+	<title>Facetune 2</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="wrapper section_1">
+		<div class="parallax_container">
+			<div class="layer layer_1" data-depth="20.00">
+				<div class="bg_1">
+					<div class="bg_2">
+						<div class="mask">
+							<svg height="0">
+							    <mask id="fade_right_svg_mask" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
+							      <linearGradient id="fade_right_svg_gradient" gradientUnits="objectBoundingBox" x2="1" y2="0">
+							        <stop stop-color="white" stop-opacity="1" offset="0.75"></stop>
+							        <stop stop-color="white" stop-opacity="0" offset="1"></stop>
+							      </linearGradient>
+							      <rect x="0" y="0" width="1" height="1" fill="url(#fade_right_svg_gradient)"></rect>
+							    </mask>
+							  </svg>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layer layer_2" data-depth="0.70"></div>
+			<div class="layer layer_3" data-depth="0.00"></div>
+			<div class="layer layer_4" data-depth="0.40"></div>
+			<div class="layer layer_5" data-depth="0.00"></div>
+		</div>
+	</div>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.parallax.min.js"></script>
+<script type="text/javascript">
+	$('.parallax_container').parallax({
+   limitY: 0
+});
+
+</script>
+</body>
+</html>
