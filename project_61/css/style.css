@@ -78,7 +78,8 @@ ul,li{
 /*layer 1*/
 
 .layer_1{
-	width: 100vw;
+	width: 300vw;
+	margin-left: -100vw;
 	min-height: 100vh;
 }
 
