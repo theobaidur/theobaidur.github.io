@@ -414,7 +414,10 @@ ul,li{
 
 .layer_5 .text_block .logo{
     display: inline-block;
-    margin-top: 20px;
+}
+
+.layer_5 .text_block .logo img{
+    width: 100%;
 }
 
 .layer_5 .text_block h1{
@@ -425,6 +428,7 @@ ul,li{
     text-transform: uppercase;
     position: absolute;
     bottom: 100px;
+    left: 0;
     width: 100%;
 }
 
