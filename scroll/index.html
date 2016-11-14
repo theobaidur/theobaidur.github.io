@@ -13,9 +13,21 @@
 			var i = 0;
 			$('.container').click(function(){
 				$('body').scrollTo('+=300px', 400);
-				$('.container span').text($(window).scrollTop());
+				
 			});
 		});
+
+		document.addEventListener("touchmove", ScrollStart, false);
+		document.addEventListener("scroll", Scroll, false);
+
+		function ScrollStart() {
+		    $('.container span').text("started "+$(window).scrollTop());
+		}
+
+		function Scroll() {
+		    $('.container span').text("scrolling "+$(window).scrollTop());
+		}
+
 		
 	</script>
 	<style type="text/css">
