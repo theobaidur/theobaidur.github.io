@@ -5,47 +5,40 @@
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.0/jquery.scrollTo.min.js"></script>
 	<script type="text/javascript">
+		
 		$(function(){
-			$.extend($.scrollTo.defaults, {
-			  axis: 'y',
-			  duration: 800
-			});
-			var i = 0;
-			$('.container').click(function(){
-				$('body').scrollTo('+=300px', 400);
-				
-			});
+			$(window).resize(function(){
+				$('.container span').text($(window).innerHeight());
+			}).resize();
 		});
 
-		document.addEventListener("touchmove", ScrollStart, false);
-		document.addEventListener("scroll", Scroll, false);
-
-		function ScrollStart() {
-		    $('.container span').text("started "+$(window).scrollTop());
-		}
-
-		function Scroll() {
-		    $('.container span').text("scrolling "+$(window).scrollTop());
-		}
 
 		
 	</script>
 	<style type="text/css">
 		.container{
-			height: 4000px;
+			height: 100vh;
 			background: red;
+			font-size: 30px;
+			text-align: center;
 
 		}
 
 		span{
 			position: fixed;
-			font-size: 30px;
-			top: 10px;
+			top: 0;
 			left: 50%;
 		}
+
+		body{
+			height: 4000px;
+		}
+		
+
 	</style>
 </head>
 <body>
-	<div class="container"><span></span></div>
+	<div class="container"><span></span>
+	</div>
 </body>
 </html>
