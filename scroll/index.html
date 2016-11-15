@@ -2,43 +2,83 @@
 <html>
 <head>
 	<title>testing</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no;" />
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.0/jquery.scrollTo.min.js"></script>
 	<script type="text/javascript">
 		
-		$(function(){
-			$(window).resize(function(){
-				$('.container span').text($(window).innerHeight());
-			}).resize();
-		});
+
+		document.addEventListener("touchmove", ScrollStart, true);
+		document.addEventListener("scroll", Scroll, true);
+		//document.addEventListener("click", clicked, false);
+		document.addEventListener("touchend", clicked, true);
+		document.addEventListener("touchstart", started, true);
+
+		var initial_pos = 0;
+
+
+
+		function ScrollStart(e) {
+			$('.container span.start').text("moving "+$(window).scrollTop());
+		}
+
+		function Scroll(e) {
+			e.preventDefault();
+			e.stopPropagation();
+		    $('.container span.scroll').text("scrolling "+$(window).scrollTop());
+
+		    if($(window).scrollTop()>2000)
+		    	$(window).scrollTop(2000);	
+		    	
+		}
+
+		function clicked() {
+		    $('.container span.click').text("clicked "+$(window).scrollTop());
+		}
+
+		function started() {
+			initial_pos = $(window).scrollTop();
+		    $('.container span.started').text("started "+$(window).scrollTop());
+		}
+
 
 
 		
 	</script>
 	<style type="text/css">
 		.container{
-			height: 100vh;
+			height: 6000px;
 			background: red;
-			font-size: 30px;
-			text-align: center;
 
 		}
 
 		span{
 			position: fixed;
-			top: 0;
+			font-size: 30px;
+			top: 10px;
 			left: 50%;
 		}
 
-		body{
-			height: 4000px;
+		span.scroll{
+			top: 40px;
 		}
-		
+
+		span.click{
+			top: 80px;
+		}
+
+		span.started{
+			top: 120px;
+		}
 
 	</style>
 </head>
 <body>
-	<div class="container"><span></span>
+	<div class="container">
+		<span class="start"></span>
+		<span class="scroll"></span>
+		<span class="click"></span>
+		<span class="started"></span>
 	</div>
 </body>
 </html>
