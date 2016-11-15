@@ -6,50 +6,114 @@
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.0/jquery.scrollTo.min.js"></script>
 	<script type="text/javascript">
-		
+		$(function(){
+
+
 
 		document.addEventListener("touchmove", ScrollStart, true);
 		document.addEventListener("scroll", Scroll, true);
 		//document.addEventListener("click", clicked, false);
-		document.addEventListener("touchend", clicked, true);
+		document.addEventListener("touchend", ended, true);
 		document.addEventListener("touchstart", started, true);
 
 		var initial_pos = 0;
-
-
+		var scroll_initiated = false;
+		var touchmove = false;
+		var animation_on_progress = false;
+		var previous_y = 0;
+		var i = $(window).height();
+		var startY = 0;
+		var endY = 0;
+		var startTime = 0;
+		var endTime = 0;
+		var scrollLock =  false;
 
 		function ScrollStart(e) {
+			scroll_initiated = true;
+			touchmove = true;
 			$('.container span.start').text("moving "+$(window).scrollTop());
 		}
 
 		function Scroll(e) {
-			e.preventDefault();
-			e.stopPropagation();
-		    $('.container span.scroll').text("scrolling "+$(window).scrollTop());
+			$('.container span.scroll').text("scrolling "+st);
 
-		    if($(window).scrollTop()>2000)
-		    	$(window).scrollTop(2000);	
-		    	
+			var st = $(window).scrollTop();
+		    
+		    if(scrollLock){
+		    	$(window).scrollTop(previous_y);	
+		    }
+		   
+		    previous_y = st;	
 		}
 
-		function clicked() {
-		    $('.container span.click').text("clicked "+$(window).scrollTop());
+		function ended() {
+			var toScroll = 0;
+		    startY = $(window).scrollTop();
+		    //endTime = new Date().getTime();
+		   // speed = Math.abs(endY-startY)/(endTime-startTime);
+		    // if(0){
+		    // 	if(endY>startY){
+		    // 		toScroll = Math.ceil(endY/i)*i;
+		    // 	}else{
+		    // 		toScroll = Math.floor(endY/i)*i;
+		    // 	}
+		    // 	var distance = Math.abs(toScroll-endY);
+		    // 	var timeReq =  speed>0 ? distance/speed : 0;
+
+		    // 	console.log(distance);
+		    // 	console.log(timeReq);
+		    // 	console.log(speed);
+		    // }
+		    if(touchmove){
+			    setTimeout(function(){
+			    	endY = $(window).scrollTop();
+			    	speed = Math.abs(endY-startY)/10;
+			    	if(endY>startY){
+			    		toScroll = Math.ceil(endY/i)*i;
+			    	}else{
+			    		toScroll = Math.floor(endY/i)*i;
+			    	}
+			    	var distance = Math.abs(toScroll-endY);
+			    	var timeReq =  speed>0 ? distance/speed : 0;
+			    	console.log('--------------------');
+			    	console.log(endY - startY);
+			    	console.log(distance);
+			    	console.log(timeReq);
+			    	console.log(speed);
+			    	$('body,html').animate({scrollTop: toScroll}, timeReq, function(){
+			    		//scrollLock = true;
+			    	});
+			    },20);	
+		    }
+		    
+
+		    $('.container span.click').text("ended "+$(window).scrollTop());
+		    scroll_initiated = false;
+		    touchmove = false;
+
+		    
 		}
 
 		function started() {
-			initial_pos = $(window).scrollTop();
+			startY = initial_pos = $(window).scrollTop();
+			startTime = new Date().getTime();
+
 		    $('.container span.started').text("started "+$(window).scrollTop());
+		    scroll_initiated = false;
 		}
 
 
-
+		});
 		
 	</script>
 	<style type="text/css">
 		.container{
-			height: 6000px;
 			background: red;
 
+		}
+
+		.section{
+			height: 100vh;
 		}
 
 		span{
@@ -79,6 +143,36 @@
 		<span class="scroll"></span>
 		<span class="click"></span>
 		<span class="started"></span>
+		<div class="section">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit error, est ipsam, repellat dolores quisquam expedita perspiciatis, dolorum suscipit cupiditate consectetur alias corporis. Ex, voluptates, molestiae? Vel tempora maxime libero?
+		</div>
+		<div class="section">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit error, est ipsam, repellat dolores quisquam expedita perspiciatis, dolorum suscipit cupiditate consectetur alias corporis. Ex, voluptates, molestiae? Vel tempora maxime libero?
+		</div>
+		<div class="section">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit error, est ipsam, repellat dolores quisquam expedita perspiciatis, dolorum suscipit cupiditate consectetur alias corporis. Ex, voluptates, molestiae? Vel tempora maxime libero?
+		</div>
+		<div class="section">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit error, est ipsam, repellat dolores quisquam expedita perspiciatis, dolorum suscipit cupiditate consectetur alias corporis. Ex, voluptates, molestiae? Vel tempora maxime libero?
+		</div>
+		<div class="section">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit error, est ipsam, repellat dolores quisquam expedita perspiciatis, dolorum suscipit cupiditate consectetur alias corporis. Ex, voluptates, molestiae? Vel tempora maxime libero?
+		</div>
+		<div class="section">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit error, est ipsam, repellat dolores quisquam expedita perspiciatis, dolorum suscipit cupiditate consectetur alias corporis. Ex, voluptates, molestiae? Vel tempora maxime libero?
+		</div>
+		<div class="section">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit error, est ipsam, repellat dolores quisquam expedita perspiciatis, dolorum suscipit cupiditate consectetur alias corporis. Ex, voluptates, molestiae? Vel tempora maxime libero?
+		</div>
+		<div class="section">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit error, est ipsam, repellat dolores quisquam expedita perspiciatis, dolorum suscipit cupiditate consectetur alias corporis. Ex, voluptates, molestiae? Vel tempora maxime libero?
+		</div>
+		<div class="section">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit error, est ipsam, repellat dolores quisquam expedita perspiciatis, dolorum suscipit cupiditate consectetur alias corporis. Ex, voluptates, molestiae? Vel tempora maxime libero?
+		</div>
+		<div class="section">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit error, est ipsam, repellat dolores quisquam expedita perspiciatis, dolorum suscipit cupiditate consectetur alias corporis. Ex, voluptates, molestiae? Vel tempora maxime libero?
+		</div>
 	</div>
 </body>
 </html>
