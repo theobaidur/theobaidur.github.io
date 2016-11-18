@@ -289,10 +289,16 @@
 			$(window).resize(function(){
 				$('.start').text('width : '+$.windowWidth()+'/ Height : '+$.windowHeight() + '/ vHeight :' + $(window).height());
 				$('.click').height();
+
+                $('.container').height($.windowHeight()-10);
 			}).resize();
 		});
 	</script>
 	<style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
 		.container{
 			background: red;
 			height: 8000px;
@@ -332,7 +338,7 @@
 <body>
 	<div class="container">
 		<span class="start"></span>
-		<span class="click"></span>
+		<span class="clicks"></span>
 		
 	</div>
 </body>
