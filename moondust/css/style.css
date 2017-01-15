@@ -432,6 +432,21 @@ img{
   margin-bottom: 10px;
 }
 
+#solution .right-section ul,
+#solution .right-section li{
+  list-style: disc;
+  list-style-position: outside;
+}
+
+#solution .right-section ul{
+  margin-left: 30px;
+}
+
+#solution .right-section li{
+  margin-bottom: 5px;
+
+}
+
 
 /*Contact section*/
 
