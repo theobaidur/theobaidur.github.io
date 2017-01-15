@@ -108,6 +108,8 @@ img{
 .no-video .video-container .poster,
 .touch .video-container .poster {
     display: block !important;
+    background-position: center top;
+    background-size: cover;
 }
 .video-container {
     position: fixed;
@@ -118,9 +120,12 @@ img{
     overflow: hidden;
     background: #000;
 }
-.video-container .poster img {
+.video-container .poster{
     width: 100%;
     bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
     position: absolute;
 }
 .video-container .filter {
@@ -645,4 +650,16 @@ img{
   #contact .left-section h3{
     font-size: 32px;
   }
+}
+
+/**/
+
+.section-slide-up {
+  transform: translateY(150px);
+  animation: come-in 0.8s ease forwards;
+}
+
+
+@keyframes come-in {
+  to { transform: translateY(0); }
 }
