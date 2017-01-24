@@ -182,8 +182,8 @@
           }
         }
         exif_container.find('p').css({'opacity':0});
-        exif_container.find('p').eq(current_image-1).css({'opacity': current_image_opacity});
-        exif_container.find('p').eq(next_image-1).css({'opacity': next_image_opactity});
+        exif_container.find("p[data-index="+(current_image-1)+"]").css({'opacity': current_image_opacity});
+        exif_container.find("p[data-index="+(next_image-1)+"]").css({'opacity': next_image_opactity});
 
         slider_images.css({'opacity':0});
         slider_images.eq(current_image-1).css({'opacity': current_image_opacity});
@@ -198,7 +198,9 @@
         var t = date.split(/[ :]/);
         var d = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
         var prefix = d.getHours() >=12 ? "PM":"AM";
-        return days[d.getDay()]+", "+months[d.getMonth()]+" "+d.getDate()+" "+(d.getHours()%12)+":"+d.getMinutes()+prefix;
+        var leading_zero = d.getMinutes() < 10 ? "0":"";
+        
+        return days[d.getDay()]+", "+months[d.getMonth()]+" "+d.getDate()+" "+(d.getHours()%12)+":"+leading_zero+d.getMinutes()+prefix;
         
       }
 
@@ -244,12 +246,13 @@
       $(window).load(function(){
 
         for(var i=0; i<slider_images.length; i++){
+          slider_images.eq(i).attr('data-index',i);
           EXIF.getData(slider_images.eq(i).get(0), function() {
             console.log("EXIF data for : "+this.src);
             console.log(EXIF.getAllTags(this));
             var dateTaken = EXIF.getTag(this, 'DateTimeOriginal');
             
-            var p = $('<p>').text(formateDate(dateTaken));
+            var p = $('<p>').text(formateDate(dateTaken)).attr('data-index',this.dataset.index);
             exif_container.append(p);
             if(i==slider_images.length){
                 fadeBetweenImages(null, slider_initial_value);
