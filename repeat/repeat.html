@@ -16,8 +16,8 @@
     }
 
     .carousel-container{
-      max-width: 500px;
-      margin: 50px auto;
+      max-width: 780px;
+      margin: 0px auto;
       overflow: hidden;
     } 
 
@@ -235,6 +235,8 @@
 
         for(var i=0; i<slider_images.length; i++){
           EXIF.getData(slider_images.eq(i).get(0), function() {
+            console.log("EXIF data for : "+this.src);
+            console.log(EXIF.getAllTags(this));
             var dateTaken = EXIF.getTag(this, 'DateTimeOriginal');
             var p = $('<p>').text(dateTaken);
             exif_container.append(p);
