@@ -192,6 +192,16 @@
         
       }
 
+      var formateDate = function(date){
+        var days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+        var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        var t = date.split(/[ :]/);
+        var d = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
+        var prefix = d.getHours() >=12 ? "PM":"AM";
+        return days[d.getDay()]+", "+months[d.getMonth()]+" "+d.getDate()+" "+(d.getHours()%12)+":"+d.getMinutes()+prefix;
+        
+      }
+
       slider_container.append(range_slider);
 
       slider_value.text(slider_initial_value);
@@ -238,7 +248,8 @@
             console.log("EXIF data for : "+this.src);
             console.log(EXIF.getAllTags(this));
             var dateTaken = EXIF.getTag(this, 'DateTimeOriginal');
-            var p = $('<p>').text(dateTaken);
+            
+            var p = $('<p>').text(formateDate(dateTaken));
             exif_container.append(p);
             if(i==slider_images.length){
                 fadeBetweenImages(null, slider_initial_value);
