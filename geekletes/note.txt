@@ -1,1 +1,0 @@
-- Integrate design with the current theme of the Geekletes site. Just tweak to make it look red and black theme. Insert content within current Main Navigation and Footer. Each zipped folder represents a page of the site: FAQ, Terms and Conditions, About us

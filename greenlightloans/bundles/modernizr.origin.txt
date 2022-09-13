@@ -1,3 +1,0 @@
-Uri: https://www.greenlightloans.com/bundles/modernizr?v=c1ivlke9ly2d5BnQoP-W7l-4lA2BkZB9V5pCwh3NfMs1
-File Name: c:\Downloaded Web Sites\www.greenlightloans.com\bundles\modernizr.
-Content Type: text/javascript
