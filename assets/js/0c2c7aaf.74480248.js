@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktheobaidur_github_io=self.webpackChunktheobaidur_github_io||[]).push([[267],{4720:o=>{o.exports=JSON.parse('{"permalink":"/portfolio","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

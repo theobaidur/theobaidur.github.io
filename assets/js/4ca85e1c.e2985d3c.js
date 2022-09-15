@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktheobaidur_github_io=self.webpackChunktheobaidur_github_io||[]).push([[31],{7992:t=>{t.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"test","permalink":"/portfolio/test"}]}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktheobaidur_github_io=self.webpackChunktheobaidur_github_io||[]).push([[535],{5641:t=>{t.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"why is docker important?","permalink":"/blog/why-is-docker-important"}]}')}}]);
