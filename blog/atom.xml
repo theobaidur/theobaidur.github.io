@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://theobaidur.github.io/blog</id>
-    <title>Obaidur Rahman Blog</title>
+    <title>Obaidur Rahman | Obie Blog</title>
     <updated>2022-09-15T00:55:34.339Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://theobaidur.github.io/blog"/>
-    <subtitle>Obaidur Rahman Blog</subtitle>
+    <subtitle>Obaidur Rahman | Obie Blog</subtitle>
     <icon>https://theobaidur.github.io/img/logos/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[why is docker important?]]></title>

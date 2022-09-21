@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
-        <title>Obaidur Rahman Blog</title>
+        <title>Obaidur Rahman | Obie Blog</title>
         <link>https://theobaidur.github.io/blog</link>
-        <description>Obaidur Rahman Blog</description>
+        <description>Obaidur Rahman | Obie Blog</description>
         <lastBuildDate>Thu, 15 Sep 2022 00:55:34 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
