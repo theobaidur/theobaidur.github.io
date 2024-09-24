@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://theobaidur.github.io/portfolio</id>
-    <title>Obaidur Rahman | Obie Blog</title>
+    <title>Md Obaidur Rahman Blog</title>
     <updated>2022-09-15T00:57:38.970Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://theobaidur.github.io/portfolio"/>
-    <subtitle>Obaidur Rahman | Obie Blog</subtitle>
+    <subtitle>Md Obaidur Rahman Blog</subtitle>
     <icon>https://theobaidur.github.io/img/logos/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[test]]></title>
